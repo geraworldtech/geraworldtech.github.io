@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-pt">
 <head>
@@ -27,21 +25,19 @@
             position: relative;
         }
 
-        /* Botão de tradução */
+        /* Estilo para a bandeira no botão */
         .translate-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
+            background-color: transparent;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
         }
 
-        .translate-btn:hover {
-            background-color: #218838;
+        .translate-btn img {
+            width: 30px;
+            height: 30px;
         }
 
         /* Navegação */
@@ -95,8 +91,10 @@
 
     <header>
         GeraWorld
-        <!-- Botão de tradução -->
-        <button class="translate-btn" onclick="translatePage()">Traduzir para Inglês</button>
+        <!-- Botão de tradução com a bandeira -->
+        <button class="translate-btn" onclick="translatePage()">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg" alt="Bandeira de Inglaterra">
+        </button>
     </header>
 
     <nav>
@@ -156,8 +154,8 @@
                 }
             });
 
-            // Alterar o texto do botão para "Translate to Portuguese" após a tradução
-            document.querySelector('.translate-btn').innerHTML = 'Traduzir para Português';
+            // Alterar a imagem da bandeira e a ação de volta para português
+            document.querySelector('.translate-btn img').src = 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_Portugal.svg';
             document.querySelector('.translate-btn').setAttribute('onclick', 'translateToPortuguese()');
         }
 
@@ -189,8 +187,8 @@
                 }
             });
 
-            // Alterar o texto do botão para "Translate to English" após voltar para português
-            document.querySelector('.translate-btn').innerHTML = 'Traduzir para Inglês';
+            // Alterar a imagem da bandeira e a ação de volta para inglês
+            document.querySelector('.translate-btn img').src = 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg';
             document.querySelector('.translate-btn').setAttribute('onclick', 'translatePage()');
         }
     </script>

@@ -1,29 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeraWorld</title>
+   
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://example.com/imagem-de-fundo.jpg') no-repeat center center fixed;
+            font-family: Candara;
+            background: url('https://i.postimg.cc/HnJym3nS/geraworldtechbackground.webp') no-repeat center center fixed;
             background-size: cover;
-            opacity: 0.7; /* Opacidade da imagem de fundo */
         }
 
-        /* Estilos para o cabeçalho */
-        header {
-            background-color: #007BFF; /* Azul */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 2rem;
-            font-weight: bold;
-            position: relative;
-        }
+
 
         /* Estilo para a bandeira no botão */
         .translate-btn {
@@ -44,20 +32,16 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #444;
+            
         }
 
         nav a {
-            color: white;
+            color: black;
             padding: 14px 20px;
             text-decoration: none;
             text-align: center;
         }
 
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
 
         /* Conteúdo da página */
         .container {
@@ -66,7 +50,7 @@
         }
 
         .description {
-            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com opacidade */
+            
             padding: 20px;
             margin-top: 20px;
             font-size: 1.2rem;
@@ -77,20 +61,20 @@
 
         /* Rodapé */
         footer {
-            background-color: #007BFF; /* Azul */
-            color: white;
-            text-align: center;
+            color: black;
+            text-align: left;
             padding: 10px 0;
             position: fixed;
             width: 100%;
             bottom: 0;
         }
+
+
     </style>
 </head>
 <body>
 
     <header>
-        GeraWorld
         <!-- Botão de tradução com a bandeira -->
         <button class="translate-btn" onclick="translatePage()">
             <img src="https://imagepng.org/wp-content/uploads/2017/08/bandeira-reino-unido-15.png">
@@ -106,40 +90,43 @@
 
     <div class="container">
         <section id="home">
-            <h2>Bem-vindo ao GeraWorld!</h2>
-            <p>Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades. A descrição abaixo pode ser facilmente alterada no futuro.</p>
+            <h2>Bem-vindo ao GeraWorldTech</h2>
+            <p>Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.</p>
             
-            <!-- Descrição que pode ser alterada -->
+            
             <div class="description" id="description">
                 <h3>Descrição</h3>
-                <p>Aqui, você pode escrever ou modificar o conteúdo sempre que necessário. O GeraWorld é uma plataforma de soluções inovadoras para todos os tipos de projetos.</p>
-                <!-- Para alterar o conteúdo, basta modificar o texto dentro da tag <p>. -->
+                <p>O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.</p>
+                
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 GeraWorld. All rights reserved.</p>
-        <p>Contact: <a href="mailto:globalgeraworld@gmail.com">globalgeraworld@gmail.com</a></p>
+        <p>&copy; 2025 GeraWorldTech. All rights reserved.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                                          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                                          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        Contact: <a href="mailto:globalgeraworld@gmail.com">globalgeraworld@gmail.com</a></p>
     </footer>
 
     <script>
-        // Função para simular a tradução para inglês
+       
+ // Função para simular a tradução para inglês
         function translatePage() {
             const elements = document.querySelectorAll('h1, h2, h3, p, a');
 
             elements.forEach(element => {
                 if (element.tagName === 'H1' || element.tagName === 'H2') {
-                    element.innerHTML = 'Welcome to GeraWorld!';
+                    element.innerHTML = 'Welcome to GeraWorldTech';
                 } else if (element.tagName === 'H3') {
                     element.innerHTML = 'Description';
                 } else if (element.tagName === 'P') {
-                    if (element.innerHTML === 'Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades. A descrição abaixo pode ser facilmente alterada no futuro.') {
-                        element.innerHTML = 'This is our website where you can learn more about our services and updates. The description below can easily be changed in the future.';
-                    } else if (element.innerHTML === 'Aqui, você pode escrever ou modificar o conteúdo sempre que necessário. O GeraWorld é uma plataforma de soluções inovadoras para todos os tipos de projetos.') {
-                        element.innerHTML = 'Here, you can write or modify the content whenever needed. GeraWorld is a platform for innovative solutions for all types of projects.';
-                    } else if (element.innerHTML === 'Abaixo está uma descrição que pode ser alterada.') {
-                        element.innerHTML = 'Below is a description that can be changed.';
+                    if (element.innerHTML === 'Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.') {
+                        element.innerHTML = 'This is our website where you can learn more about our services and updates.';
+                    } else if (element.innerHTML === 'O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.') {
+                        element.innerHTML = 'GeraWorldTech is a platform for innovative solutions for all types of projects.';
+                    } else if (element.innerHTML === '') {
+                        element.innerHTML = '';
                     }
                 } else if (element.tagName === 'A') {
                     if (element.innerHTML === 'Início') {
@@ -165,14 +152,14 @@
 
             elements.forEach(element => {
                 if (element.tagName === 'H1' || element.tagName === 'H2') {
-                    element.innerHTML = 'Bem-vindo ao GeraWorld!';
+                    element.innerHTML = 'Bem-vindo ao GeraWorldTech';
                 } else if (element.tagName === 'H3') {
                     element.innerHTML = 'Descrição';
                 } else if (element.tagName === 'P') {
-                    if (element.innerHTML === 'This is our website where you can learn more about our services and updates. The description below can easily be changed in the future.') {
-                        element.innerHTML = 'Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades. A descrição abaixo pode ser facilmente alterada no futuro.';
-                    } else if (element.innerHTML === 'Here, you can write or modify the content whenever needed. GeraWorld is a platform for innovative solutions for all types of projects.') {
-                        element.innerHTML = 'Aqui, você pode escrever ou modificar o conteúdo sempre que necessário. O GeraWorld é uma plataforma de soluções inovadoras para todos os tipos de projetos.';
+                    if (element.innerHTML === 'This is our website where you can learn more about our services and updates.') {
+                        element.innerHTML = 'Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.';
+                    } else if (element.innerHTML === 'GeraWorldTech is a platform for innovative solutions for all types of projects.') {
+                        element.innerHTML = 'O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.';
                     }
                 } else if (element.tagName === 'A') {
                     if (element.innerHTML === 'Home') {

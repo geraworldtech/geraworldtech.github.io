@@ -14,11 +14,25 @@
             padding: 0;
         }
 
+        /* Barra superior */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
         /* Estilo para a bandeira no botão */
         .translate-btn {
-            position: fixed;
-            top: 10px;
-            right: 10px;
             background-color: transparent;
             border: none;
             cursor: pointer;
@@ -31,13 +45,69 @@
         }
 
         .translate-btn:first-child {
-            right: 40px; /* Ajuste a posição da primeira bandeira */
+            margin-right: 10px; /* Ajuste a posição da primeira bandeira */
+        }
+
+        /* Menu de hambúrguer */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .hamburger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .hamburger-menu.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger-menu.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .menu-links {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 999;
+        }
+
+        .menu-links a {
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-links a:last-child {
+            border-bottom: none;
+        }
+
+        .menu-links.active {
+            display: flex;
         }
 
         /* Navegação */
         nav {
             display: flex;
             justify-content: center;
+            margin-top: 60px; /* Espaço para a barra superior */
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
@@ -76,65 +146,6 @@
         nav a#services-link:hover, nav a#contact-link:hover {
             background-color: #ddd;
             border-color: #ccc;
-        }
-
-        /* Menu de hambúrguer */
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 1000;
-        }
-
-        .hamburger-menu div {
-            width: 25px;
-            height: 3px;
-            background-color: black;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        .hamburger-menu.active div:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger-menu.active div:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger-menu.active div:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        .menu-links {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            position: fixed;
-            top: 50px;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            z-index: 999;
-        }
-
-        .menu-links a {
-            padding: 15px;
-            width: 100%;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .menu-links a:last-child {
-            border-bottom: none;
-        }
-
-        .menu-links.active {
-            display: flex;
         }
 
         /* Conteúdo da página */
@@ -215,32 +226,35 @@
 </head>
 <body>
 
-    <!-- Botões de tradução com as bandeiras -->
-    <button class="translate-btn" onclick="translatePage('en')">
-        <img src="https://imagepng.org/wp-content/uploads/2017/08/bandeira-reino-unido-15.png" alt="Inglês">
-    </button>
-    <button class="translate-btn" onclick="translatePage('pt')">
-        <img src="https://imagepng.org/wp-content/uploads/2017/09/bandeira-portugal-7.png" alt="Português">
-    </button>
-
-    <!-- Menu de hambúrguer -->
-    <div class="hamburger-menu" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+    <!-- Barra superior com logotipo e menu de hambúrguer -->
+    <div class="top-bar">
+        <img src="https://via.placeholder.com/150x40?text=Logo" alt="Logotipo" class="logo">
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <button class="translate-btn" onclick="translatePage('en')">
+                <img src="https://imagepng.org/wp-content/uploads/2017/08/bandeira-reino-unido-15.png" alt="Inglês">
+            </button>
+            <button class="translate-btn" onclick="translatePage('pt')">
+                <img src="https://imagepng.org/wp-content/uploads/2017/09/bandeira-portugal-7.png" alt="Português">
+            </button>
+        </div>
     </div>
 
     <!-- Links do menu de hambúrguer -->
     <div class="menu-links" id="menu-links">
         <a href="#home" onclick="toggleMenu()">Início</a>
-        <a href="#services" onclick="toggleMenu()">Serviços</a>
-        <a href="#contact" onclick="toggleMenu()">Contacto</a>
+        <a href="#services-section" onclick="toggleMenu()">Serviços</a>
+        <a href="#info-section" onclick="toggleMenu()">Contacto</a>
     </div>
 
     <nav>
         <a href="#home" id="home-link">Início</a>
-        <a href="#services" id="services-link">Serviços</a>
-        <a href="#contact" id="contact-link">Contacto</a>
+        <a href="#services-section" id="services-link">Serviços</a>
+        <a href="#info-section" id="contact-link">Contacto</a>
     </nav>
 
     <div class="container">

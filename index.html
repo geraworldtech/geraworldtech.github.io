@@ -78,6 +78,65 @@
             border-color: #ccc;
         }
 
+        /* Menu de hambúrguer */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .hamburger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .hamburger-menu.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger-menu.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .menu-links {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 999;
+        }
+
+        .menu-links a {
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-links a:last-child {
+            border-bottom: none;
+        }
+
+        .menu-links.active {
+            display: flex;
+        }
+
         /* Conteúdo da página */
         .container {
             padding: 20px;
@@ -114,21 +173,18 @@
         }
 
         .contact-info {
-            margin-right: 40px; /* Adicionando espaço entre o número de telefone e o email */
+            display: inline-block;
+            margin-right: 20px; /* Adicionando espaço entre o número de telefone e o email */
         }
 
         /* Media Queries para responsividade */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                align-items: center;
+                display: none;
             }
 
-            nav a {
-                margin-right: 0;
-                margin-bottom: 10px;
-                width: 100%;
-                box-sizing: border-box;
+            .hamburger-menu {
+                display: flex;
             }
 
             .translate-btn {
@@ -166,6 +222,20 @@
     <button class="translate-btn" onclick="translatePage('pt')">
         <img src="https://imagepng.org/wp-content/uploads/2017/09/bandeira-portugal-7.png" alt="Português">
     </button>
+
+    <!-- Menu de hambúrguer -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Links do menu de hambúrguer -->
+    <div class="menu-links" id="menu-links">
+        <a href="#home" onclick="toggleMenu()">Início</a>
+        <a href="#services" onclick="toggleMenu()">Serviços</a>
+        <a href="#contact" onclick="toggleMenu()">Contacto</a>
+    </div>
 
     <nav>
         <a href="#home" id="home-link">Início</a>
@@ -255,6 +325,14 @@
                 document.getElementById('contact-instruction').innerText = 'Contacte-nos via Email ou Whatsapp.';
                 document.getElementById('contact-response').innerText = '(Responderemos num prazo de 24H)';
             }
+        }
+
+        // Função para alternar o menu de hambúrguer
+        function toggleMenu() {
+            const menuLinks = document.getElementById('menu-links');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            menuLinks.classList.toggle('active');
+            hamburgerMenu.classList.toggle('active');
         }
     </script>
 

@@ -16,7 +16,7 @@
 
         /* Barra superior */
         .top-bar {
-            display: flex;
+            display: none;
             justify-content: space-between;
             align-items: center;
             position: fixed;
@@ -41,7 +41,6 @@
         .translate-btn img {
             width: 20px;
             height: 14px;
-            margin-left: 10px;
         }
 
         .translate-btn:first-child {
@@ -190,6 +189,10 @@
 
         /* Media Queries para responsividade */
         @media (max-width: 768px) {
+            .top-bar {
+                display: flex;
+            }
+
             nav {
                 display: none;
             }
@@ -246,9 +249,9 @@
 
     <!-- Links do menu de hambúrguer -->
     <div class="menu-links" id="menu-links">
-        <a href="#home" onclick="toggleMenu()">Início</a>
-        <a href="#services-section" onclick="toggleMenu()">Serviços</a>
-        <a href="#info-section" onclick="toggleMenu()">Contacto</a>
+        <a href="#home" onclick="navigateToSection('home')">Início</a>
+        <a href="#services-section" onclick="navigateToSection('services-section')">Serviços</a>
+        <a href="#info-section" onclick="navigateToSection('info-section')">Contacto</a>
     </div>
 
     <nav>
@@ -347,6 +350,12 @@
             const hamburgerMenu = document.querySelector('.hamburger-menu');
             menuLinks.classList.toggle('active');
             hamburgerMenu.classList.toggle('active');
+        }
+
+        // Função para navegar para a seção correta
+        function navigateToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            toggleMenu();
         }
     </script>
 

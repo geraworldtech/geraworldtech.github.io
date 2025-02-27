@@ -9,6 +9,27 @@
             font-family: Candara;
             background: url('https://i.postimg.cc/Fs31mBzp/fundo.jpg') no-repeat center center fixed;
             background-size: cover;
+            position: relative;
+        }
+
+        /* Estilo para a bandeira no botão */
+        .translate-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .translate-btn img {
+            width: 20px;
+            height: 14px;
+            margin-left: 10px;
+        }
+
+        .translate-btn:first-child {
+            right: 40px; /* Ajuste a posição da primeira bandeira */
         }
 
         /* Navegação */
@@ -95,6 +116,14 @@
 </head>
 <body>
 
+    <!-- Botões de tradução com as bandeiras -->
+    <button class="translate-btn" onclick="translatePage('en')">
+        <img src="https://imagepng.org/wp-content/uploads/2017/08/bandeira-reino-unido-15.png" alt="Inglês">
+    </button>
+    <button class="translate-btn" onclick="translatePage('pt')">
+        <img src="https://imagepng.org/wp-content/uploads/2017/09/bandeira-portugal-7.png" alt="Português">
+    </button>
+
     <nav>
         <a href="#home" id="home-link">Início</a>
         <a href="#services" id="services-link">Serviços</a>
@@ -103,27 +132,27 @@
 
     <div class="container">
         <section id="home">
-            <h2>Bem-vindo ao GeraWorldTech</h2>
-            <p>Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.</p>
+            <h2 id="welcome-text">Bem-vindo ao GeraWorldTech</h2>
+            <p id="intro-text">Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.</p>
             
             <div class="description" id="description">
-                <h3>Descrição</h3>
-                <p>O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.</p>
+                <h3 id="description-title">Descrição</h3>
+                <p id="description-text">O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.</p>
             </div>
         </section>
 
         <!-- Nova seção de serviços -->
         <section id="services-section" class="services-section">
-            <h3>Nossos Serviços</h3>
-            <p>Descrição dos serviços oferecidos pela GeraWorldTech.</p>
+            <h3 id="services-title">Nossos Serviços</h3>
+            <p id="services-text">Descrição dos serviços oferecidos pela GeraWorldTech.</p>
         </section>
 
         <!-- Nova seção de informação -->
         <section id="info-section" class="info-section">
-            <h2>Informação de Contacto</h2>
+            <h2 id="contact-title">Informação de Contacto</h2>
             <br>
-            <p><u>Contacte-nos via Email ou Whatsapp.</u></p>
-            <p><i>(Responderemos num prazo de 24H)</i></p>
+            <p id="contact-instruction"><u>Contacte-nos via Email ou Whatsapp.</u></p>
+            <p id="contact-response"><i>(Responderemos num prazo de 24H)</i></p>
             <br>
             <br>
             <p><strong>Whatsapp:</strong> <span class="contact-info">+351 960 004 881</span> <strong>Email:</strong> <a href="mailto:globalgeraworld@gmail.com">g|at|eraworld@gmail.com</a></p>
@@ -159,6 +188,31 @@
             document.getElementById('services-section').style.display = 'none';
             document.getElementById('home').style.display = 'block';
         });
+
+        // Função para traduzir a página
+        function translatePage(lang) {
+            if (lang === 'en') {
+                document.getElementById('welcome-text').innerText = 'Welcome to GeraWorldTech';
+                document.getElementById('intro-text').innerText = 'This is our website where you can learn more about our services and updates.';
+                document.getElementById('description-title').innerText = 'Description';
+                document.getElementById('description-text').innerText = 'GeraWorldTech is a platform for innovative solutions for all types of projects.';
+                document.getElementById('services-title').innerText = 'Our Services';
+                document.getElementById('services-text').innerText = 'Description of the services offered by GeraWorldTech.';
+                document.getElementById('contact-title').innerText = 'Contact Information';
+                document.getElementById('contact-instruction').innerText = 'Contact us via Email or Whatsapp.';
+                document.getElementById('contact-response').innerText = '(We will respond within 24 hours)';
+            } else if (lang === 'pt') {
+                document.getElementById('welcome-text').innerText = 'Bem-vindo ao GeraWorldTech';
+                document.getElementById('intro-text').innerText = 'Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.';
+                document.getElementById('description-title').innerText = 'Descrição';
+                document.getElementById('description-text').innerText = 'O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.';
+                document.getElementById('services-title').innerText = 'Nossos Serviços';
+                document.getElementById('services-text').innerText = 'Descrição dos serviços oferecidos pela GeraWorldTech.';
+                document.getElementById('contact-title').innerText = 'Informação de Contacto';
+                document.getElementById('contact-instruction').innerText = 'Contacte-nos via Email ou Whatsapp.';
+                document.getElementById('contact-response').innerText = '(Responderemos num prazo de 24H)';
+            }
+        }
     </script>
 
 </body>

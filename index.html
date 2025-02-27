@@ -10,6 +10,8 @@
             background: url('https://i.postimg.cc/Fs31mBzp/fundo.jpg') no-repeat center center fixed;
             background-size: cover;
             position: relative;
+            margin: 0;
+            padding: 0;
         }
 
         /* Estilo para a bandeira no botão */
@@ -37,6 +39,7 @@
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -48,6 +51,7 @@
             border-radius: 25px;
             transition: all 0.3s ease;
             margin-right: 1cm; /* Adicionando espaço de 1cm entre os botões */
+            margin-bottom: 10px; /* Adicionando espaço inferior para responsividade */
         }
 
         nav a:last-child {
@@ -111,6 +115,45 @@
 
         .contact-info {
             margin-right: 40px; /* Adicionando espaço entre o número de telefone e o email */
+        }
+
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .translate-btn {
+                top: 5px;
+                right: 5px;
+            }
+
+            .translate-btn img {
+                width: 18px;
+                height: 12px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .description {
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 5px 0;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>

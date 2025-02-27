@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
@@ -7,41 +7,51 @@
     <style>
         body {
             font-family: Candara;
-            background: url('https://i.postimg.cc/HnJym3nS/geraworldtechbackground.webp') no-repeat center center fixed;
+            background: url('https://i.postimg.cc/Fs31mBzp/fundo.jpg') no-repeat center center fixed;
             background-size: cover;
-        }
-
-
-
-        /* Estilo para a bandeira no botão */
-        .translate-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .translate-btn img {
-            width: 20px;
-            height: 14px;
         }
 
         /* Navegação */
         nav {
             display: flex;
             justify-content: center;
-            
+            margin-bottom: 20px;
         }
 
         nav a {
             color: black;
-            padding: 14px 20px;
+            padding: 10px 15px; /* Reduzindo o padding */
             text-decoration: none;
             text-align: center;
+            border: 1px solid transparent; /* Reduzindo a borda */
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            margin-right: 1cm; /* Adicionando espaço de 1cm entre os botões */
         }
 
+        nav a:last-child {
+            margin-right: 0; /* Remover margem direita do último botão */
+        }
+
+        nav a#home-link {
+            background-color: #f1f1f1; /* Removendo a cor verde */
+            color: black;
+        }
+
+        nav a#home-link:hover {
+            background-color: #ddd;
+            border-color: #ccc;
+        }
+
+        nav a#services-link, nav a#contact-link {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        nav a#services-link:hover, nav a#contact-link:hover {
+            background-color: #ddd;
+            border-color: #ccc;
+        }
 
         /* Conteúdo da página */
         .container {
@@ -50,7 +60,6 @@
         }
 
         .description {
-            
             padding: 20px;
             margin-top: 20px;
             font-size: 1.2rem;
@@ -69,23 +78,27 @@
             bottom: 0;
         }
 
+        /* Nova seção de informação */
+        .info-section, .services-section {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        .contact-info {
+            margin-right: 40px; /* Adicionando espaço entre o número de telefone e o email */
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <!-- Botão de tradução com a bandeira -->
-        <button class="translate-btn" onclick="translatePage()">
-            <img src="https://imagepng.org/wp-content/uploads/2017/08/bandeira-reino-unido-15.png">
-        </button>
-    </header>
-
     <nav>
-        <a href="#home">Início</a>
-        <a href="#about">Sobre</a>
-        <a href="#services">Serviços</a>
-        <a href="#contact">Contacto</a>
+        <a href="#home" id="home-link">Início</a>
+        <a href="#services" id="services-link">Serviços</a>
+        <a href="#contact" id="contact-link">Contacto</a>
     </nav>
 
     <div class="container">
@@ -93,91 +106,59 @@
             <h2>Bem-vindo ao GeraWorldTech</h2>
             <p>Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.</p>
             
-            
             <div class="description" id="description">
                 <h3>Descrição</h3>
                 <p>O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.</p>
-                
             </div>
         </section>
-    </div>
 
+        <!-- Nova seção de serviços -->
+        <section id="services-section" class="services-section">
+            <h3>Nossos Serviços</h3>
+            <p>Descrição dos serviços oferecidos pela GeraWorldTech.</p>
+        </section>
+
+        <!-- Nova seção de informação -->
+        <section id="info-section" class="info-section">
+            <h2>Informação de Contacto</h2>
+            <br>
+            <p><u>Contacte-nos via Email ou Whatsapp.</u></p>
+            <p><i>(Responderemos num prazo de 24H)</i></p>
+            <br>
+            <br>
+            <p><strong>Whatsapp:</strong> <span class="contact-info">+351 960 004 881</span> <strong>Email:</strong> <a href="mailto:globalgeraworld@gmail.com">g|at|eraworld@gmail.com</a></p>
+            
+        </section>
+    </div>
+    
     <footer>
-        <p>&copy; 2025 GeraWorldTech. All rights reserved.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                                                          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                                                          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-        Contact: <a href="mailto:globalgeraworld@gmail.com">g|at|eraworld@gmail.com</a></p>
+        <p>&copy; 2025 GeraWorldTech. All rights reserved.</p>
     </footer>
 
     <script>
-       
- // Função para simular a tradução para inglês
-        function translatePage() {
-            const elements = document.querySelectorAll('h1, h2, h3, p, a');
+        // Função para mostrar a nova seção de informação ao clicar no link "Contacto"
+        document.getElementById('contact-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('info-section').style.display = 'block';
+            document.getElementById('services-section').style.display = 'none';
+            document.getElementById('home').style.display = 'none';
+        });
 
-            elements.forEach(element => {
-                if (element.tagName === 'H1' || element.tagName === 'H2') {
-                    element.innerHTML = 'Welcome to GeraWorldTech';
-                } else if (element.tagName === 'H3') {
-                    element.innerHTML = 'Description';
-                } else if (element.tagName === 'P') {
-                    if (element.innerHTML === 'Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.') {
-                        element.innerHTML = 'This is our website where you can learn more about our services and updates.';
-                    } else if (element.innerHTML === 'O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.') {
-                        element.innerHTML = 'GeraWorldTech is a platform for innovative solutions for all types of projects.';
-                    } else if (element.innerHTML === '') {
-                        element.innerHTML = '';
-                    }
-                } else if (element.tagName === 'A') {
-                    if (element.innerHTML === 'Início') {
-                        element.innerHTML = 'Home';
-                    } else if (element.innerHTML === 'Sobre') {
-                        element.innerHTML = 'About';
-                    } else if (element.innerHTML === 'Serviços') {
-                        element.innerHTML = 'Services';
-                    } else if (element.innerHTML === 'Contacto') {
-                        element.innerHTML = 'Contact';
-                    }
-                }
-            });
+        // Função para mostrar a nova seção de serviços ao clicar no link "Serviços"
+        document.getElementById('services-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('services-section').style.display = 'block';
+            document.getElementById('info-section').style.display = 'none';
+            document.getElementById('home').style.display = 'none';
+        });
 
-            // Alterar a imagem da bandeira e a ação de volta para português
-            document.querySelector('.translate-btn img').src = 'https://imagepng.org/wp-content/uploads/2017/09/bandeira-portugal-7.png';
-            document.querySelector('.translate-btn').setAttribute('onclick', 'translateToPortuguese()');
-        }
-
-        // Função para reverter a tradução de volta para português
-        function translateToPortuguese() {
-            const elements = document.querySelectorAll('h1, h2, h3, p, a');
-
-            elements.forEach(element => {
-                if (element.tagName === 'H1' || element.tagName === 'H2') {
-                    element.innerHTML = 'Bem-vindo ao GeraWorldTech';
-                } else if (element.tagName === 'H3') {
-                    element.innerHTML = 'Descrição';
-                } else if (element.tagName === 'P') {
-                    if (element.innerHTML === 'This is our website where you can learn more about our services and updates.') {
-                        element.innerHTML = 'Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.';
-                    } else if (element.innerHTML === 'GeraWorldTech is a platform for innovative solutions for all types of projects.') {
-                        element.innerHTML = 'O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.';
-                    }
-                } else if (element.tagName === 'A') {
-                    if (element.innerHTML === 'Home') {
-                        element.innerHTML = 'Início';
-                    } else if (element.innerHTML === 'About') {
-                        element.innerHTML = 'Sobre';
-                    } else if (element.innerHTML === 'Services') {
-                        element.innerHTML = 'Serviços';
-                    } else if (element.innerHTML === 'Contact') {
-                        element.innerHTML = 'Contacto';
-                    }
-                }
-            });
-
-            // Alterar a imagem da bandeira e a ação de volta para inglês
-            document.querySelector('.translate-btn img').src = 'https://imagepng.org/wp-content/uploads/2017/08/bandeira-reino-unido-15.png';
-            document.querySelector('.translate-btn').setAttribute('onclick', 'translatePage()');
-        }
+        // Função para ocultar as seções de informação e serviços ao clicar no link "Início"
+        document.getElementById('home-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('info-section').style.display = 'none';
+            document.getElementById('services-section').style.display = 'none';
+            document.getElementById('home').style.display = 'block';
+        });
     </script>
 
 </body>

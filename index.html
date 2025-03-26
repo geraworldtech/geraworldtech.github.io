@@ -1,363 +1,174 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <title>GeraWorldTech</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
         body {
-            font-family: Candara;
-            background: url('https://i.postimg.cc/Fs31mBzp/fundo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            position: relative;
             margin: 0;
-            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            text-align: center;
+            scroll-behavior: smooth;
         }
-
-        /* Barra superior */
-        .top-bar {
-            display: none;
-            justify-content: space-between;
-            align-items: center;
+        .header {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 10px 20px;
+            background: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
             z-index: 1000;
         }
-
-        .logo {
-            height: 40px;
-        }
-
-        /* Estilo para a bandeira no botão */
-        .translate-btn {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .translate-btn img {
-            width: 20px;
-            height: 14px;
-        }
-
-        .translate-btn:first-child {
-            margin-right: -20px; /* Ajuste a posição da primeira bandeira */
-        }
-
-        /* Menu de hambúrguer */
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .hamburger-menu div {
-            width: 25px;
-            height: 3px;
-            background-color: black;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        .hamburger-menu.active div:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger-menu.active div:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger-menu.active div:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        .menu-links {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            z-index: 999;
-        }
-
-        .menu-links a {
-            padding: 15px;
-            width: 100%;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .menu-links a:last-child {
-            border-bottom: none;
-        }
-
-        .menu-links.active {
-            display: flex;
-        }
-
-        /* Navegação */
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: black;
-            padding: 10px 15px; /* Reduzindo o padding */
-            text-decoration: none;
-            text-align: center;
-            border: 1px solid transparent; /* Reduzindo a borda */
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            margin-right: 1cm; /* Adicionando espaço de 1cm entre os botões */
-            margin-bottom: 10px; /* Adicionando espaço inferior para responsividade */
-        }
-
-        nav a:last-child {
-            margin-right: 0; /* Remover margem direita do último botão */
-        }
-
-        nav a#home-link {
-            background-color: #f1f1f1; /* Removendo a cor verde */
-            color: black;
-        }
-
-        nav a#home-link:hover {
-            background-color: #ddd;
-            border-color: #ccc;
-        }
-
-        nav a#services-link, nav a#contact-link {
-            background-color: #f1f1f1;
-            color: black;
-        }
-
-        nav a#services-link:hover, nav a#contact-link:hover {
-            background-color: #ddd;
-            border-color: #ccc;
-        }
-
-        /* Conteúdo da página */
-        .container {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .description {
-            padding: 20px;
-            margin-top: 20px;
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Rodapé */
+        
         footer {
-            color: black;
             text-align: left;
-            padding: 10px 0;
+            padding: 10px 10px;
             position: fixed;
             width: 100%;
             bottom: 0;
         }
-
-        /* Nova seção de informação */
-        .info-section, .services-section {
+        .menu {
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+        .logo {
+            color: #0ff;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .menu-content {
             display: none;
-            padding: 20px;
-            margin-top: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            position: fixed;
+            top: 60px;
+            left: 20px;
+            background: black;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: left;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
         }
-
-        .contact-info {
-            display: inline-block;
-            margin-right: 20px; /* Adicionando espaço entre o número de telefone e o email */
+        .menu-content a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 18px;
         }
-
-        /* Media Queries para responsividade */
+        .menu-content a:hover {
+            color: #0ff;
+        }
+        .social-icons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .social-icons a {
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+        }
+        .social-icons a:hover {
+            color: #0ff;
+        }
+        .section {
+            padding: 100px 20px;
+            display: none; /* Ocultar todas as seções por padrão */
+        }
+        .section.active {
+            display: block; /* Exibir apenas a seção ativa */
+        }
         @media (max-width: 768px) {
-            .top-bar {
-                display: flex;
+            .header {
+                flex-direction: row-reverse;
             }
-
-            nav {
-                display: none;
+            .menu-content {
+                top: 60px;
+                left: auto;
+                right: 20px;
             }
-
-            .hamburger-menu {
-                display: flex;
-            }
-
-            .translate-btn {
-                top: 5px;
-                right: 50px;
-            }
-
-            .translate-btn img {
-                width: 18px;
-                height: 12px;
-            }
-
-            .container {
-                padding: 10px;
-                margin-top: 60px; /* Espaço para a barra superior */
-            }
-
-            .description {
-                padding: 10px;
-                font-size: 1rem;
-            }
-
-            footer {
-                padding: 5px 0;
-                font-size: 0.8rem;
+            .logo {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Barra superior com logotipo e menu de hambúrguer -->
-    <div class="top-bar">
-        <img src="https://via.placeholder.com/150x40?text=Logo" alt="Logotipo" class="logo">
-        <div class="hamburger-menu" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div>
-            <button class="translate-btn" onclick="translatePage('en')">
-                <img src="https://imagepng.org/wp-content/uploads/2017/08/bandeira-reino-unido-15.png" alt="Inglês">
-            </button>
-            <button class="translate-btn" onclick="translatePage('pt')">
-                <img src="https://imagepng.org/wp-content/uploads/2017/09/bandeira-portugal-7.png" alt="Português">
-            </button>
-        </div>
-    </div>
-
-    <!-- Links do menu de hambúrguer -->
-    <div class="menu-links" id="menu-links">
-        <a href="#home" onclick="navigateToSection('home')">Início</a>
-        <a href="#services-section" onclick="navigateToSection('services-section')">Serviços</a>
-        <a href="#info-section" onclick="navigateToSection('info-section')">Contacto</a>
-    </div>
-
-    <nav>
-        <a href="#home" id="home-link">Início</a>
-        <a href="#services-section" id="services-link">Serviços</a>
-        <a href="#info-section" id="contact-link">Contacto</a>
-    </nav>
-
-    <div class="container">
-        <section id="home">
-            <h2 id="welcome-text">Bem-vindo ao GeraWorldTech</h2>
-            <p id="intro-text">Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.</p>
-            
-            <div class="description" id="description">
-                <h3 id="description-title">Descrição</h3>
-                <p id="description-text">O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.</p>
+    <div class="header">
+        <div class="menu" onclick="toggleMenu()">☰</div>
+        <div class="logo">GeraWorldTech</div>
+        <div class="menu-content" id="menuContent">
+            <a href="#inicio" onclick="showSection('inicio')">Início</a>
+            <a href="#servicos" onclick="showSection('servicos')">Serviços</a>
+            <a href="#contato" onclick="showSection('contato')">Contato</a>
+            <div class="social-icons">
+                <a href="#" target="_blank">📷 Instagram</a>
+                <a href="#" target="_blank">📘 Facebook</a>
+                <a href="#" target="_blank">🎵 TikTok</a>
             </div>
-        </section>
-
-        <!-- Nova seção de serviços -->
-        <section id="services-section" class="services-section">
-            <h3 id="services-title">Nossos Serviços</h3>
-            <p id="services-text">Descrição dos serviços oferecidos pela GeraWorldTech.</p>
-        </section>
-
-        <!-- Nova seção de informação -->
-        <section id="info-section" class="info-section">
-            <h2 id="contact-title">Informação de Contacto</h2>
-            <br>
-            <p id="contact-instruction"><u>Contacte-nos via Email ou Whatsapp.</u></p>
-            <p id="contact-response"><i>(Responderemos num prazo de 24H)</i></p>
-            <br>
-            <br>
-            <p><strong>Whatsapp:</strong> <span class="contact-info">+351 960 004 881</span> <strong>Email:</strong> <a href="mailto:globalgeraworld@gmail.com">g|at|eraworld@gmail.com</a></p>
-            
-        </section>
+        </div>
     </div>
     
+    <div id="inicio" class="section active">
+        <h1>Bem-vindo à GeraWorldTech</h1>
+        <p>Especialistas em recuperação de dados e reparação de eletrônicos.</p>
+    </div>
+
+    <div id="servicos" class="section">
+        <h1>Nossos Serviços</h1>
+        <ul>
+            <li>Recuperação de dados de pendrives</li>
+            <li>Reparação de pequenos equipamentos eletrônicos</li>
+            <li>Diagnóstico e consultoria técnica</li>
+        </ul>
+    </div>
+
+    <div id="contato" class="section">
+        <h1>Entre em Contato</h1>
+        <p>Email: contato@geraworldtech.com</p>
+        <p>Telefone: (XX) XXXX-XXXX</p>
+        </div>
+   
     <footer>
         <p>&copy; 2025 GeraWorldTech. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Função para mostrar a nova seção de informação ao clicar no link "Contacto"
-        document.getElementById('contact-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('info-section').style.display = 'block';
-            document.getElementById('services-section').style.display = 'none';
-            document.getElementById('home').style.display = 'none';
-        });
-
-        // Função para mostrar a nova seção de serviços ao clicar no link "Serviços"
-        document.getElementById('services-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('services-section').style.display = 'block';
-            document.getElementById('info-section').style.display = 'none';
-            document.getElementById('home').style.display = 'none';
-        });
-
-        // Função para ocultar as seções de informação e serviços ao clicar no link "Início"
-        document.getElementById('home-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('info-section').style.display = 'none';
-            document.getElementById('services-section').style.display = 'none';
-            document.getElementById('home').style.display = 'block';
-        });
-
-        // Função para traduzir a página
-        function translatePage(lang) {
-            if (lang === 'en') {
-                document.getElementById('welcome-text').innerText = 'Welcome to GeraWorldTech';
-                document.getElementById('intro-text').innerText = 'This is our website where you can learn more about our services and updates.';
-                document.getElementById('description-title').innerText = 'Description';
-                document.getElementById('description-text').innerText = 'GeraWorldTech is a platform for innovative solutions for all types of projects.';
-                document.getElementById('services-title').innerText = 'Our Services';
-                document.getElementById('services-text').innerText = 'Description of the services offered by GeraWorldTech.';
-                document.getElementById('contact-title').innerText = 'Contact Information';
-                document.getElementById('contact-instruction').innerText = 'Contact us via Email or Whatsapp.';
-                document.getElementById('contact-response').innerText = '(We will respond within 24 hours)';
-            } else if (lang === 'pt') {
-                document.getElementById('welcome-text').innerText = 'Bem-vindo ao GeraWorldTech';
-                document.getElementById('intro-text').innerText = 'Este é o nosso site onde você pode aprender mais sobre os nossos serviços e novidades.';
-                document.getElementById('description-title').innerText = 'Descrição';
-                document.getElementById('description-text').innerText = 'O GeraWorldTech é uma plataforma de soluções inovadoras para todos os tipos de projetos.';
-                document.getElementById('services-title').innerText = 'Nossos Serviços';
-                document.getElementById('services-text').innerText = 'Descrição dos serviços oferecidos pela GeraWorldTech.';
-                document.getElementById('contact-title').innerText = 'Informação de Contacto';
-                document.getElementById('contact-instruction').innerText = 'Contacte-nos via Email ou Whatsapp.';
-                document.getElementById('contact-response').innerText = '(Responderemos num prazo de 24H)';
-            }
-        }
-
-        // Função para alternar o menu de hambúrguer
+   
+   <script>
         function toggleMenu() {
-            const menuLinks = document.getElementById('menu-links');
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            menuLinks.classList.toggle('active');
-            hamburgerMenu.classList.toggle('active');
+            var menu = document.getElementById("menuContent");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
 
-        // Função para navegar para a seção correta
-        function navigateToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            toggleMenu();
+        function closeMenu() {
+            var menu = document.getElementById("menuContent");
+            menu.style.display = "none";
         }
-    </script>
 
+        function showSection(sectionId) {
+            // Ocultar todas as seções
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Exibir apenas a seção selecionada
+            var sectionToShow = document.getElementById(sectionId);
+            sectionToShow.classList.add('active');
+
+            // Fechar o menu
+            closeMenu();
+        }
+   </script>
 </body>
 </html>

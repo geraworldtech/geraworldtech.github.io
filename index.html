@@ -194,7 +194,7 @@
         
          
        <form id="methodSelection">
-    <h3>Escolha a forma de contato:</h3>
+    <h3>Escolha o método de envio:</h3>
     <button type="button" onclick="showForm('email')">Enviar por Email</button>
     <button type="button" onclick="showForm('whatsapp')">Enviar pelo WhatsApp</button>
 </form>
@@ -204,15 +204,15 @@
     <input type="text" id="nome" name="nome" required>
     <br><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <label for="email" id="emailLabel">Email:</label>
+    <input type="email" id="email" name="email">
     <br><br>
 
     <label for="telefone">Telefone:</label>
     <input type="tel" id="telefone" name="telefone" required>
     <br><br>
 
-    <label for="descricao">Descrição:</label>
+    <label for="descricao">Descrição do problema:</label>
     <textarea id="descricao" name="descricao" rows="5" required></textarea>
     <br><br>
 
@@ -231,8 +231,14 @@ function showForm(method) {
     document.getElementById("methodSelection").style.display = "none";
     document.getElementById("contactForm").style.display = "block";
 
-    // Se for WhatsApp, ocultar campo de email
-    document.getElementById("email").parentElement.style.display = method === "whatsapp" ? "none" : "block";
+    // Se for WhatsApp, oculta o campo de email
+    if (method === "whatsapp") {
+        document.getElementById("email").style.display = "none";
+        document.getElementById("emailLabel").style.display = "none";
+    } else {
+        document.getElementById("email").style.display = "block";
+        document.getElementById("emailLabel").style.display = "block";
+    }
 }
 
 function submitForm() {
@@ -241,7 +247,7 @@ function submitForm() {
     } else if (envioMetodo === "whatsapp") {
         sendWhatsApp();
     } else {
-        alert("Escolha o método de contato antes de continuar.");
+        alert("Escolha um método de envio antes de continuar.");
     }
 }
 
@@ -254,8 +260,9 @@ function sendEmail() {
         body: formData,
         headers: { "Accept": "application/json" }
     })
-    .then(response => {
-        if (response.ok) {
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
             alert("O seu formulário foi enviado com sucesso por Email!");
             form.reset();
             location.reload();
@@ -263,7 +270,9 @@ function sendEmail() {
             alert("Houve um erro ao enviar. Tente novamente.");
         }
     })
-    .catch(error => alert("Erro: " + error));
+    .catch(error => {
+        alert("Erro: " + error);
+    });
 }
 
 function sendWhatsApp() {
@@ -289,6 +298,7 @@ function sendWhatsApp() {
     window.open(url, "_blank");
 }
 </script>
+
 
         
 

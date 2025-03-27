@@ -93,6 +93,7 @@
         @media (max-width: 768px) {
             .header {
                 flex-direction: row-reverse;
+                box-sizing: border-box;
             }
             .menu-content {
                 top: 60px;
@@ -190,72 +191,81 @@
         
         <p>Entre em contato agora mesmo! A nossa equipa está pronta para o ajudar com total segurança e sigilo profissional.</p>
         
-        <p> 📩 Email: contato@geraworldtech.com</p>
-        <p>📞 Telefone: (XX) XXXX-XXXX</p>
+        
          
-        <form id="contactForm">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-        <br>
-        <br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        <br>
-        <br>
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone" name="telefone" required>
-        <br>
-        <br>
-            <label for="descricao">Descrição do problema:</label>
-            <textarea id="descricao" name="descricao" rows="5" required></textarea>
-        <br>
-        <br>
-            <label for="fotos">Anexar fotos do equipamento:</label>
-            <input type="file" id="fotos" name="fotos[]" multiple accept="image/*">
-        <br>
-        <br>
-            <button type="button" onclick="showOptions()">Enviar</button>
+        <form id="methodSelection">
+            <h3>Escolha o método de contato:</h3>
+            <button type="button" onclick="showForm('email')">Enviar por Email</button>
+            <button type="button" onclick="showForm('whatsapp')">Enviar pelo WhatsApp</button>
         </form>
         
-        <div id="sendOptions" style="display:none;">
-            <h3>Escolha o método de envio:</h3>
-            <button onclick="sendEmail()">Enviar por Email</button>
-            <button onclick="sendWhatsApp()">Enviar pelo WhatsApp</button>
-        </div>
+        <form id="contactForm" style="display:none;">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <br><br>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+        
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+            <br><br>
+        
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="5" required></textarea>
+            <br><br>
+        
+            <label for="fotos">Anexar fotos do equipamento:</label>
+            <input type="file" id="fotos" name="fotos[]" multiple accept="image/*">
+            <br><br>
+        
+            <button type="button" id="submitButton" onclick="submitForm()">Enviar</button>
+        </form>
         
         <script>
-        function showOptions() {
-            // Esconde o formulário original
-            document.getElementById("contactForm").style.display = "none";
-            
-            // Exibe as opções de envio
-            document.getElementById("sendOptions").style.display = "block";
+        let envioMetodo = "";
+        
+        function showForm(method) {
+            envioMetodo = method;
+            document.getElementById("methodSelection").style.display = "none";
+            document.getElementById("contactForm").style.display = "block";
+        
+            // Se for WhatsApp, ocultar campo de email (não é necessário)
+            if (method === "whatsapp") {
+                document.getElementById("email").parentElement.style.display = "none";
+            }
+        }
+        
+        function submitForm() {
+            if (envioMetodo === "email") {
+                sendEmail();
+            } else if (envioMetodo === "whatsapp") {
+                sendWhatsApp();
+            }
         }
         
         function sendEmail() {
-            var nome = document.getElementById("nome").value;
-            var email = document.getElementById("email").value;
-            var telefone = document.getElementById("telefone").value;
-            var descricao = document.getElementById("descricao").value;
+            var form = document.getElementById("contactForm");
+            var formData = new FormData(form);
         
-            var formData = new FormData();
-            formData.append('nome', nome);
-            formData.append('email', email);
-            formData.append('telefone', telefone);
-            formData.append('descricao', descricao);
-            
-            // Adicionar fotos (se houver)
-            var fotos = document.getElementById("fotos").files;
-            for (var i = 0; i < fotos.length; i++) {
-                formData.append('fotos[]', fotos[i]);
-            }
-        
-            // Enviar para o Formspree
             var request = new XMLHttpRequest();
             request.open('POST', 'https://formspree.io/f/xzzevndl');
-            request.send(formData);
+            request.setRequestHeader("Accept", "application/json");
         
-            alert("O seu formulário foi enviado por Email!");
+            request.onreadystatechange = function () {
+                if (request.readyState === 4) {
+                    if (request.status === 200) {
+                        alert("O seu formulário foi enviado com sucesso por Email!");
+                        form.reset();
+                        location.reload();
+                    } else {
+                        alert("Houve um erro ao enviar. Tente novamente.");
+                    }
+                }
+            };
+        
+            request.send(formData);
         }
         
         function sendWhatsApp() {
@@ -263,20 +273,26 @@
             var telefone = document.getElementById("telefone").value;
             var descricao = document.getElementById("descricao").value;
         
-            // Cria a URL do WhatsApp
-            var message = encodeURIComponent("Nome: " + nome + "\nTelefone: " + telefone + "\nDescrição do Problema: " + descricao);
-            var phoneNumber = "351960004881";  // Substitua pelo seu número de WhatsApp
+            var message = encodeURIComponent(
+                "Nome: " + nome + "\n" +
+                "Telefone: " + telefone + "\n" +
+                "Descrição do Problema: " + descricao
+            );
+        
+            var phoneNumber = "351960004881"; // Substitua pelo seu número
             var url = "https://wa.me/" + phoneNumber + "?text=" + message;
         
-            // Redireciona o usuário para o WhatsApp
             window.open(url, "_blank");
-        
-            alert("O seu formulário foi enviado pelo WhatsApp!");
+            alert("Redirecionando para o WhatsApp...");
         }
+        </script>
+        
 
-     </script>
-     </div>
-
+     
+   
+    </script>
+    </div>
+   
     <footer>
         <p>&copy; 2025 GeraWorldTech. All rights reserved.</p>
     </footer>

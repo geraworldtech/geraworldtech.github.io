@@ -193,104 +193,105 @@
         
         
          
-        <form id="methodSelection">
-            <h3>Escolha o método de contato:</h3>
-            <button type="button" onclick="showForm('email')">Enviar por Email</button>
-            <button type="button" onclick="showForm('whatsapp')">Enviar pelo WhatsApp</button>
-        </form>
-        
-        <form id="contactForm" style="display:none;">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-            <br><br>
-        
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <br><br>
-        
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone" name="telefone" required>
-            <br><br>
-        
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" rows="5" required></textarea>
-            <br><br>
-        
-            <label for="fotos">Anexar fotos do equipamento:</label>
-            <input type="file" id="fotos" name="fotos[]" multiple accept="image/*">
-            <br><br>
-        
-            <button type="button" id="submitButton" onclick="submitForm()">Enviar</button>
-        </form>
-        
-        <script>
-        let envioMetodo = "";
-        
-        function showForm(method) {
-            envioMetodo = method;
-            document.getElementById("methodSelection").style.display = "none";
-            document.getElementById("contactForm").style.display = "block";
-        
-            // Se for WhatsApp, ocultar campo de email (não é necessário)
-            if (method === "whatsapp") {
-                document.getElementById("email").parentElement.style.display = "none";
-            }
+       <form id="methodSelection">
+    <h3>Escolha a forma de contato:</h3>
+    <button type="button" onclick="showForm('email')">Enviar por Email</button>
+    <button type="button" onclick="showForm('whatsapp')">Enviar pelo WhatsApp</button>
+</form>
+
+<form id="contactForm" style="display:none;">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone" required>
+    <br><br>
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" rows="5" required></textarea>
+    <br><br>
+
+    <label for="fotos">Anexar fotos do equipamento:</label>
+    <input type="file" id="fotos" name="fotos[]" multiple accept="image/*">
+    <br><br>
+
+    <button type="button" id="submitButton" onclick="submitForm()">Enviar</button>
+</form>
+
+<script>
+let envioMetodo = "";
+
+function showForm(method) {
+    envioMetodo = method;
+    document.getElementById("methodSelection").style.display = "none";
+    document.getElementById("contactForm").style.display = "block";
+
+    // Se for WhatsApp, ocultar campo de email
+    document.getElementById("email").parentElement.style.display = method === "whatsapp" ? "none" : "block";
+}
+
+function submitForm() {
+    if (envioMetodo === "email") {
+        sendEmail();
+    } else if (envioMetodo === "whatsapp") {
+        sendWhatsApp();
+    } else {
+        alert("Escolha o método de contato antes de continuar.");
+    }
+}
+
+function sendEmail() {
+    var form = document.getElementById("contactForm");
+    var formData = new FormData(form);
+
+    fetch("https://formspree.io/f/xzzevndl", {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("O seu formulário foi enviado com sucesso por Email!");
+            form.reset();
+            location.reload();
+        } else {
+            alert("Houve um erro ao enviar. Tente novamente.");
         }
-        
-        function submitForm() {
-            if (envioMetodo === "email") {
-                sendEmail();
-            } else if (envioMetodo === "whatsapp") {
-                sendWhatsApp();
-            }
-        }
-        
-        function sendEmail() {
-            var form = document.getElementById("contactForm");
-            var formData = new FormData(form);
-        
-            var request = new XMLHttpRequest();
-            request.open('POST', 'https://formspree.io/f/xzzevndl');
-            request.setRequestHeader("Accept", "application/json");
-        
-            request.onreadystatechange = function () {
-                if (request.readyState === 4) {
-                    if (request.status === 200) {
-                        alert("O seu formulário foi enviado com sucesso por Email!");
-                        form.reset();
-                        location.reload();
-                    } else {
-                        alert("Houve um erro ao enviar. Tente novamente.");
-                    }
-                }
-            };
-        
-            request.send(formData);
-        }
-        
-        function sendWhatsApp() {
-            var nome = document.getElementById("nome").value;
-            var telefone = document.getElementById("telefone").value;
-            var descricao = document.getElementById("descricao").value;
-        
-            var message = encodeURIComponent(
-                "Nome: " + nome + "\n" +
-                "Telefone: " + telefone + "\n" +
-                "Descrição do Problema: " + descricao
-            );
-        
-            var phoneNumber = "351960004881"; // Substitua pelo seu número
-            var url = "https://wa.me/" + phoneNumber + "?text=" + message;
-        
-            window.open(url, "_blank");
-            alert("Redirecionando para o WhatsApp...");
-        }
-        
+    })
+    .catch(error => alert("Erro: " + error));
+}
+
+function sendWhatsApp() {
+    var nome = document.getElementById("nome").value;
+    var telefone = document.getElementById("telefone").value;
+    var descricao = document.getElementById("descricao").value;
+
+    if (!nome || !telefone || !descricao) {
+        alert("Preencha todos os campos antes de enviar pelo WhatsApp.");
+        return;
+    }
+
+    var message = encodeURIComponent(
+        "📌 *Dados do Cliente*:\n" +
+        "👤 Nome: " + nome + "\n" +
+        "📞 Telefone: " + telefone + "\n" +
+        "📝 Descrição do Problema: " + descricao
+    );
+
+    var phoneNumber = "351960004881"; // Substitua pelo seu número de WhatsApp
+    var url = "https://wa.me/" + phoneNumber + "?text=" + message;
+
+    window.open(url, "_blank");
+}
+</script>
+
         
 
-     
-   
-    </script>
     </div>
    
     <footer>

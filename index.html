@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeraWorldTech</title>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
         
@@ -24,7 +24,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 20px 1px 20px;
+            min-height: 100px;
             z-index: 1000;
         }
         
@@ -84,12 +85,24 @@
             color: #0ff;
         }
         .section {
-            padding: 100px 20px;
+            padding: 130px 20px;
             display: none; /* Ocultar todas as seções por padrão */
         }
         .section.active {
             display: block; /* Exibir apenas a seção ativa */
         }
+
+        #servicos p {
+           text-align: left; /* Alinha o texto à esquerda apenas na seção Serviços */
+           margin-left: 20px; /* Opcional: Adiciona um recuo à esquerda */
+           font-style: italic;/* Opcional: Adiciona itálico ao texto */
+        }
+        .align-right {
+           text-align: right !important; /* Alinha o texto à direita */
+           margin-right: 20px; /* Opcional: Adiciona um recuo à direita */
+        }
+
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: row-reverse;
@@ -109,7 +122,8 @@
 <body>
     <div class="header">
         <div class="menu" onclick="toggleMenu()">☰</div>
-        <div class="logo">GeraWorldTech</div>
+        <div class="logo">
+            <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" style="max-width: 100%; height: auto;"></div>
         <div class="menu-content" id="menuContent">
             <a href="#inicio" onclick="showSection('inicio')">Início</a>
             <a href="#servicos" onclick="showSection('servicos')">Serviços</a>
@@ -171,8 +185,9 @@
             Sigilo absoluto na recuperação de dados;
             
             Atendimento ágil e suporte técnico especializado;
-            
-            <p>Entre em contato e descubra como podemos ajudar!</p>
+            <br><br>
+
+            <p class="align-right">Entre em contato e descubra como podemos ajudar!</p>
         
         </ul>
     </div>
@@ -192,21 +207,27 @@
         <p>Entre em contato agora mesmo! A nossa equipa está pronta para o ajudar com total segurança e sigilo profissional.</p>
         
         
-         
-       <form id="methodSelection">
-    <h3>Escolha o método de envio:</h3>
-    <button type="button" onclick="showForm('email')">Enviar por Email</button>
-    <button type="button" onclick="showForm('whatsapp')">Enviar pelo WhatsApp</button>
-</form>
+      <br><br>   
 
+
+<!-- Escolha do método de envio -->
+<div id="methodSelection">
+    <h3>Escolha o método de envio:</h3>
+    <button onclick="showForm('email')">Enviar por Email</button>
+    <button onclick="sendWhatsApp()">Enviar pelo WhatsApp</button>
+</div>
+
+<!-- Formulário de contato (inicialmente oculto) -->
 <form id="contactForm" style="display:none;">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" required>
     <br><br>
 
-    <label for="email" id="emailLabel">Email:</label>
-    <input type="email" id="email" name="email">
-    <br><br>
+    <div id="emailField">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br><br>
+    </div>
 
     <label for="telefone">Telefone:</label>
     <input type="tel" id="telefone" name="telefone" required>
@@ -220,7 +241,7 @@
     <input type="file" id="fotos" name="fotos[]" multiple accept="image/*">
     <br><br>
 
-    <button type="button" id="submitButton" onclick="submitForm()">Enviar</button>
+    <button type="button" onclick="submitForm()">Enviar</button>
 </form>
 
 <script>
@@ -228,24 +249,19 @@ let envioMetodo = "";
 
 function showForm(method) {
     envioMetodo = method;
-    document.getElementById("methodSelection").style.display = "none";
-    document.getElementById("contactForm").style.display = "block";
+    document.getElementById("methodSelection").style.display = "none"; // Esconder escolha de método
+    document.getElementById("contactForm").style.display = "block"; // Mostrar formulário
 
-    // Se for WhatsApp, oculta o campo de email
     if (method === "whatsapp") {
-        document.getElementById("email").style.display = "none";
-        document.getElementById("emailLabel").style.display = "none";
+        document.getElementById("contactForm").style.display = "none"; // Não mostrar formulário ao escolher WhatsApp
     } else {
-        document.getElementById("email").style.display = "block";
-        document.getElementById("emailLabel").style.display = "block";
+        document.getElementById("emailField").style.display = "block"; // Mostrar campo de email
     }
 }
 
 function submitForm() {
     if (envioMetodo === "email") {
         sendEmail();
-    } else if (envioMetodo === "whatsapp") {
-        sendWhatsApp();
     } else {
         alert("Escolha um método de envio antes de continuar.");
     }
@@ -276,22 +292,7 @@ function sendEmail() {
 }
 
 function sendWhatsApp() {
-    var nome = document.getElementById("nome").value;
-    var telefone = document.getElementById("telefone").value;
-    var descricao = document.getElementById("descricao").value;
-
-    if (!nome || !telefone || !descricao) {
-        alert("Preencha todos os campos antes de enviar pelo WhatsApp.");
-        return;
-    }
-
-    var message = encodeURIComponent(
-        "📌 *Dados do Cliente*:\n" +
-        "👤 Nome: " + nome + "\n" +
-        "📞 Telefone: " + telefone + "\n" +
-        "📝 Descrição do Problema: " + descricao
-    );
-
+    
     var phoneNumber = "351960004881"; // Substitua pelo seu número de WhatsApp
     var url = "https://wa.me/" + phoneNumber + "?text=" + message;
 
@@ -299,11 +300,13 @@ function sendWhatsApp() {
 }
 </script>
 
-
-        
+<br><br>
+        <p> 📩 Email: contato@geraworldtech.com</p>
+        <p>📞 Telefone: (XX) XXXX-XXXX</p>
 
     </div>
    
+
     <footer>
         <p>&copy; 2025 GeraWorldTech. All rights reserved.</p>
     </footer>

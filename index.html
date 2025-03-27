@@ -14,6 +14,7 @@
             color: #fff;
             text-align: center;
             scroll-behavior: smooth;
+            font-size: 12px;
         }
         .header {
             position: fixed;
@@ -30,7 +31,7 @@
         footer {
             text-align: left;
             padding: 10px 10px;
-            position: fixed;
+            position:fixed;
             width: 100%;
             bottom: 0;
         }
@@ -77,7 +78,7 @@
             margin-right: 10px;
             color: white;
             text-decoration: none;
-            font-size: 22px;
+            font-size: 10px;
         }
         .social-icons a:hover {
             color: #0ff;
@@ -121,25 +122,163 @@
     </div>
     
     <div id="inicio" class="section active">
-        <h1>Bem-vindo à GeraWorldTech</h1>
-        <p>Especialistas em recuperação de dados e reparação de eletrônicos.</p>
+        <h1>GeraWorldTech - Soluções Inteligentes para Seus Equipamentos</h1>
+        <p>
+
+            A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta. Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados em recuperação de dados em pendrives e outros dispositivos de memoria, reparação de pequenos equipamentos eletrónicos.
+            
+            Entendemos que a recuperação de dados exige não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.
+            
+            Seja para recuperar ficheiros importantes ou restaurar o funcionamento de um dispositivo, trabalhamos com compromisso e segurança para fornecer as melhores soluções. Confie em quem entende do assunto.</p>
+            
+            <p>Entre em contato e descubra como podemos ajudar.</p>
     </div>
 
     <div id="servicos" class="section">
         <h1>Nossos Serviços</h1>
         <ul>
-            <li>Recuperação de dados de pendrives</li>
-            <li>Reparação de pequenos equipamentos eletrônicos</li>
-            <li>Diagnóstico e consultoria técnica</li>
+                      
+
+            Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação dos seus dados com total segurança e sigilo profissional.
+            
+            <p>🔹 Recuperação de Dados</p>
+            
+            Recuperação de arquivos corrompidos ou excluídos;
+            
+            Restauração de dispositivos não reconhecidos pelo computador;
+            
+            Extração de dados de pendrives/cartões de memória danificados fisicamente;
+            
+            Soluções para erros de formatação e falhas de leitura;
+            
+            <p>🔹 Reparação de Pequenos Equipamentos Eletrónicos</p>
+            
+            Diagnóstico e conserto de circuitos eletrónicos;
+            
+            Substituição de componentes defeituosos;
+            
+            Reparo de portas USB danificadas;
+            
+            Manutenção preventiva para prolongar a vida útil do dispositivo;
+            
+            <p>🔹 Atendimento Personalizado e Sigiloso</p>
+            
+            Avaliação gratuita do problema;
+            
+            Orçamento transparente sem compromisso;
+            
+            Sigilo absoluto na recuperação de dados;
+            
+            Atendimento ágil e suporte técnico especializado;
+            
+            <p>Entre em contato e descubra como podemos ajudar!</p>
+        
         </ul>
     </div>
 
     <div id="contato" class="section">
-        <h1>Entre em Contato</h1>
-        <p>Email: contato@geraworldtech.com</p>
-        <p>Telefone: (XX) XXXX-XXXX</p>
+        <h1>Fale Connosco - Estamos Aqui Para Ajudar!</h1>
+                
+
+        <p>Para que possamos oferecer a melhor solução para o seu problema, pedimos que forneça algumas informações sobre o sucedido.</p>
+        
+        <p>🔹 Descreva o problema: O que aconteceu com o seu equipamento? Parou de funcionar de repente? Houve algum erro ao aceder os seus arquivos?</p>
+        
+        <p>🔹 Detalhes adicionais: Qual o modelo do equipamento? Já tentou algum procedimento para solucionar?</p>
+        
+        <p>🔹 Anexe imagens: Se possível, envie fotos do estado do equipamento. Assim nos ajudará a entender melhor o problema e agilizar a análise.</p>
+        
+        <p>Entre em contato agora mesmo! A nossa equipa está pronta para o ajudar com total segurança e sigilo profissional.</p>
+        
+        <p> 📩 Email: contato@geraworldtech.com</p>
+        <p>📞 Telefone: (XX) XXXX-XXXX</p>
+         
+        <form id="contactForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+        <br>
+        <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        <br>
+        <br>
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+        <br>
+        <br>
+            <label for="descricao">Descrição do problema:</label>
+            <textarea id="descricao" name="descricao" rows="5" required></textarea>
+        <br>
+        <br>
+            <label for="fotos">Anexar fotos do equipamento:</label>
+            <input type="file" id="fotos" name="fotos[]" multiple accept="image/*">
+        <br>
+        <br>
+            <button type="button" onclick="showOptions()">Enviar</button>
+        </form>
+        
+        <div id="sendOptions" style="display:none;">
+            <h3>Escolha o método de envio:</h3>
+            <button onclick="sendEmail()">Enviar por Email</button>
+            <button onclick="sendWhatsApp()">Enviar pelo WhatsApp</button>
         </div>
+        
+        <script>
+        function showOptions() {
+            // Esconde o formulário original
+            document.getElementById("contactForm").style.display = "none";
+            
+            // Exibe as opções de envio
+            document.getElementById("sendOptions").style.display = "block";
+        }
+        
+        function sendEmail() {
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+            var telefone = document.getElementById("telefone").value;
+            var descricao = document.getElementById("descricao").value;
+        
+            var formData = new FormData();
+            formData.append('nome', nome);
+            formData.append('email', email);
+            formData.append('telefone', telefone);
+            formData.append('descricao', descricao);
+            
+            // Adicionar fotos (se houver)
+            var fotos = document.getElementById("fotos").files;
+            for (var i = 0; i < fotos.length; i++) {
+                formData.append('fotos[]', fotos[i]);
+            }
+        
+            // Enviar para o Formspree
+            var request = new XMLHttpRequest();
+            request.open('POST', 'https://formspree.io/f/xzzevndl');
+            request.send(formData);
+        
+            alert("O seu formulário foi enviado por Email!");
+        }
+        
+        function sendWhatsApp() {
+            var nome = document.getElementById("nome").value;
+            var telefone = document.getElementById("telefone").value;
+            var descricao = document.getElementById("descricao").value;
+        
+            // Cria a URL do WhatsApp
+            var message = encodeURIComponent("Nome: " + nome + "\nTelefone: " + telefone + "\nDescrição do Problema: " + descricao);
+            var phoneNumber = "351960004881";  // Substitua pelo seu número de WhatsApp
+            var url = "https://wa.me/" + phoneNumber + "?text=" + message;
+        
+            // Redireciona o usuário para o WhatsApp
+            window.open(url, "_blank");
+        
+            alert("O seu formulário foi enviado pelo WhatsApp!");
+        }
+
+    </div>
    
+   
+    </script>
+    
     <footer>
         <p>&copy; 2025 GeraWorldTech. All rights reserved.</p>
     </footer>

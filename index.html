@@ -281,7 +281,7 @@ function sendEmail() {
     fetch("https://formspree.io/f/xzzevndl", {
         method: "POST",
         body: formData,
-        headers: { "Accept": "application/json" }
+        
     })
     .then(response => response.json())
     .then(data => {
@@ -300,7 +300,12 @@ function sendEmail() {
 
 function sendWhatsApp() {
     
-    var phoneNumber = "351960004881"; // Substitua pelo seu número de WhatsApp
+    var phoneNumber = "351960004881";
+    var nome = document.getElementById("nome").value;
+    var telefone = document.getElementById("telefone").value;
+    var descricao = document.getElementById("descriçao").value;
+    var message = `Nome:${nome}. Telefone:${telefone}. Descrição do Problema:${descricao}.`
+    
     var url = "https://wa.me/" + phoneNumber + "?text=" + message;
 
     window.open(url, "_blank");

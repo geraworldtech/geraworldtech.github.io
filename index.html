@@ -152,10 +152,12 @@
     </style>
 </head>
 <body>
+          <div class="logo">
+            <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" style="max-width: 100%; height: auto;"></div>
+    
     <div class="header">
         <div class="menu" onclick="toggleMenu()">☰</div>
-        <div class="logo">
-            <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" style="max-width: 100%; height: auto;"></div>
+
         <div class="menu-content" id="menuContent">
             <a href="#inicio" onclick="showSection('inicio')">Início</a>
             <a href="#servicos" onclick="showSection('servicos')">Serviços</a>
@@ -326,17 +328,22 @@ function sendEmail() {
 }
 
 function sendWhatsApp() {
-    
     var phoneNumber = "351960004881";
-    var nome = document.getElementById("nome").value;
-    var telefone = document.getElementById("telefone").value;
-    var descricao = document.getElementById("descriçao").value;
-    var message = `Nome:${nome}. Telefone:${telefone}. Descrição do Problema:${descricao}.`
+    var nome = document.getElementById("nome").value.trim();
+    var telefone = document.getElementById("telefone").value.trim();
+    var descricao = document.getElementById("descricao").value.trim();
     
+    if (!nome || !telefone || !descricao) {
+        alert("Preencha todos os campos antes de enviar.");
+        return;
+    }
+
+    var message = `Nome: ${nome}%0A Telefone: ${telefone}%0A Descrição do Problema: ${descricao}`;
     var url = "https://wa.me/" + phoneNumber + "?text=" + message;
 
     window.open(url, "_blank");
 }
+
 </script>
 
 <br><br>

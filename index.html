@@ -289,7 +289,7 @@ function showForm(method) {
     document.getElementById("contactForm").style.display = "block"; // Mostrar formulário
 
     if (method === "whatsapp") {
-        document.getElementById("contactForm").style.display = "none"; // Não mostrar formulário ao escolher WhatsApp
+        document.getElementById("emailField").style.display = "none"; // Esconder o campo de email
     } else {
         document.getElementById("emailField").style.display = "block"; // Mostrar campo de email
     }
@@ -298,6 +298,8 @@ function showForm(method) {
 function submitForm() {
     if (envioMetodo === "email") {
         sendEmail();
+    } else if (envioMetodo === "whatsapp") {
+        sendWhatsApp();
     } else {
         alert("Escolha um método de envio antes de continuar.");
     }
@@ -328,20 +330,21 @@ function sendEmail() {
 }
 
 function sendWhatsApp() {
-    var phoneNumber = "351960004881";
     var nome = document.getElementById("nome").value.trim();
     var telefone = document.getElementById("telefone").value.trim();
-    var descricao = document.getElementById("descricao").value.trim();
-    
+    var descricao = document.getElementById("descricao").value.trim(); // Corrigido ID
+
     if (!nome || !telefone || !descricao) {
-        alert("Preencha todos os campos antes de enviar.");
+        alert("Por favor, preencha todos os campos antes de enviar.");
         return;
     }
 
-    var message = `Nome: ${nome}%0A Telefone: ${telefone}%0A Descrição do Problema: ${descricao}`;
-    var url = "https://wa.me/" + phoneNumber + "?text=" + message;
+    var phoneNumber = "351960004881";
+    var message = `Nome: ${nome}%0A📞 Telefone: ${telefone}%0A🛠️ Descrição: ${descricao}`;
 
+    var url = "https://wa.me/" + phoneNumber + "?text=" + message;
     window.open(url, "_blank");
+}
 }
 
 </script>

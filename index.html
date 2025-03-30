@@ -107,7 +107,21 @@
            margin-right: 20px; /* Opcional: Adiciona um recuo à direita */
         }
 
-
+        .botao-mensagem {
+            font-size: 40px;
+            text-decoration: none;
+            display: inline-block;
+            position: fixed;
+            bottom: 20px;
+            right: 20x;
+            animation: balancar 1s infinitealternate;
+            z-index:1000;
+        }
+        @keyframes balancar {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(10deg);}
+        }
+        
         @media (max-width: 768px) {
             body {
                 line-height: 1.8;
@@ -212,7 +226,7 @@
 
         <p>Para que possamos oferecer a melhor solução para o seu problema, pedimos que forneça algumas informações sobre o sucedido.</p>
         
-        <p>🔹 Descreva o problema: O que aconteceu com o seu equipamento? Parou de funcionar de repente? Houve algum erro ao aceder os seus arquivos?</p>
+        <p>🔹 Descreva o problema: O que aconteceu com o seu equipamento? Houve algum erro ao aceder os seus arquivos?</p>
         
         <p>🔹 Detalhes adicionais: Qual o modelo do equipamento? Já tentou algum procedimento para solucionar?</p>
         

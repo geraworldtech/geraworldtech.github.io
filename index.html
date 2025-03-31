@@ -345,16 +345,18 @@ function sendWhatsApp() {
             menu.style.display = "none";
         }
 
-     function showSection(sectionId) {
+    function showSection(sectionId) {
     // Ocultar todas as seções
     var sections = document.querySelectorAll('.section');
     sections.forEach(function(section) {
         section.classList.remove('active');
+        section.style.display = 'none';  // Garantir que todas as seções fiquem invisíveis
     });
 
     // Exibir apenas a seção selecionada
     var sectionToShow = document.getElementById(sectionId);
     sectionToShow.classList.add('active');
+    sectionToShow.style.display = 'block'; // Torna a seção visível
 
     // Garantir que o botão seja corretamente referenciado
     var botaoMensagem = document.querySelector('.botao-mensagem');

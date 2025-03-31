@@ -85,6 +85,9 @@
         .menu-content a:hover {
             color: #0ff;
         }
+            .menu-content.open {
+    display: flex;
+}
         .social-icons {
             margin-top: 10px;
             display: flex;
@@ -101,7 +104,7 @@
         }
         .section {
             padding: 130px 20px;
-            display: block; /* Ocultar todas as seções por padrão */
+            display: none; /* Ocultar todas as seções por padrão */
         }
         .section.active {
             display: block; /* Exibir apenas a seção ativa */
@@ -211,9 +214,9 @@
             <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" style="max-width: 100%; height: auto;"></div>
         
         <div class="menu-content" id="menuContent">
-    <a href="#inicio">Home</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#contato">Contato</a>
+    <a href="javascript:void(0);" onclick="showSection('inicio')">Home</a>
+    <a href="javascript:void(0);" onclick="showSection('servicos')">Serviços</a>
+    <a href="javascript:void(0);" onclick="showSection('contato')">Contato</a>
     <div class="social-icons">
         <a href="https://facebook.com/seuPerfil" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://instagram.com/seuPerfil" target="_blank"><i class="fab fa-instagram"></i></a>

@@ -36,12 +36,14 @@
         }
         
         footer {
-            text-align: left;
-            padding: 10px 10px;
-            position:fixed;
-            width: 100%;
-            bottom: 0;
-        }
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        
+    }
         .menu {
             cursor: pointer;
             font-size: 24px;
@@ -106,10 +108,7 @@
            margin-left: 20px; /* Opcional: Adiciona um recuo à esquerda */
            font-style: italic;/* Opcional: Adiciona itálico ao texto */
         }
-        .align-right {
-           text-align: right !important; /* Alinha o texto à direita */
-           margin-right: 20px; /* Opcional: Adiciona um recuo à direita */
-        }
+       
 
         .botao-mensagem {
             font-size: 40px;
@@ -121,6 +120,14 @@
             animation: balancar 1s infinite alternate;
             z-index:1000;
         }
+
+        .vertical-line {
+        width: 3px;
+        height: 20px;
+        background-color: #007bff;
+        margin: 5px auto;
+        }
+
         @keyframes balancar {
             0% { transform: rotate(0deg);}
             100% { transform: rotate(10deg);}
@@ -175,6 +182,7 @@
     <div id="inicio" class="section active">
         <h1>GeraWorldTech - Soluções Inteligentes para Seus Equipamentos</h1>
         <p>
+            <div class="vertical-line"></div>
 
             A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta. Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados em recuperação de dados em pendrives e outros dispositivos de memoria, reparação de pequenos equipamentos eletrónicos.
             
@@ -188,7 +196,7 @@
     <div id="servicos" class="section">
         <h1>Nossos Serviços</h1>
         
-                      
+        <div class="vertical-line"></div>          
 
             Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação dos seus dados com total segurança e sigilo profissional.
             
@@ -223,14 +231,14 @@
             Atendimento ágil e suporte técnico especializado;
             <br><br>
 
-            <p class="align-right">Entre em contato e descubra como podemos ajudar!</p>
+            Entre em contato e descubra como podemos ajudar!
         
         
     </div>
 
     <div id="contato" class="section">
         <h1>Fale Connosco - Estamos Aqui Para Ajudar!</h1>
-                
+        <div class="vertical-line"></div>       
 
         <p>Para que possamos oferecer a melhor solução para o seu problema, pedimos que forneça algumas informações sobre o sucedido.</p>
         
@@ -302,8 +310,8 @@ function sendWhatsApp() {
 
 
 <br><br>
-        <p>📩 Email: contato@geraworldtech.com</p>
-        <p>📞 Telefone: (XX) XXXX-XXXX</p>
+        <p>📩 Email: globalgeraworld@gmail.com</p>
+        <p>📞 Telefone: (+351) 960 004 881</p>
 
     </div>
    

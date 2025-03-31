@@ -195,8 +195,7 @@
 
     <div id="servicos" class="section">
         <h1>Nossos Serviços</h1>
-        
-        <div class="vertical-line"></div>          
+                <div class="vertical-line"></div>          
 
             Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação dos seus dados com total segurança e sigilo profissional.
             
@@ -240,9 +239,9 @@
         <h1>Fale Connosco - Estamos Aqui Para Ajudar!</h1>
         <div class="vertical-line"></div>       
 
-        <p>Para que possamos oferecer a melhor solução para o seu problema, pedimos que forneça algumas informações sobre o sucedido.</p>
+        <p>Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.</p>
         
-        <p>🔹 Descreva o problema: O que aconteceu com o seu equipamento? Houve algum erro ao aceder os seus arquivos?</p>
+        <p>🔹 Descreva o problema: O que aconteceu com o equipamento? Houve algum erro ao aceder os arquivos?</p>
         
         <p>🔹 Detalhes adicionais: Qual o modelo do equipamento? Já tentou algum procedimento para solucionar?</p>
         
@@ -345,6 +344,12 @@ function sendWhatsApp() {
             // Fechar o menu
             closeMenu();
         }
+        var botaoMensagem = document.querySelector('.botao-mensagem');
+    if (sectionId === 'contato') {
+        botaoMensagem.classList.add('hidden');
+    } else {
+        botaoMensagem.classList.remove('hidden');
+    }
    </script>
 </body>
 </html>

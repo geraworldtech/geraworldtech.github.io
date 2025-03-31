@@ -249,114 +249,67 @@
 <!-- Escolha do método de envio -->
 <div id="methodSelection">
     <h3>Escolha o método de envio:</h3>
-    <button onclick="showForm('email')">Enviar por Email</button>
-    <button onclick="showForm('whatsapp')">Enviar pelo WhatsApp</button>
+    <button class="custom-button email" onclick="sendEmail()">📧 Enviar por Email</button>
+    <button class="custom-button whatsapp" onclick="sendWhatsApp()">📱 Enviar pelo WhatsApp</button>
 </div>
 
-<!-- Formulário de contato (inicialmente oculto) -->
-<form id="contactForm" style="display:none;">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required>
-    <br><br>
+<style>
+    .custom-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        margin: 5px;
+    }
 
-    <div id="emailField">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-        <br><br>
-    </div>
+    .email {
+        background-color: #007bff;
+        color: white;
+    }
 
-    <label for="telefone">Telefone:</label>
-    <input type="tel" id="telefone" name="telefone" required>
-    <br><br>
+    .email:hover {
+        background-color: #0056b3;
+    }
 
-    <label for="descricao">Descrição do problema:</label>
-    <textarea id="descricao" name="descricao" rows="5" required></textarea>
-    <br><br>
+    .whatsapp {
+        background-color: #25d366;
+        color: white;
+    }
 
-    <label for="fotos">Anexar fotos do equipamento:</label>
-    <input type="file" id="fotos" name="fotos[]" multiple accept="image/*">
-    <br><br>
-
-    <button type="button" onclick="submitForm()">Enviar</button>
-</form>
+    .whatsapp:hover {
+        background-color: #1da851;
+    }
+</style>
 
 <script>
-let envioMetodo = "";
-
-function showForm(method) {
-    envioMetodo = method;
-    document.getElementById("methodSelection").style.display = "none"; // Esconder escolha de método
-    document.getElementById("contactForm").style.display = "block"; // Mostrar formulário
-
-    if (method === "whatsapp") {
-        document.getElementById("emailField").style.display = "none"; // Esconder o campo de email
-    } else {
-        document.getElementById("emailField").style.display = "block"; // Mostrar campo de email
-    }
-}
-
-function submitForm() {
-    if (envioMetodo === "email") {
-        sendEmail();
-    } else if (envioMetodo === "whatsapp") {
-        sendWhatsApp();
-    } else {
-        alert("Escolha um método de envio antes de continuar.");
-    }
-}
-
 function sendEmail() {
-    var form = document.getElementById("contactForm");
-    var formData = new FormData(form);
-
-    fetch("https://formspree.io/f/xzzevndl", {
-        method: "POST",
-        body: formData,
-        
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.ok) {
-            alert("O seu formulário foi enviado com sucesso por Email!");
-            form.reset();
-            location.reload();
-        } else {
-            alert("Houve um erro ao enviar. Tente novamente.");
-        }
-    })
-    .catch(error => {
-        alert("Erro: " + error);
-    });
+    var email = "mailto:suporte@geraworldtech.com";
+    window.location.href = email;
 }
 
 function sendWhatsApp() {
-    var nome = document.getElementById("nome").value.trim();
-    var telefone = document.getElementById("telefone").value.trim();
-    var descricao = document.getElementById("descricao").value.trim(); // Corrigido ID
-
-    if (!nome || !telefone || !descricao) {
-        alert("Por favor, preencha todos os campos antes de enviar.");
-        return;
-    }
-
     var phoneNumber = "351960004881";
-    var message = `Nome: ${nome}%0A📞 Telefone: ${telefone}%0A🛠️ Descrição: ${descricao}`;
-
-    var url = "https://wa.me/" + phoneNumber + "?text=" + message;
+    var url = "https://wa.me/" + phoneNumber;
     window.open(url, "_blank");
 }
-
 </script>
 
+
+
 <br><br>
-        <p> 📩 Email: contato@geraworldtech.com</p>
+        <p>📩 Email: contato@geraworldtech.com</p>
         <p>📞 Telefone: (XX) XXXX-XXXX</p>
 
     </div>
    
 
     <footer>
-        <p>&copy; 2025 GeraWorldTech. All rights reserved.</p>
+        <p>&copy; 2025 GeraWorldTech. Todos os direitos reservados.</p>
     </footer>
    
    <script>

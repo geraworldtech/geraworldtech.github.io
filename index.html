@@ -330,26 +330,28 @@ function sendWhatsApp() {
             menu.style.display = "none";
         }
 
-        function showSection(sectionId) {
-            // Ocultar todas as seções
-            var sections = document.querySelectorAll('.section');
-            sections.forEach(function(section) {
-                section.classList.remove('active');
-            });
+     function showSection(sectionId) {
+    // Ocultar todas as seções
+    var sections = document.querySelectorAll('.section');
+    sections.forEach(function(section) {
+        section.classList.remove('active');
+    });
 
-            // Exibir apenas a seção selecionada
-            var sectionToShow = document.getElementById(sectionId);
-            sectionToShow.classList.add('active');
+    // Exibir apenas a seção selecionada
+    var sectionToShow = document.getElementById(sectionId);
+    sectionToShow.classList.add('active');
 
-            // Fechar o menu
-            closeMenu();
+    // Garantir que o botão seja corretamente referenciado
+    var botaoMensagem = document.querySelector('.botao-mensagem');
+    if (botaoMensagem) { 
+        if (sectionId === 'contato') {
+            botaoMensagem.style.display = "none";
+        } else {
+            botaoMensagem.style.display = "inline-block";
         }
-        var botaoMensagem = document.querySelector('.botao-mensagem');
-    if (sectionId === 'contato') {
-        botaoMensagem.classList.add('hidden');
-    } else {
-        botaoMensagem.classList.remove('hidden');
     }
+}
+
    </script>
 </body>
 </html>

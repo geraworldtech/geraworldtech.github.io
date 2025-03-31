@@ -124,15 +124,21 @@
             z-index:1000;
         }
 
-        .vertical-line {
-        width: 3px;
-        height: 20px;
-        background-color: #007bff;
-        margin: auto;
-        display: block;
-        margin-top: auto;
-        margin-bottom: auto;
-        }
+        .section {
+    display: flex;
+    justify-content: center; /* Alinha a linha horizontalmente ao centro */
+    align-items: center;     /* Alinha a linha verticalmente ao centro */
+    padding: 130px 20px;
+    display: none;
+    margin: 0 auto; 
+}
+
+.vertical-line {
+    width: 3px;
+    height: 20px;
+    background-color: #007bff;
+    display: block; /* Garante que a linha vertical é exibida corretamente */
+}
 
         @keyframes balancar {
             0% { transform: rotate(0deg);}

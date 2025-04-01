@@ -217,28 +217,13 @@
 <body>
 
     
-
+<div id="google_translate_element" style="position: absolute; top: 20px; right: 60px;"></div>
 
     
     <div class="header">
 
-<!-- Botões para escolher o idioma -->
-<div style="position: absolute; top: 20px; right: 20px;">
-    <a href="javascript:void(0);" onclick="translatePage('pt')">🇵🇹 </a>
-    <a href="javascript:void(0);" onclick="translatePage('en')">🇬🇧 </a>
-    <a href="javascript:void(0);" onclick="translatePage('fr')">🇫🇷</a>
-</div>
 
-<script>
-function translatePage(lang) {
-    var url = "https://translate.google.com/translate?hl=" + lang + "&sl=pt&tl=" + lang + "&u=" + encodeURIComponent(window.location.href);
-    if (lang === 'pt') {
-        window.location.href = window.location.href.split('?')[0]; // Volta ao URL original em português
-    } else {
-        window.open(url, "_blank");
-    }
-}
-</script>
+    
 
         
         <div class="menu" onclick="toggleMenu()">☰</div>
@@ -418,7 +403,19 @@ function sendWhatsApp() {
     <footer>
         <p>&copy; 2025 GeraWorldTech. Todos os direitos reservados.</p>
     </footer>
-   
+
+<script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt',
+                includedLanguages: 'en,fr,es,de,it', // Idiomas disponíveis
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    
    <script>
         function toggleMenu() {
             var menu = document.getElementById("menuContent");

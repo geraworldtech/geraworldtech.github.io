@@ -216,7 +216,7 @@
         <div class="menu-content" id="menuContent">
     <a href="javascript:void(0);" onclick="showSection('inicio')">Home</a>
     <a href="javascript:void(0);" onclick="showSection('servicos')">Serviços</a>
-    <a href="javascript:void(0);" onclick="showSection('contato')">Contato</a>
+    <a href="javascript:void(0);" onclick="showSection('contacto')">Contacto</a>
     <div class="social-icons">
         <a href="https://facebook.com/seuPerfil" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://instagram.com/geraworldtech" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -225,7 +225,7 @@
 </div>
     </div>
 
-<a href="javascript:void(0);" class="botao-mensagem" onclick="showSection('contato')">💬</a>
+<a href="javascript:void(0);" class="botao-mensagem" onclick="showSection('contacto')">💬</a>
     
     <div id="inicio" class="section active">
         <h1>GeraWorldTech - Soluções Inteligentes para Seus Equipamentos</h1>
@@ -242,7 +242,7 @@
             <br><br>
             Confie em quem entende do assunto.</p>
             
-            <p>Entre em contato e descubra como podemos ajudar.</p>
+            <p>Entre em contacto e descubra como podemos ajudar.</p>
     </div>
 
     <div id="servicos" class="section">
@@ -282,12 +282,12 @@
             Atendimento ágil e suporte técnico especializado;
             <br><br>
 
-            Entre em contato e descubra como podemos ajudar!
+            Entre em contacto e descubra como podemos ajudar!
         
         
     </div>
 
-    <div id="contato" class="section">
+    <div id="contacto" class="section">
         <h1>Fale Connosco - Estamos Aqui Para Ajudar!</h1>
         <div class="vertical-line"></div>       
 
@@ -299,7 +299,7 @@
         
         <p>🔹 Anexe imagens: Se possível, envie fotos do estado do equipamento. Assim nos ajudará a entender melhor o problema e agilizar a análise.</p>
         
-        <p>Entre em contato agora mesmo! A nossa equipa está pronta para o ajudar com total segurança e sigilo profissional.</p>
+        <p>Entre em contacto agora mesmo! A nossa equipa está pronta para o ajudar com total segurança e sigilo profissional.</p>
         
         
       <br><br>   
@@ -307,7 +307,7 @@
 
 <!-- Escolha do método de envio -->
 <div id="methodSelection">
-    <h3>Escolha o método de envio:</h3>
+    <h3>Escolha o método de contacto:</h3>
     <button class="custom-button email" onclick="sendEmail()">📧 Enviar por Email</button>
     <button class="custom-button whatsapp" onclick="sendWhatsApp()">📱 Enviar pelo WhatsApp</button>
 </div>
@@ -362,7 +362,7 @@ function sendWhatsApp() {
 
 <br><br>
         <p>📩 Email: globalgeraworld@gmail.com</p>
-        <p>📞 Telefone: (+351) 960 004 881</p>
+        <p>📞 Whatsapp: (+351) 960 004 881</p>
 
     </div>
    
@@ -396,7 +396,7 @@ function sendWhatsApp() {
     // Garantir que o botão seja corretamente referenciado
     var botaoMensagem = document.querySelector('.botao-mensagem');
     if (botaoMensagem) { 
-        if (sectionId === 'contato') {
+        if (sectionId === 'contacto') {
             botaoMensagem.style.display = "none";
         } else {
             botaoMensagem.style.display = "inline-block";

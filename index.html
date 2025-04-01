@@ -505,6 +505,30 @@ function sendWhatsApp() {
 
    </script>
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'pt',
+        includedLanguages: 'en,fr,es,de,it',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+
+// Aguarda o carregamento e remove a barra do Google Tradutor
+window.addEventListener("load", function() {
+    setTimeout(function() {
+        var frame = document.querySelector(".goog-te-banner-frame");
+        if (frame) {
+            frame.remove(); // Remove o iframe da barra
+        }
+
+        var frameContainer = document.querySelector("body > iframe");
+        if (frameContainer) {
+            frameContainer.remove(); // Remove outros iframes criados pelo Google Tradutor
+        }
+    }, 1000); // Tempo de espera para garantir que os elementos carregam
+});
+</script>
 
 
 

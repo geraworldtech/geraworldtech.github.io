@@ -216,11 +216,26 @@
 </head>
 <body>
 
-    <div id="google_translate_element" style="position: absolute; top: 20px; right: 60px;"></div>
+    
 
 
     
     <div class="header">
+
+<!-- Botões para escolher o idioma -->
+<div style="position: absolute; top: 20px; right: 20px;">
+    <a href="javascript:void(0);" onclick="translatePage('en')">🇬🇧 English</a>
+    <a href="javascript:void(0);" onclick="translatePage('fr')">🇫🇷 Français</a>
+</div>
+
+<script>
+function translatePage(lang) {
+    var url = "https://translate.google.com/translate?hl=" + lang + "&sl=pt&tl=" + lang + "&u=" + encodeURIComponent(window.location.href);
+    window.open(url, "_blank");
+}
+</script>
+
+        
         <div class="menu" onclick="toggleMenu()">☰</div>
 <div class="logo">
             <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" style="max-width: 100%; height: auto;"></div>
@@ -436,16 +451,7 @@ function sendWhatsApp() {
 
    </script>
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'pt',
-        includedLanguages: 'en,fr,es,de,it',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 
     

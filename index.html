@@ -148,23 +148,11 @@
         height: 20px;
         background-color: #007bff;
         margin-top: 5px;
-        }
-
-.flag-container {
-            position: fixed;
-            top: 15px;
-            right: 20px;
-            z-index: 1100;
-        }
-
-        .flag-container img {
-            width: 30px;
-            height: 20px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
+        
 
             
+        }
+
         @keyframes balancar {
             0% { transform: rotate(0deg);}
             100% { transform: rotate(10deg);}
@@ -272,6 +260,11 @@
         <div class="menu" onclick="toggleMenu()">☰</div>
 <div class="logo">
             <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" style="max-width: 100%; height: auto;"></div>
+
+<div class="language-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" alt="Português" onclick="changeLanguage('pt')" style="cursor: pointer; width: 30px; margin-right: 10px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg" alt="English" onclick="changeLanguage('en')" style="cursor: pointer; width: 30px;">
+</div>
         
         <div class="menu-content" id="menuContent">
     <a href="javascript:void(0);" onclick="showSection('inicio')">Inicio</a>
@@ -287,22 +280,17 @@
      </div>
 </div>
     </div>
- 
-    <div class="flag-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Portugal.svg" alt="Portuguese Flag" onclick="changeLanguage('pt')" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg" alt="UK Flag" onclick="changeLanguage('en')" />
-    </div>
-    
+
 <a href="javascript:void(0);" class="botao-mensagem" onclick="showSection('contacto')">💬</a>
     
     <div id="inicio" class="section active">
       
         <div class="titulo-com-barra">
-        <h1>GeraWorldTech - Soluções Inteligentes para Seus Equipamentos</h1>
+        <h1 id="inicio-title">GeraWorldTech - Soluções Inteligentes para Seus Equipamentos</h1>
         <div class="vertical-line"></div>
         </div>
             
-            <p>A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta.
+           <p id="inicio-text">A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta.
             <br><br>
             Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados de recuperação de dados em pendrives e outros dispositivos de memoria, reparação de pequenos equipamentos eletrónicos.
             <br><br>
@@ -317,11 +305,11 @@
     <div id="servicos" class="section">
         
         <div class="titulo-com-barra">
-        <h1>Nossos Serviços</h1>
+        <h1 id="servicos-title">Nossos Serviços</h1>
         <div class="vertical-line"></div>          
         </div>
         
-            Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.
+           <p id="servicos-text"> Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.
             <br><br>
              <div style="position: relative;">
   <p style="margin: 0;">🔹 Recuperação de Dados</p><br>
@@ -370,7 +358,7 @@
 
             Entre em contacto e descubra como podemos ajudar!
         
-        
+           </p> 
     </div>
 
     <div id="contacto" class="section">
@@ -518,18 +506,57 @@ function sendWhatsApp() {
             closeMenu();
      }
 
-function changeLanguage(language) {
-    if(language === 'en') {
-        document.getElementById("inicio").innerHTML = "Welcome to GeraWorldTech!";
-        document.getElementById("servicos").innerHTML = "Our services include data recovery and electronic repairs.";
-        // E assim por diante para os outros textos...
-    } else {
-        document.getElementById("inicio").innerHTML = "Bem-vindo à GeraWorldTech!";
-        document.getElementById("servicos").innerHTML = "Os nossos serviços incluem recuperação de dados e reparação de equipamentos eletrônicos.";
-        // E assim por diante para os outros textos...
-    }
-}
        
+       <script>
+const translations = {
+    pt: {
+        inicio: {
+            title: "GeraWorldTech - Soluções Inteligentes para Seus Equipamentos",
+            text: "A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta...",
+        },
+        servicos: {
+            title: "Nossos Serviços",
+            text: "Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho...",
+        },
+        contacto: {
+            title: "Fale Connosco - Estamos Aqui Para Ajudar!",
+            text: "Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido...",
+        },
+    },
+    en: {
+        inicio: {
+            title: "GeraWorldTech - Smart Solutions for Your Devices",
+            text: "Technology is part of our daily lives, and when something goes wrong, every second counts...",
+        },
+        servicos: {
+            title: "Our Services",
+            text: "At GeraWorldTech, we offer specialized solutions to ensure the best performance of your devices...",
+        },
+        contacto: {
+            title: "Contact Us - We Are Here to Help!",
+            text: "In order to provide you with the best solution, please provide us with some information about the issue...",
+        },
+    }
+};
+
+       function changeLanguage(language) {
+    // Acessa os dados de tradução do idioma selecionado
+    const langData = translations[language];
+
+    // Atualiza os títulos e textos nas seções
+    document.getElementById("inicio-title").innerText = langData.inicio.title;
+    document.getElementById("inicio-text").innerText = langData.inicio.text;
+
+    document.getElementById("servicos-title").innerText = langData.servicos.title;
+    document.getElementById("servicos-text").innerText = langData.servicos.text;
+
+    document.getElementById("contacto-title").innerText = langData.contacto.title;
+    document.getElementById("contacto-text").innerText = langData.contacto.text;
+}
+
+
+           
+           </script>
    </script>
 </body>
 </html>

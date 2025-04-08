@@ -218,6 +218,38 @@
                 font-size: 20px;
             }
         }
+
+.galeria-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.galeria-item {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,255,255,0.1);
+  transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+  transform: scale(1.03);
+}
+
+.galeria-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.galeria-item p {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+            
     </style>
 </head>
 <body>
@@ -232,7 +264,9 @@
     <a href="javascript:void(0);" onclick="showSection('inicio')">Inicio</a>
     <a href="javascript:void(0);" onclick="showSection('servicos')">Serviços</a>
     <a href="javascript:void(0);" onclick="showSection('contacto')">Contacto</a>
-    <div class="social-icons">
+    <a href="javascript:void(0);" onclick="showSection('galeria')">Galeria</a>
+
+            <div class="social-icons">
         <a href="https://facebook.com/geraworldtech" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://instagram.com/geraworldtech" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://tiktok.com/@geraw0rldtech" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -406,7 +440,27 @@ function sendWhatsApp() {
 
     </div>
    
+<div id="galeria" class="section">
+  <div class="titulo-com-barra">
+    <h1>Casos Resolvidos</h1>
+    <div class="vertical-line"></div>
+  </div>
 
+  <div class="galeria-container">
+    <div class="galeria-item">
+      <img src="https://via.placeholder.com/300x200" alt="Pendrive queimado antes e depois">
+      <p>Pendrive com chip NAND extraído – dados recuperados com sucesso.</p>
+    </div>
+    <div class="galeria-item">
+      <img src="https://via.placeholder.com/300x200" alt="Placa eletrónica soldada">
+      <p>Reparo em porta USB solta numa placa de circuito de leitor de cartões.</p>
+    </div>
+    <!-- Adiciona mais aqui -->
+  </div>
+</div>
+
+
+    
     <footer>
         <p>&copy; 2025 GeraWorldTech. Todos os direitos reservados.</p>
     </footer>

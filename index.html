@@ -148,10 +148,23 @@
         height: 20px;
         background-color: #007bff;
         margin-top: 5px;
-        
-        
         }
 
+.flag-container {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 1100;
+        }
+
+        .flag-container img {
+            width: 30px;
+            height: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+            
         @keyframes balancar {
             0% { transform: rotate(0deg);}
             100% { transform: rotate(10deg);}
@@ -274,7 +287,12 @@
      </div>
 </div>
     </div>
-
+ 
+    <div class="flag-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Portugal.svg" alt="Portuguese Flag" onclick="changeLanguage('pt')" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg" alt="UK Flag" onclick="changeLanguage('en')" />
+    </div>
+    
 <a href="javascript:void(0);" class="botao-mensagem" onclick="showSection('contacto')">💬</a>
     
     <div id="inicio" class="section active">
@@ -500,6 +518,18 @@ function sendWhatsApp() {
             closeMenu();
      }
 
+function changeLanguage(language) {
+    if(language === 'en') {
+        document.getElementById("inicio").innerHTML = "Welcome to GeraWorldTech!";
+        document.getElementById("servicos").innerHTML = "Our services include data recovery and electronic repairs.";
+        // E assim por diante para os outros textos...
+    } else {
+        document.getElementById("inicio").innerHTML = "Bem-vindo à GeraWorldTech!";
+        document.getElementById("servicos").innerHTML = "Os nossos serviços incluem recuperação de dados e reparação de equipamentos eletrônicos.";
+        // E assim por diante para os outros textos...
+    }
+}
+       
    </script>
 </body>
 </html>

@@ -116,7 +116,12 @@
            margin-left: 20px; /* Opcional: Adiciona um recuo à esquerda */
            font-style: italic;/* Opcional: Adiciona itálico ao texto */
         }
-       
+
+        #contacto p {
+           text-align: left; /* Alinha o texto à esquerda apenas na seção contacto */
+           margin-left: 20px; /* Opcional: Adiciona um recuo à esquerda */
+           font-style: italic;/* Opcional: Adiciona itálico ao texto */
+        }
 
         .botao-mensagem {
             font-size: 40px;
@@ -146,15 +151,6 @@
         
         }
 
-.goog-te-banner-frame {
-    display: none !important;
-}
-
-body {
-    top: 0px !important;
-}
-
-            
         @keyframes balancar {
             0% { transform: rotate(0deg);}
             100% { transform: rotate(10deg);}
@@ -222,55 +218,11 @@ body {
             }
         }
     </style>
-
-<style>
-/* Esconde completamente a barra do Google Tradutor */
-.goog-te-banner-frame {
-    display: none !important;
-}
-
-/* Remove a margem que a barra cria */
-body {
-    top: 0px !important;
-    position: static !important;
-}
-
-/* Esconde o widget original do Google Tradutor, mantendo só o seletor */
-#google_translate_element {
-    position: fixed;
-    top: 10px;
-    right: 20px;
-    z-index: 1000;
-}
-
-/* Personaliza o seletor de idioma */
-.goog-te-gadget {
-    font-size: 0px; /* Esconde o texto */
-}
-
-.goog-te-gadget select {
-    font-size: 14px !important;
-    background-color: black;
-    color: white;
-    border: 1px solid #0ff;
-    padding: 5px;
-    cursor: pointer;
-}
-</style>
-    
 </head>
 <body>
-
-    
-
-
+          
     
     <div class="header">
-
-
-    <div id="google_translate_element" style="position: absolute; top: 20px; right: 60px;"></div>
-
-        
         <div class="menu" onclick="toggleMenu()">☰</div>
 <div class="logo">
             <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" style="max-width: 100%; height: auto;"></div>
@@ -300,20 +252,12 @@ body {
             <br><br>
             Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados em recuperação de dados em pendrives e outros dispositivos de memoria, reparação de pequenos equipamentos eletrónicos.
             <br><br>
-               
-        <div style="display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px;">
-        <div style="flex: 2; padding-right: 20px;">
-            <p>Entendemos que a recuperação de dados exige não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.</p>
-        </div>
-        <div style="flex: 1; padding-left: 20px; text-align: center;">
-            <img src="https://i.postimg.cc/HsxP8WSx/20200622-115104.jpg" alt="Imagem da GeraWorldTech" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-    </div>
+            Entendemos que a recuperação de dados exige não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.
             <br><br>
             Seja para recuperar ficheiros importantes ou restaurar o funcionamento de um dispositivo, trabalhamos com compromisso e segurança para fornecer as melhores soluções.
             <br><br>
             Confie em quem entende do assunto.</p>
-            <br>
+            
             <p>Entre em contacto e descubra como podemos ajudar.</p>
     </div>
 
@@ -355,7 +299,7 @@ body {
             Sigilo absoluto na recuperação de dados;
             
             Atendimento ágil e suporte técnico especializado;
-            <br><br><br>
+            <br><br>
 
             Entre em contacto e descubra como podemos ajudar!
         
@@ -369,7 +313,7 @@ body {
         <div class="vertical-line"></div>
         </div>
 
-        <p>Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.</p>
+        Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.
         
         <p>🔹 Descreva o problema: O que aconteceu com o equipamento? Houve algum erro ao aceder os arquivos?</p>
         
@@ -377,7 +321,7 @@ body {
         
         <p>🔹 Anexe imagens: Se possível, envie fotos do estado do equipamento. Assim nos ajudará a entender melhor o problema e agilizar a análise.</p>
         
-        <p>Entre em contacto agora mesmo! A nossa equipa está pronta para o ajudar com total segurança e sigilo profissional.</p>
+        Entre em contacto agora mesmo! A nossa equipa está pronta para o ajudar com total segurança e sigilo profissional.
         
         
       <br><br>   
@@ -448,19 +392,7 @@ function sendWhatsApp() {
     <footer>
         <p>&copy; 2025 GeraWorldTech. Todos os direitos reservados.</p>
     </footer>
-
-<script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'pt',
-                includedLanguages: 'en,fr,es,de,it', // Idiomas disponíveis
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    
+   
    <script>
         function toggleMenu() {
             var menu = document.getElementById("menuContent");
@@ -497,34 +429,5 @@ function sendWhatsApp() {
      }
 
    </script>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'pt',
-        includedLanguages: 'en,fr,es,de,it',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-}
-
-// Aguarda o carregamento e remove a barra do Google Tradutor
-window.addEventListener("load", function() {
-    setTimeout(function() {
-        var frame = document.querySelector(".goog-te-banner-frame");
-        if (frame) {
-            frame.remove(); // Remove o iframe da barra
-        }
-
-        var frameContainer = document.querySelector("body > iframe");
-        if (frameContainer) {
-            frameContainer.remove(); // Remove outros iframes criados pelo Google Tradutor
-        }
-    }, 1000); // Tempo de espera para garantir que os elementos carregam
-});
-</script>
-
-
-
-    
 </body>
 </html>

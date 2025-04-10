@@ -117,10 +117,6 @@
            font-style: italic;/* Opcional: Adiciona itálico ao texto */
         }
 
-        .centralizado {
-        text-align: center;
-    }
-
         #contacto p {
            text-align: left; /* Alinha o texto à esquerda apenas na seção contacto */
            margin-left: 20px; /* Opcional: Adiciona um recuo à esquerda */
@@ -253,20 +249,7 @@
   color: #ccc;
 }
 
-#language-buttons {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        #language-buttons img {
-            width: 30px;
-            height: 20px;
-            margin-left: 10px;
-            cursor: pointer;
-        }    
-
+            
     </style>
 </head>
 <body>
@@ -294,13 +277,6 @@
 
 <a href="javascript:void(0);" class="botao-mensagem" onclick="showSection('contacto')">💬</a>
     
-
-<div id="language-buttons">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" alt="Português" onclick="changeLanguage('pt')">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg" alt="English" onclick="changeLanguage('en')">
-</div>
-
-
     <div id="inicio" class="section active">
       
         <div class="titulo-com-barra">
@@ -321,40 +297,63 @@
     </div>
 
     <div id="servicos" class="section">
+        
         <div class="titulo-com-barra">
-            <h1 id="servicos_titulo">Nossos Serviços</h1>
-            <div class="vertical-line"></div>
+        <h1>Nossos Serviços</h1>
+        <div class="vertical-line"></div>          
         </div>
-                
-        <p id="descricao_servicos" class="centralizado">Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.</p>
         
-        <section class="servico">
-            <div class="servico-header">
-                <p id="recuperacao_dados" class="servico-titulo">🔹 Recuperação de Dados</p>
-                <img src="https://i.postimg.cc/4x5kdSsF/recupera-ao.png" alt="Ícone de Recuperação de Dados" class="servico-icon">
-            </div>
-            <p id="recuperacao_dados_desc" class="centralizado">Recuperação de arquivos corrompidos ou excluídos; Restauração de dispositivos não reconhecidos pelo computador; Extração de dados de pendrives/cartões de memória danificados fisicamente; Soluções para erros de formatação e falhas de leitura;</p>
-        </section>
+            Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.
+            <br><br>
+             <div style="position: relative;">
+  <p style="margin: 0;">🔹 Recuperação de Dados</p><br>
+  <img src="https://i.postimg.cc/4x5kdSsF/recupera-ao.png" alt="" 
+       style="position: absolute; right: 0; top: -5px; width: 40px; height: 40px;">
+</div>   
         
-        <section class="servico">
-            <div class="servico-header">
-                <p id="reparacao_eletronicos" class="servico-titulo">🔹 Reparação de Pequenos Equipamentos Eletrônicos</p>
-                <img src="https://i.postimg.cc/W4BJbvg0/reparacao.png" alt="Ícone de Reparação Eletrônica" class="servico-icon">
-            </div>
-            <p id="reparacao_eletronicos_desc" class="centralizado">Diagnóstico e conserto de circuitos eletrônicos; Substituição de componentes defeituosos; Reparo de portas USB danificadas; Manutenção preventiva para prolongar a vida útil do dispositivo;</p>
-        </section>
+                 
+            Recuperação de arquivos corrompidos ou excluídos;
+            
+            Restauração de dispositivos não reconhecidos pelo computador;
+            
+            Extração de dados de pendrives/cartões de memória danificados fisicamente;
+            
+            Soluções para erros de formatação e falhas de leitura;
+         <br><br>   
+        <div style="position: relative;">
+  <p style="margin: 0;">🔹 Reparação de Pequenos Equipamentos Eletrónicos</p><br>
+  <img src="https://i.postimg.cc/W4BJbvg0/reparacao.png" alt="" 
+       style="position: absolute; right: 0; top: -10px; width: 50px; height: 50px;">
+</div>
+
+            Diagnóstico e conserto de circuitos eletrónicos;
+            
+            Substituição de componentes defeituosos;
+            
+            Reparo de portas USB danificadas;
+            
+            Manutenção preventiva para prolongar a vida útil do dispositivo;
+
+<br><br>
+             <div style="position: relative;">
+  <p style="margin: 0;">🔹 Atendimento Personalizado e Sigiloso</p><br>
+  <img src="https://i.postimg.cc/D0Mhn2bT/atendimento.png" alt="" 
+       style="position: absolute; right: 0; top: -10px; width: 50px; height: 50px;">
+</div>
+           
+            Avaliação gratuita;
+            
+            Orçamento transparente sem compromisso;
+            
+            Sigilo absoluto na recuperação de dados;
+            
+            Atendimento ágil e suporte técnico especializado;
+            <br><br><br>
+
+            Entre em contacto e descubra como podemos ajudar!
         
-        <section class="servico">
-            <div class="servico-header">
-                <p id="atendimento_personalizado" class="servico-titulo">🔹 Atendimento Personalizado e Sigiloso</p>
-                <img src="https://i.postimg.cc/D0Mhn2bT/atendimento.png" alt="Ícone de Atendimento" class="servico-icon">
-            </div>
-            <p id="atendimento_personalizado_desc" class="centralizado">Avaliação gratuita; Orçamento transparente sem compromisso; Sigilo absoluto na recuperação de dados; Atendimento ágil e suporte técnico especializado;</p>
-        </section>
         
-        <p id="contato_final" class="centralizado">Entre em contacto e descubra como podemos ajudar!</p>
     </div>
-    
 
     <div id="contacto" class="section">
         
@@ -466,51 +465,6 @@ function sendWhatsApp() {
         <p>&copy; 2025 GeraWorldTech. Todos os direitos reservados.</p>
     </footer>
    
-    <script>
-        // Traduções internas (JSON dentro do mesmo código)
-        const translations = {
-            "pt": {
-                "servicos_titulo": "Nossos Serviços",
-                "descricao_servicos": "Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.",
-                "recuperacao_dados": "🔹 Recuperação de Dados",
-                "recuperacao_dados_desc": "Recuperação de arquivos corrompidos ou excluídos; Restauração de dispositivos não reconhecidos pelo computador; Extração de dados de pendrives/cartões de memória danificados fisicamente; Soluções para erros de formatação e falhas de leitura;",
-                "reparacao_eletronicos": "🔹 Reparação de Pequenos Equipamentos Eletrônicos",
-                "reparacao_eletronicos_desc": "Diagnóstico e conserto de circuitos eletrônicos; Substituição de componentes defeituosos; Reparo de portas USB danificadas; Manutenção preventiva para prolongar a vida útil do dispositivo;",
-                "atendimento_personalizado": "🔹 Atendimento Personalizado e Sigiloso",
-                "atendimento_personalizado_desc": "Avaliação gratuita; Orçamento transparente sem compromisso; Sigilo absoluto na recuperação de dados; Atendimento ágil e suporte técnico especializado;",
-                "contato_final": "Entre em contacto e descubra como podemos ajudar!"
-            },
-            "en": {
-                "servicos_titulo": "Our Services",
-                "descricao_servicos": "At GeraWorldTech, we offer specialized solutions to ensure the best performance of your devices and secure, professional data recovery.",
-                "recuperacao_dados": "🔹 Data Recovery",
-                "recuperacao_dados_desc": "Recovery of corrupted or deleted files; Restoration of devices not recognized by the computer; Data extraction from physically damaged USB drives/memory cards; Solutions for formatting errors and reading failures;",
-                "reparacao_eletronicos": "🔹 Small Electronics Repair",
-                "reparacao_eletronicos_desc": "Diagnosis and repair of electronic circuits; Replacement of defective components; Repair of damaged USB ports; Preventive maintenance to prolong the device's lifespan;",
-                "atendimento_personalizado": "🔹 Personalized and Confidential Service",
-                "atendimento_personalizado_desc": "Free evaluation; Transparent quotes without commitment; Absolute confidentiality in data recovery; Quick support and specialized technical assistance;",
-                "contato_final": "Contact us and discover how we can help!"
-            }
-        };
-
-        // Função para mudar o conteúdo da página com base no idioma
-        function changeLanguage(language) {
-            document.getElementById("servicos_titulo").innerText = translations[language].servicos_titulo;
-            document.getElementById("descricao_servicos").innerText = translations[language].descricao_servicos;
-            document.getElementById("recuperacao_dados").innerText = translations[language].recuperacao_dados;
-            document.getElementById("recuperacao_dados_desc").innerText = translations[language].recuperacao_dados_desc;
-            document.getElementById("reparacao_eletronicos").innerText = translations[language].reparacao_eletronicos;
-            document.getElementById("reparacao_eletronicos_desc").innerText = translations[language].reparacao_eletronicos_desc;
-            document.getElementById("atendimento_personalizado").innerText = translations[language].atendimento_personalizado;
-            document.getElementById("atendimento_personalizado_desc").innerText = translations[language].atendimento_personalizado_desc;
-            document.getElementById("contato_final").innerText = translations[language].contato_final;
-        }
-
-        // Definir o idioma inicial
-        changeLanguage('pt'); // A página começa em português
-    </script>
-
-
    <script>
         function toggleMenu() {
             var menu = document.getElementById("menuContent");

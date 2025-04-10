@@ -252,7 +252,7 @@
 .google-translate {
             position: absolute;
             top: 10px;
-            right: 20px;
+            right: 30px;
             z-index: 9999;
         }          
     </style>
@@ -484,14 +484,13 @@ function sendWhatsApp() {
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'pt',
-            includedLanguages: 'en,pt',
+            includedLanguages: 'en,pt,es,fr,de,it,pt',  // Adicione aqui os idiomas que deseja
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
         }, 'google_translate_element');
 
-        // Aguardar a inicialização do Google Tradutor
+        // Ocultar a barra após a seleção do idioma
         google.translate.TranslateElement.prototype.onLanguageSelect = function() {
             setTimeout(function() {
-                // Esconder a barra de tradução após selecionar o idioma
                 var translateElement = document.getElementById("google_translate_element");
                 if (translateElement) {
                     translateElement.style.display = "none";  // Esconde a barra
@@ -499,7 +498,6 @@ function sendWhatsApp() {
             }, 1000);  // Espera 1 segundo para garantir que o idioma foi alterado
         };
     }
-</script>
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

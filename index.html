@@ -479,13 +479,25 @@ function sendWhatsApp() {
     </footer>
    
  <!-- Script do Google Tradutor -->
- <script type="text/javascript">
+<script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'pt',
             includedLanguages: 'en,pt',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
         }, 'google_translate_element');
+
+        // Adiciona um ouvinte para detectar a mudança de idioma
+        google.translate.TranslateElement.prototype.onLanguageSelect = function() {
+            // Espera um tempo para garantir que o idioma foi alterado
+            setTimeout(function() {
+                // Esconde a barra de tradução após o idioma ser alterado
+                var translateElement = document.getElementById("google_translate_element");
+                if (translateElement) {
+                    translateElement.style.display = "none";  // Esconde a barra
+                }
+            }, 500);  // Pode ajustar o tempo (500ms) conforme necessário
+        };
     }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

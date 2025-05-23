@@ -1,383 +1,408 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeraWorldTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
-    
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-            html, body {
-    overflow-x: hidden;
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #fcfcfc;
+      color: #333333;
+    }
+
+   
+
+    .logo {
+      color: #4c6af2;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+   
+
+    .hero {
+      background: linear-gradient(to right, #0f1127, #5f98da, #3348c0);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+@media (max-width: 700px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
 }
-            
-        body {
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background-color: #121212;
-            color: #fff;
-            text-align: center;
-            scroll-behavior: smooth;
-            font-size: 12px;
-            line-height: 1.6;
-            h1 {line-height: normal;}
-            
-        }
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: black;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px 1px 20px;
-            min-height: 100px;
-            z-index: 1000;
-        }
-        
-        footer {
-        position: relative;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: left;
-        padding: 10px;
-        
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
     }
-        .menu {
-            cursor: pointer;
-            font-size: 24px;
-            color: white;
-            position: absolute;
-            left: 20px; /* Garante que o menu fique no canto esquerdo */
-            
-        }
-        .logo {
-            color: #0ff;
-            font-size: 24px;
-            font-weight: bold;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: brightness(1.9);
-        }
-        .menu-content {
-            display: none;
-            position: fixed;
-            top: 60px;
-            left: 20px;
-            background: black;
-            padding: 15px;
-            border-radius: 5px;
-            text-align: left;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
-        }
-        .menu-content a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 10px 0;
-            font-size: 18px;
-        }
-        .menu-content a:hover {
-            color: #0ff;
-        }
-            .menu-content.open {
-    display: flex;
+
+    form input, form textarea {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    form button {
+      padding: 12px;
+      font-size: 16px;
+      background-color: #101820;
+      color: #4c6af2;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #333;
+    }
+
+   .contact-info {
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: right;
 }
-        .social-icons {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .social-icons a {
-            margin-right: 10px;
-            color: white;
-            text-decoration: none;
-            font-size: 10px;
-        }
-        .social-icons a:hover {
-            color: #0ff;
-        }
-        .section {
-            padding: 130px 20px;
-            display: none; /* Ocultar todas as seções por padrão */
-        }
-        .section.active {
-            display: block; /* Exibir apenas a seção ativa */
-        }
 
-        #servicos p {
-           text-align: left; /* Alinha o texto à esquerda apenas na seção Serviços */
-           margin-left: 20px; /* Opcional: Adiciona um recuo à esquerda */
-           font-style: italic;/* Opcional: Adiciona itálico ao texto */
-        }
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #101820;
+      color: #f7f7f7;
+      font-weight: 500;
+    }
 
-        #contacto p {
-           text-align: left; /* Alinha o texto à esquerda apenas na seção contacto */
-           margin-left: 20px; /* Opcional: Adiciona um recuo à esquerda */
-           font-style: italic;/* Opcional: Adiciona itálico ao texto */
-           line-height: 0.8; /* Adiciona isto se quiseres menos altura entre linhas */
-        }
-
-        .botao-mensagem {
-            font-size: 40px;
-            text-decoration: none;
-            display: inline-block;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            animation: balancar 1s infinite alternate;
-            z-index:1000;
-        }
-
-.titulo-com-barra {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center;
-    margin-bottom: 20px; /* Ajusta o espaço abaixo */
+    .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  z-index: 1000;
 }
-            
-        .vertical-line {
-        width: 3px;
-        height: 20px;
-        background-color: #007bff;
-        margin-top: 5px;
-        
-        
-        }
-
-        @keyframes balancar {
-            0% { transform: rotate(0deg);}
-            100% { transform: rotate(10deg);}
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                line-height: 1.8;
-                h1 {line-height: normal;}
-            }
-            
-            .header {
-                flex-direction: row-reverse;
-                box-sizing: border-box;
-            }
-                            
-    .menu-content {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        padding: 20px;
-        box-sizing: border-box;
-        display: none; /* Iniciar escondido */
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        transition: all 0.3s ease; /* Transição suave */
-    }
-    
-    .menu-content a {
-        color: white;
-        text-decoration: none;
-        padding: 15px 0;
-        font-size: 24px;
-        text-align: center;
-        width: 100%;
-        border-bottom: 1px solid #333;
-    }
-    
-    .menu-content a:hover {
-        color: #0ff;
-    }
-
-    /* Quando o menu for aberto, mostrar a altura total da tela */
-    .menu-content.open {
-        display: flex;
-    }
-
-    .menu {
-        font-size: 30px;
-        color: white;
-        cursor: pointer;
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        z-index: 1100;
-    }
+.menu {
+  cursor: pointer;
+  font-size: 28px;
+  color: #4c6af2;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1100;
 }
-            .logo {
-                font-size: 20px;
-            }
-        }
+.logo {
+  color: #4c6af2;
+  font-size: 26px;
+  font-weight: 600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.menu-content {
+  display: block;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 180px;
+  height: calc(100% - 70px);
+  background: #101820;
+  z-index: 999;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  padding-top: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(.77,0,.18,1);
+  opacity: 1;
+  visibility: visible;
+}
+.menu-content.open {
+  transform: translateX(0);
+}
+.menu-content a {
+  display: block;
+  color: #fff;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background 0.2s;
+}
+.menu-content a:hover {
+  background: #222;
+  color: #0ff;
+}
 
-.galeria-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+main {
+  margin-top: 90px;
+}
+
+.social-icons {
+  margin: 20px 0 0 20px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px; /* Espaço entre os ícones */
+}
+.social-icons a {
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0 2px;
+}
+.social-icons a:hover {
+  color: #0ff;
+}
+
+.destaque-piscar {
+  display: block;
+  position: relative;
+  font-weight: 600;
+  
+  color: #222;
+  text-align: center;
+  margin: 30px auto 0 auto;
+  width: max-content;
+  max-width: 100%;
+}
+
+.destaque-piscar::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;  
+  bottom: -6px;
+  height: 2px;
+  background: #4c6af2;
+  border-radius: 2px;
+  opacity: 1;
+  animation: underline-blink 3s linear infinite;
+}
+
+@keyframes underline-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hidden {
+  display: none !important;
+}
+section {
+  scroll-margin-top: 130px; /* altura do header + margem extra */
+}
+
+.footer-link {
+  color: #4c6af2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: #0ff;
+  text-decoration: underline;
+}
+
+
+.faq-section {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
   padding: 20px;
 }
-
-.galeria-item {
-  background: #1a1a1a;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0,255,255,0.1);
-  transition: transform 0.3s ease;
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+.faq-question {
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  padding-right: 20px;
+}
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.faq-question.active::after {
+  content: "-";
+}
+.faq-answer {
+  display: none;
+  padding-top: 8px;
+  color: #444;
 }
 
-.galeria-item:hover {
-  transform: scale(1.03);
-}
-
-.galeria-item img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-.galeria-item p {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #ccc;
-}
-
-            
-    </style>
+  </style>
 </head>
 <body>
-          
-    
-    <div class="header">
-        <div class="menu" onclick="toggleMenu()">☰</div>
-<div class="logo">
-            <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" style="max-width: 100%; height: auto;"></div>
-        
-        <div class="menu-content" id="menuContent">
-    <a href="javascript:void(0);" onclick="showSection('inicio')">Inicio</a>
-    <a href="javascript:void(0);" onclick="showSection('servicos')">Serviços</a>
-    <a href="javascript:void(0);" onclick="showSection('contacto')">Contacto</a>
-    <a href="javascript:void(0);" onclick="showSection('galeria')">Galeria</a>
+  <header>
+  <div class="header">
+    <div class="menu" id="menu-btn">&#9776;</div>
+    <div class="logo">
+  <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" alt="GeraWorldTech" style="max-width:520px; width:100%; height:auto;">
+</div>
+    <nav id="menu-content" class="menu-content">
+     <a href="#inicio" onclick="showOnlySection('inicio'); closeMenu(); return false;">Início</a>
+<a href="#servicos" onclick="showOnlySection('servicos'); closeMenu(); return false;">Serviços</a>
+<a href="#contacto" onclick="showOnlySection('contacto'); closeMenu(); return false;">Contacto</a>
+<a href="#galeria" onclick="showOnlySection('galeria'); closeMenu(); return false;">Galeria</a>
 
-            <div class="social-icons">
+   
+      <div class="social-icons">
         <a href="https://tiktok.com/@geraw0rldtech" target="_blank"><i class="fab fa-tiktok"></i></a>
         <a href="https://youtube.com/geraworldtech" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://instagram.com/geraworldtech" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://facebook.com/geraworldtech" target="_blank"><i class="fab fa-facebook"></i></a>
      </div>
-</div>
-    </div>
+    </nav>
+  </div>
+</header>
 
-<a href="javascript:void(0);" class="botao-mensagem" onclick="showSection('contacto')">💬</a>
+  <main>
+    <section id="inicio" class="section fade-in">
+      <div class="hero-content hero">
+        <h1>Soluções Inteligentes para Seus Equipamentos</h1>
+        <p>A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta.</p>
+      </div>
+    <div style="color:#222; background:none; margin-top:30px;">
+      <p>Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados de reparação de pequenos equipamentos eletrónicos, recuperação de dados em pendrives e outros dispositivos de memoria.</p>
+<p>Entendemos que a recuperação de dados ou outro serviço exige, não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.</p>
+<p>Seja para restaurar o funcionamento de um dispositivo ou recuperar ficheiros importantes, trabalhamos com compromisso e segurança para fornecer as melhores soluções.</p>
+<br>
+<p class="destaque-piscar">Confie em quem entende do assunto!</p>
+  </div>
+    </section>
+
+    <section id="servicos" class="section fade-in">
+      <h2>Nossos Serviços</h2>
+      Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.
+      <div class="card-grid">
+        <div class="card">
+          <h3>Reparação de Pequenos Equipamentos Eletrónicos</h3>
+          <p>Diagnóstico e conserto de circuitos eletrónicos; Substituição de componentes defeituosos; Manutenção preventiva para prolongar a vida útil do dispositivo.</p>
+        </div>
+        <div class="card">
+          <h3>Reparo de Portas ou Conectores Danificados;</h3>
+<p> 📺 Portas de Vídeo: HDMI; Mini HDMI / Micro HDMI; DisplayPort; VGA; DVI.</p>
+<p>🔌 Portas de Energia: DC (DC Jack);  USB-C Power Delivery.</p>
+<p>💾 Portas de Dados: USB-A; USB-C; Micro USB / Mini USB.</p>
+<p>📱 Portas de Áudio e Comunicação: P2 / Jack 3.5 mm; Lightning (Apple); RJ45 (Ethernet); SIM Card Tray.</p>
+        </div>
+        <div class="card">
+          <h3>Recuperação de Dados</h3>
+          <p>Recuperação dpositivos não reconhecidos pelo computador; Extração de dados de pendrives danificados fisicamente; Soluções para erros de formatação e falhas de leitura.</p>
+        </div>
+        <div class="card">
+          <h3>Atendimento Personalizado e Sigiloso</h3>
+          <p>Avaliação gratuita; Orçamento transparente sem compromisso; Sigilo absoluto na recuperação de dados; Atendimento ágil e suporte técnico especializado.</p>
+        </div>
+      </div>
+      <br><br>
+    <p class="destaque-piscar">Entre em contacto e descubra como podemos ajudar!</p>
+    </section>
+
+
+
+    <section id="contacto" class="section fade-in">
+     <h1>Fale Connosco - Estamos Aqui Para Ajudar!</h1>
+    <div class="vertical-line"></div>
+        
+    Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.
+    <br><br>
+       <div class="card">
+        <h3>Descreva o problema:</h3>
+        <p>O que aconteceu com o equipamento?<br>
+        Danos físicos derivados de queda ou água?<br>
+        Desligou e não voltou a ligar?<br>
+        Houve algum erro ao aceder os arquivos?
+        </p>
+        </div>
+        </div>
     
-    <div id="inicio" class="section active">
-      
-        <div class="titulo-com-barra">
-        <h1>GeraWorldTech - Soluções Inteligentes para Seus Equipamentos</h1>
-        <div class="vertical-line"></div>
+        <div class="card">
+            <h3>Detalhes adicionais:</h3>
+         <p>Algo importante a fornecer será qual o modelo do equipamento.<br>
+            Se já tentou algum procedimento para solucionar?<br>
+            Ou se já esteve em uma outra assistência técnica?
+                </p>
+            </div>
         </div>
-            
-            <p>A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta.
-            <br><br>
-            Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados de recuperação de dados em pendrives e outros dispositivos de memoria, reparação de pequenos equipamentos eletrónicos.
-            <br><br>
-            Entendemos que a recuperação de dados ou outro serviço exige, não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.
-            <br><br>
-            Seja para recuperar ficheiros importantes ou restaurar o funcionamento de um dispositivo, trabalhamos com compromisso e segurança para fornecer as melhores soluções.
-            <br><br>
-            Confie em quem entende do assunto.</p>
-            
-    </div>
+    
 
-    <div id="servicos" class="section">
-        
-        <div class="titulo-com-barra">
-        <h1>Nossos Serviços</h1>
-        <div class="vertical-line"></div>          
+        <div class="card">
+            <h3>Anexe imagens:</h3>
+            <p>Se possível, envie fotos do estado do equipamento.<br>
+            Assim nos ajudará a entender melhor o problema e agilizar a análise.  
+            </p>
         </div>
-        
-            Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.
-            <br><br>
-             <div style="position: relative;">
-  <p style="margin: 0;">🔹 Recuperação de Dados</p><br>
-  <img src="https://i.postimg.cc/4x5kdSsF/recupera-ao.png" alt="" 
-       style="position: absolute; right: 0; top: -5px; width: 40px; height: 40px;">
-</div>   
-        
-                 
-            Recuperação de arquivos corrompidos ou excluídos;
-            
-            Restauração de dispositivos não reconhecidos pelo computador;
-            
-            Extração de dados de pendrives/cartões de memória danificados fisicamente;
-            
-            Soluções para erros de formatação e falhas de leitura;
-         <br><br>   
-        <div style="position: relative;">
-  <p style="margin: 0;">🔹 Reparação de Pequenos Equipamentos Eletrónicos</p><br>
-  <img src="https://i.postimg.cc/W4BJbvg0/reparacao.png" alt="" 
-       style="position: absolute; right: 0; top: -10px; width: 50px; height: 50px;">
-</div>
-
-            Diagnóstico e conserto de circuitos eletrónicos;
-            
-            Substituição de componentes defeituosos;
-            
-            Reparo de portas USB danificadas;
-            
-            Manutenção preventiva para prolongar a vida útil do dispositivo;
-
-<br><br>
-             <div style="position: relative;">
-  <p style="margin: 0;">🔹 Atendimento Personalizado e Sigiloso</p><br>
-  <img src="https://i.postimg.cc/D0Mhn2bT/atendimento.png" alt="" 
-       style="position: absolute; right: 0; top: -10px; width: 50px; height: 50px;">
-</div>
-           
-            Avaliação gratuita;
-            
-            Orçamento transparente sem compromisso;
-            
-            Sigilo absoluto na recuperação de dados;
-            
-            Atendimento ágil e suporte técnico especializado;
-            <br><br><br>
-
-            Entre em contacto e descubra como podemos ajudar!
-        
-        
-    </div>
-
-    <div id="contacto" class="section">
-        
-        <div class="titulo-com-barra">
-        <h1>Fale Connosco - Estamos Aqui Para Ajudar!</h1>
-        <div class="vertical-line"></div>
         </div>
+   
+   
+        <br><br>   
 
-        Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.
-        <br><br>
-        <p>🔹 Descreva o problema:</p>
-           O que aconteceu com o equipamento? Danos físicos derivado a queda, ou água? Desligou e não voltou a ligar? Houve algum erro ao aceder os arquivos?
-        <br><br>
-        <p>🔹 Detalhes adicionais:</p>
-            Algo importante a fornecer será qual o modelo do equipamento. Se já tentou algum procedimento para solucionar? Ou se já esteve em uma outra assistência Técnica?
-        <br><br>
-        <p>🔹 Anexe imagens:</p> 
-            Se possível, envie fotos do estado do equipamento. Assim nos ajudará a entender melhor o problema e agilizar a análise.
-        <br><br><br>Entre em contacto agora mesmo! A nossa equipa está pronta para o ajudar com total segurança e sigilo profissional.
-        
-        
-      <br><br>   
-
-
+<div style="text-align:center">
 <!-- Escolha do método de envio -->
 <div id="methodSelection">
     <h3>Escolha o método de contacto:</h3>
@@ -430,76 +455,351 @@ function sendWhatsApp() {
     window.open(url, "_blank");
 }
 </script>
+ </div>    
+     
+     
+
+     
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> globalgeraworld@gmail.com</p>
+        <p><i class="fab fa-whatsapp"></i> (+351) 960 004 881</p>
+      </div>
+    </section>
 
 
 
-<br><br>
-        <i class="fas fa-envelope"></i> Email: globalgeraworld@gmail.com
-       <br>
-        <i class="fab fa-whatsapp"></i> WhatsApp: (+351) 960 004 881
+    <section id="galeria" class="section fade-in hidden">
+      <h2>Exemplos de assistências técnicas prestadas!</h2>
+      <div class="card-grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Pendrive queimado antes e depois">
+            <p>Pendrive com chip NAND extraído – dados recuperados com sucesso.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200" alt="Placa eletrónica soldada">
+            <p>Reparo em porta USB solta numa placa de circuito de leitor de cartões.</p>
+        </div>    
+      </div>
+    </section>
 
-    </div>
+
+<section id="quemsomos" class="section fade-in hidden">
+  <h2>Quem Somos</h2>
+<p>Na GeraWorldTech, somos uma equipa movida pela paixão pela eletrónica e pelo gosto em resolver problemas.</p>
+<p>Gostamos de pensar que, mais do que técnicos, somos curiosos por natureza e detalhistas por vocação.</p>
+<p>Acreditamos que cada equipamento merece atenção — porque pode ter história ou até valor sentimental — e que cada cliente merece clareza, confiança e respeito no serviço que recebe.</p>
+
+<p>O nosso objetivo é oferecer uma alternativa fiável, acessível e próxima para quem precisa de ajuda com os seus equipamentos eletrónicos.</p>
+<p>Trabalhamos com dedicação, paciência e orgulho no que fazemos — seja numa simples reparação ou num desafio mais técnico.</p>
+
+<p>Estamos sediados em Portugal, mas o nosso compromisso é com todas as pessoas que valorizam um trabalho honesto e direto.</p>
+<p>Valorizamos a comunicação simples, orçamentos justos e a transparência em todas as etapas do processo.</p>
+
+<p>A equipa GeraWorldTech entrega grande valor porque, mais do que reparar, gostamos de entender, explicar e ajudar.</p>
+<p>É isso que nos diferencia — e é isso que nos move.</p>
+</section>
+
+<section id="faq" class="section fade-in hidden">
+  <h2>Perguntas Frequentes (FAQ)</h2>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Quanto tempo demora a recuperação de dados?</div>
+    <div class="faq-answer">O tempo varia consoante o tipo de problema, mas normalmente entre 2 a 5 dias úteis.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Conseguem recuperar ficheiros de um pen drive partido?</div>
+    <div class="faq-answer">Sim, desde que a memória interna não esteja danificada, conseguimos fazer a recuperação.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Quanto custa o serviço de recuperação de dados?</div>
+    <div class="faq-answer">O preço varia dependendo da complexidade do problema. Após uma avaliação gratuita, fornecemos um orçamento sem compromisso.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">O que devo fazer se o meu dispositivo caiu na água?</div>
+    <div class="faq-answer">Desligue-o imediatamente e não tente ligá-lo novamente. Traga-o até nós o mais rápido possível para aumentar as chances de recuperação.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Oferecem garantia nos serviços prestados?</div>
+    <div class="faq-answer">Sim, todos os nossos serviços têm garantia de 90 dias, exceto em casos de mau uso pelo cliente.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Realizam reparações em dispositivos Apple, como iPhones e MacBooks?</div>
+    <div class="faq-answer">Não, neste tipo de equipamentos apenas podemos fazer alteraçao de portas usb/conectores de carga.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">O que acontece se não for possível recuperar os dados?</div>
+    <div class="faq-answer">Se não conseguirmos recuperar os dados, não será cobrado nenhum valor pelo serviço.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Como devo enviar o meu dispositivo para análise?</div>
+    <div class="faq-answer">Pode enviar por correio. Recomendamos embalar bem o dispositivo para evitar danos durante o transporte.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Em que formato receberei os dados recuperados?</div>
+    <div class="faq-answer">Os dados podem ser disponibilizados num novo dispositivo físico (fornecido por nós ou pelo cliente), ou através de um serviço online seguro de armazenamento na nuvem (como Google Drive, Dropbox, entre outros), de acordo com a preferência do cliente.</div>
+  </div>
+
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Conseguem recuperar dados de discos rígidos com defeito mecânico?</div>
+    <div class="faq-answer">Não, nao trabalhamos com discos rígidos.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Os meus dados ficam seguros durante a recuperação?</div>
+    <div class="faq-answer">Sim, seguimos protocolos de segurança e confidencialidade rigorosos. Os dados nunca são partilhados ou copiados sem autorização.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">É possível recuperar dados de cartões SD e microSD?</div>
+    <div class="faq-answer">Neste momento estamos a trabalhar na aquisição de equipamentos capazes de fornecer essa recuperaçao para os nossos clientes, mas neste momento, é um serviço ainda não disponivel.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Onde estão localizados?</div>
+    <div class="faq-answer">O nosso espaço está localizado em Portugal, Madeira-Funchal.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Posso acompanhar o estado do meu serviço?</div>
+    <div class="faq-answer">Sim, fornecemos atualizações por e-mail ou WhatsApp conforme o progresso da reparação ou recuperação.</div>
+  </div>
+
+   <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Emitem fatura com NIF?</div>
+    <div class="faq-answer">Nao, de momento, ainda não emitimos faturas formais.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Quais são as formas de pagamento aceites?</div>
+    <div class="faq-answer">Aceitamos MB Way, transferência bancária e PayPal.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Têm política de confidencialidade assinada?</div>
+    <div class="faq-answer">Sim, para serviços sensíveis podemos assinar um acordo de confidencialidade (NDA) a pedido do cliente.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Que tipos de equipamentos reparam?</div>
+    <div class="faq-answer">Reparamos uma vasta gama de dispositivos: desde consolas, telemóveis, carregadores, trocas de portas HDMI/USB a pequenos eletrodomésticos.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">O que devo fazer se o meu aparelho deixou de ligar de repente?</div>
+    <div class="faq-answer">Desligar da corrente e evitar tentar abrir ou mexer internamente. Contactar-nos para avaliação gratuita.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Vale a pena reparar ou é melhor comprar novo?</div>
+    <div class="faq-answer">Depende do caso. A nossa avaliação é gratuita e honesta — se for mais económico substituir, avisamos logo.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Tenho um equipamento antigo. Ainda conseguem peças?</div>
+    <div class="faq-answer">Sempre que possível, procuramos peças compatíveis ou alternativas. Também podemos reparar a componente em vez de substituir.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Quanto tempo demora uma reparação típica?</div>
+    <div class="faq-answer">Reparações simples podem ficar prontas no mesmo dia. Outras demoram entre 2 a 5 dias úteis, dependendo da complexidade do problema e da disponibilidade de peças.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">O equipamento fica com marcas ou sinais após a reparação?</div>
+    <div class="faq-answer">Fazemos reparações com o maior cuidado possível. Evitamos marcas e usamos técnicas/ferramentas que minimizam danos estéticos.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Aceitam equipamentos enviados por correio?</div>
+    <div class="faq-answer">Sim. Basta embalar bem o equipamento e contactar-nos antes para dar os dados de envio.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">O que acontece se o equipamento não tiver reparação?</div>
+    <div class="faq-answer">Se for impossível reparar ou não valer a pena, cobramos apenas uma pequena taxa pelo diagnostico, caso seja feita uma analize profunda e demorada.</div>
+  </div>
+</section>
+
+<section id="termos" class="section fade-in hidden">
+  <h2>Termos e Condições</h2>
+  
+  <p><strong>GeraWorldTech – Reparação de Equipamentos e Recuperação de Dados</strong></p>
+  <p><em>Última atualização: 26/06/2025</em></p>
+
+  <h2>1. Disposições Gerais</h2>
+  <p>Este site pertence e é operado por <strong>GeraWorldTech</strong>. Estes Termos e Condições estabelecem as regras e obrigações que regulam a utilização do nosso website e dos serviços prestados. Ao aceder ou utilizar este site, o utilizador declara que leu, compreendeu e aceita ficar vinculado aos presentes Termos e Condições, bem como à legislação aplicável.</p>
+
+  <h2>2. Serviços Prestados</h2>
+  <p>A GeraWorldTech disponibiliza aos seus clientes os seguintes serviços:</p>
+  <ul>
+    <li>Reparação de pequenos equipamentos eletrónicos;</li>
+    <li>Recuperação de dados de dispositivos de armazenamento (pen drives, cartões SD, discos, etc.);</li>
+    <li>Diagnóstico e orçamentação técnica.</li>
+  </ul>
+  <p>Todos os serviços estão sujeitos à aceitação prévia por parte do cliente, mediante orçamento aprovado.</p>
+
+  <h2>3. Acesso ao Website e Responsabilidade</h2>
+  <ul>
+    <li>O acesso ao website é livre e gratuito. O utilizador compromete-se a utilizá-lo de forma responsável e conforme a legislação em vigor.</li>
+    <li>O utilizador compromete-se a não praticar quaisquer atos que possam prejudicar, danificar ou comprometer o bom funcionamento do site.</li>
+    <li>A GeraWorldTech não se responsabiliza por quaisquer danos diretos, indiretos ou consequenciais resultantes da utilização ou da impossibilidade de utilização do site.</li>
+  </ul>
+
+  <h2>4. Avaliação e Orçamentação</h2>
+  <ul>
+    <li>A análise inicial dos equipamentos é gratuita e não implica qualquer obrigação por parte do cliente.</li>
+    <li>Após avaliação técnica, será apresentado um orçamento. O serviço apenas avança mediante aceitação expressa do cliente.</li>
+    <li>O orçamento tem validade de 10 dias úteis.</li>
+  </ul>
+
+  <h2>5. Condições de Pagamento</h2>
+  <ul>
+    <li>O pagamento deverá ser efetuado no momento da entrega do equipamento reparado ou após a tentativa de recuperação de dados.</li>
+    <li>São aceites MB Way, numerário, transferência bancária e PayPal.</li>
+    <li>Em caso de envio por correio, os portes são da responsabilidade do cliente (salvo exceções acordadas).</li>
+  </ul>
+
+  <h2>6. Garantia de Serviços</h2>
+  <p>As reparações incluem uma garantia de 90 dias, válida apenas para o mesmo problema identificado. A garantia exclui:</p>
+  <ul>
+    <li>Danos causados por má utilização;</li>
+    <li>Quedas, líquidos, ou alterações feitas por terceiros;</li>
+    <li>Fatores externos não relacionados com a reparação inicial.</li>
+  </ul>
+
+  <h2>7. Política de Recuperação de Dados</h2>
+  <ul>
+    <li>Não é garantido o sucesso da recuperação, pois depende do estado do dispositivo.</li>
+    <li>Em caso de insucesso, o cliente não será cobrado (salvo exceções específicas).</li>
+    <li>O cliente pode optar por levantar o dispositivo ou solicitar o seu descarte.</li>
+  </ul>
+
+  <h2>8. Privacidade e Proteção de Dados</h2>
+  <ul>
+    <li>Todos os dados fornecidos serão tratados com confidencialidade.</li>
+    <li>Não copiamos, divulgamos ou armazenamos conteúdos acedidos durante o serviço.</li>
+    <li>Disponibilizamos um Acordo de Confidencialidade (NDA) mediante pedido.</li>
+  </ul>
+
+  <h2>9. Equipamentos Abandonados</h2>
+  <p>Equipamentos não reclamados no prazo de 60 dias após notificação poderão ser eliminados ou reaproveitados, sem nova comunicação ao cliente.</p>
+
+  <h2>10. Propriedade Intelectual</h2>
+  <p>Todos os conteúdos do site são propriedade da GeraWorldTech ou de terceiros autorizados. É proibida a sua utilização sem consentimento prévio.</p>
+
+  <h2>11. Alterações aos Termos</h2>
+  <p>Reservamo-nos o direito de modificar estes Termos e Condições a qualquer momento. As alterações terão efeito imediato após a sua publicação.</p>
+
+  <h2>12. Contacto</h2>
+  <p>Para esclarecimentos ou questões, contacte-nos via email para <a href="mailto:globalgeraworld@gmail.com">globalgeraworld@gmail.com</a>.</p>
+
+</section>
+
+  </main>
+
+<footer class="fade-in">
+  <p>
+    &copy; 2025 GeraWorldTech. Todos os direitos reservados.
+    &nbsp;|&nbsp;
+    <a href="#quemsomos" onclick="showOnlySection('quemsomos'); return false;" class="footer-link">Quem Somos</a>
+    &nbsp;|&nbsp;
+    <a href="#faq" onclick="showOnlySection('faq'); return false;" class="footer-link">FAQ</a>
+    &nbsp;|&nbsp;
+    <a href="#termos" onclick="showOnlySection('termos'); return false;" class="footer-link">Termos e Condições</a>
+  </p>
+</footer>
+
+  <script>
    
-<div id="galeria" class="section">
-  <div class="titulo-com-barra">
-    <h1>Casos Resolvidos</h1>
-    <div class="vertical-line"></div>
-  </div>
+const menuBtn = document.getElementById('menu-btn');
+const menuContent = document.getElementById('menu-content');
 
-  <div class="galeria-container">
-    <div class="galeria-item">
-      <img src="https://via.placeholder.com/300x200" alt="Pendrive queimado antes e depois">
-      <p>Pendrive com chip NAND extraído – dados recuperados com sucesso.</p>
-    </div>
-    <div class="galeria-item">
-      <img src="https://via.placeholder.com/300x200" alt="Placa eletrónica soldada">
-      <p>Reparo em porta USB solta numa placa de circuito de leitor de cartões.</p>
-    </div>
-    <!-- Adiciona mais aqui -->
-  </div>
-</div>
+function openMenu() {
+  menuContent.classList.add('open');
+}
 
+function closeMenu() {
+  menuContent.classList.remove('open');
+}
 
+menuBtn.addEventListener('click', function(e) {
+   e.stopPropagation();
+  if (menuContent.classList.contains('open')) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+});
+
+function showOnlySection(sectionId) {
+  const mainSections = ['inicio', 'servicos', 'contacto'];
+  const extraSections = ['galeria', 'quemsomos', 'faq', 'termos'];
+  const allSections = document.querySelectorAll('main > section');
+
+  if (mainSections.includes(sectionId)) {
+    // Mostra as 3 principais, esconde as extra
+    allSections.forEach(sec => {
+      if (mainSections.includes(sec.id)) {
+        sec.classList.remove('hidden');
+      } else {
+        sec.classList.add('hidden');
+      }
+    });
+    // Scroll para a secção escolhida
+    const secao = document.getElementById(sectionId);
+    if (secao) secao.scrollIntoView({behavior: "smooth"});
+  } else {
+    // Mostra só a secção escolhida, esconde todas as outras
+    allSections.forEach(sec => {
+      if (sec.id === sectionId) {
+        sec.classList.remove('hidden');
+      } else {
+        sec.classList.add('hidden');
+      }
+    });
+    // Scroll para o topo da secção
+    const secao = document.getElementById(sectionId);
+    if (secao) secao.scrollIntoView({behavior: "smooth"});
+  }
+}
+
+document.addEventListener('click', function(event) {
+  if (menuContent.classList.contains('open') && !menuContent.contains(event.target) && event.target !== menuBtn) {
+    closeMenu();
+  }
+});
     
-    <footer>
-        <p>&copy; 2025 GeraWorldTech. Todos os direitos reservados.</p>
-    </footer>
-   
-   <script>
-        function toggleMenu() {
-            var menu = document.getElementById("menuContent");
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
-        }
 
-        function closeMenu() {
-            var menu = document.getElementById("menuContent");
-            menu.style.display = "none";
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
-
-     function showSection(sectionId) {
-    // Ocultar todas as seções
-    var sections = document.querySelectorAll('.section');
-    sections.forEach(function(section) {
-        section.classList.remove('active');
+      });
+    }, {
+      threshold: 0.1
     });
 
-    // Exibir apenas a seção selecionada
-    var sectionToShow = document.getElementById(sectionId);
-    sectionToShow.classList.add('active');
+    document.querySelectorAll('.fade-in').forEach(section => {
+      observer.observe(section);
+    });
 
-    // Garantir que o botão seja corretamente referenciado
-    var botaoMensagem = document.querySelector('.botao-mensagem');
-    if (botaoMensagem) { 
-        if (sectionId === 'contacto') {
-            botaoMensagem.style.display = "none";
-        } else {
-            botaoMensagem.style.display = "inline-block";
-        }
-    }
-   // Fechar o menu
-            closeMenu();
-     }
+function toggleFAQ(element) {
+  const answer = element.nextElementSibling;
+  const isVisible = answer.style.display === 'block';
+  answer.style.display = isVisible ? 'none' : 'block';
+  element.classList.toggle('active', !isVisible);
+}
 
-   </script>
+  </script>
 </body>
 </html>

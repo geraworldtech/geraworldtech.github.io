@@ -310,6 +310,106 @@ section {
   vertical-align: middle;
 }
 
+.inicio-barra-container {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.barra-animada {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 350px; /* aumenta a altura conforme desejares */
+  border-radius: 16px;
+  background: linear-gradient(to left, #5f98da 0%, #7db8da 60%, #fff 100%);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.2s cubic-bezier(.77,0,.18,1);
+  box-shadow: 0 2px 12px 0 rgba(76,106,242,0.12);
+  z-index: 1;
+}
+
+.barra-animada.visible {
+  transform: scaleX(1);
+}
+
+.inicio-barra-texto {
+  position: relative;
+  z-index: 2;
+  padding: 40px 30px 10px 30px; /* espaço interno para não colar ao topo/lados */
+  color: #222;
+  background: none;
+}
+
+
+.servicos-barra-container {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.barra-animada-servicos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 845px; /* igual à outra barra */
+  border-radius: 16px;
+  background: linear-gradient(to right, #5f98da 0%, #7db8da 60%, #fff 100%);
+  /* Inverso: começa invisível, cresce da esquerda para a direita */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s cubic-bezier(.77,0,.18,1);
+  box-shadow: 0 2px 12px 0 rgba(76,106,242,0.12);
+  z-index: 1;
+}
+
+.barra-animada-servicos.visible {
+  transform: scaleX(1);
+}
+
+.servicos-barra-texto {
+  position: relative;
+  z-index: 2;
+  padding: 40px 30px 10px 30px;
+  color: #222;
+  background: none;
+}
+
+.contacto-barra-container {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.barra-animada-contacto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 720px; /* ajusta conforme o conteúdo */
+  border-radius: 16px;
+  background: linear-gradient(to left, #5f98da 0%, #7db8da 60%, #fff 100%);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.2s cubic-bezier(.77,0,.18,1);
+  box-shadow: 0 2px 12px 0 rgba(76,106,242,0.12);
+  z-index: 1;
+}
+
+.barra-animada-contacto.visible {
+  transform: scaleX(1);
+}
+
+.contacto-barra-texto {
+  position: relative;
+  z-index: 2;
+  padding: 40px 30px 10px 30px;
+  color: #222;
+  background: none;
+}
   </style>
 </head>
 <body>
@@ -348,15 +448,23 @@ section {
         <p data-i18n="inicio2">A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta.</p>
       </div>
     <div style="color:#222; background:none; margin-top:30px;">
+      <div class="inicio-barra-container">
+      <div class="barra-animada"></div>
+      <div class="inicio-barra-texto">
       <p data-i18n="inicio3">Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados de reparação de pequenos equipamentos eletrónicos, recuperação de dados em pendrives e outros dispositivos de memoria.</p>
 <p data-i18n="inicio4">Entendemos que a recuperação de dados ou outro serviço exige, não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.</p>
 <p data-i18n="inicio5">Seja para restaurar o funcionamento de um dispositivo ou recuperar ficheiros importantes, trabalhamos com compromisso e segurança para fornecer as melhores soluções.</p>
 <br>
 <p data-i18n="inicio6" class="destaque-piscar">Confie em quem entende do assunto!</p>
   </div>
+      </div>
+    </div>  
     </section>
 
     <section id="servicos" class="section fade-in">
+      <div class="servicos-barra-container">
+    <div class="barra-animada-servicos"></div>
+    <div class="servicos-barra-texto">
       <h2 data-i18n="serviços1">Nossos Serviços</h2>
       <p data-i18n="serviços2">Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.</p>
       <div class="card-grid">
@@ -382,44 +490,40 @@ section {
       </div>
       <br><br>
     <p data-i18n="serviços14" class="destaque-piscar">Entre em contacto e descubra como podemos ajudar!</p>
-    </section>
+    </div>
+    </div>  
+  </section>
 
 
 
     <section id="contacto" class="section fade-in">
-     <h1 data-i18n="contacto1">Fale Connosco - Estamos Aqui Para Ajudar!</h1>
-    <div class="vertical-line"></div>
-        
+   <div class="contacto-barra-container">
+  <div class="barra-animada-contacto"></div>
+  <div class="contacto-barra-texto">
+    <h1 data-i18n="contacto1">Fale Connosco - Estamos Aqui Para Ajudar!</h1>
     <p data-i18n="contacto2">Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.</p>
     <br>
-       <div class="card">
-        <h3 data-i18n="contacto3">Descreva o problema:</h3>
-        <p data-i18n="contacto4">O que aconteceu com o equipamento?<br>
-        Danos físicos derivados de queda ou água?<br>
-        Desligou e não voltou a ligar?<br>
-        Houve algum erro ao aceder os arquivos?
-        </p>
-        </div>
-        </div>
-    
-        <div class="card">
-            <h3 data-i18n="contacto5">Detalhes adicionais:</h3>
-         <p data-i18n="contacto6">Algo importante a fornecer será qual o modelo do equipamento.<br>
-            Se já tentou algum procedimento para solucionar?<br>
-            Ou se já esteve em uma outra assistência técnica?
-                </p>
-            </div>
-        </div>
-    
-
-        <div class="card">
-            <h3 data-i18n="contacto7">Anexe imagens:</h3>
-            <p data-i18n="contacto8">Se possível, envie fotos do estado do equipamento.<br>
-            Assim nos ajudará a entender melhor o problema e agilizar a análise.  
-            </p>
-        </div>
-        </div>
-   
+    <div class="card">
+      <h3 data-i18n="contacto3">Descreva o problema:</h3>
+      <p data-i18n="contacto4">O que aconteceu com o equipamento?<br>
+      Danos físicos derivados de queda ou água?<br>
+      Desligou e não voltou a ligar?<br>
+      Houve algum erro ao aceder os arquivos?</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="contacto5">Detalhes adicionais:</h3>
+      <p data-i18n="contacto6">Algo importante a fornecer será qual o modelo do equipamento.<br>
+      Se já tentou algum procedimento para solucionar?<br>
+      Ou se já esteve em uma outra assistência técnica?</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="contacto7">Anexe imagens:</h3>
+      <p data-i18n="contacto8">Se possível, envie fotos do estado do equipamento.<br>
+      Assim nos ajudará a entender melhor o problema e agilizar a análise.</p>
+    </div>
+  </div>
+</div>
+  
    
         <br><br>   
 
@@ -769,7 +873,6 @@ function showOnlySection(sectionId) {
   const allSections = document.querySelectorAll('main > section');
 
   if (mainSections.includes(sectionId)) {
-    // Mostra as 3 principais, esconde as extra
     allSections.forEach(sec => {
       if (mainSections.includes(sec.id)) {
         sec.classList.remove('hidden');
@@ -777,11 +880,9 @@ function showOnlySection(sectionId) {
         sec.classList.add('hidden');
       }
     });
-    // Scroll para a secção escolhida
     const secao = document.getElementById(sectionId);
     if (secao) secao.scrollIntoView({behavior: "smooth"});
   } else {
-    // Mostra só a secção escolhida, esconde todas as outras
     allSections.forEach(sec => {
       if (sec.id === sectionId) {
         sec.classList.remove('hidden');
@@ -789,9 +890,41 @@ function showOnlySection(sectionId) {
         sec.classList.add('hidden');
       }
     });
-    // Scroll para o topo da secção
     const secao = document.getElementById(sectionId);
     if (secao) secao.scrollIntoView({behavior: "smooth"});
+  }
+
+  // Chama a animação da barra ao mostrar "inicio"
+  if (sectionId === 'inicio') {
+    animarBarraInicio();
+  }
+  
+}
+
+function animarBarraInicio() {
+  const barra = document.querySelector('#inicio .barra-animada');
+  if (barra) {
+    barra.classList.remove('visible');
+    void barra.offsetWidth;
+    setTimeout(() => barra.classList.add('visible'), 50);
+  }
+}
+
+function animarBarraServicos() {
+  const barra = document.querySelector('#servicos .barra-animada-servicos');
+  if (barra) {
+    barra.classList.remove('visible');
+    void barra.offsetWidth;
+    setTimeout(() => barra.classList.add('visible'), 50);
+  }
+}
+
+function animarBarraContacto() {
+  const barra = document.querySelector('#contacto .barra-animada-contacto');
+  if (barra) {
+    barra.classList.remove('visible');
+    void barra.offsetWidth;
+    setTimeout(() => barra.classList.add('visible'), 50);
   }
 }
 
@@ -1130,6 +1263,63 @@ function toggleFAQ(element) {
 
     setLanguage('pt');
 
+    document.addEventListener('DOMContentLoaded', function() {
+  // Se a secção "inicio" está visível ao carregar, anima a barra
+  const inicioSection = document.getElementById('inicio');
+  if (inicioSection && !inicioSection.classList.contains('hidden')) {
+    animarBarraInicio();
+  }
+});
+
+const barra = document.querySelector('#inicio .barra-animada');
+const inicioSection = document.getElementById('inicio');
+const barraServicos = document.querySelector('#servicos .barra-animada-servicos');
+const servicosSection = document.getElementById('servicos');
+
+if (barra && inicioSection) {
+  const barraObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animarBarraInicio();
+      } else {
+        barra.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  barraObserver.observe(inicioSection);
+}
+
+if (barraServicos && servicosSection) {
+  const barraServicosObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animarBarraServicos();
+      } else {
+        barraServicos.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  barraServicosObserver.observe(servicosSection);
+}
+
+const barraContacto = document.querySelector('#contacto .barra-animada-contacto');
+const contactoSection = document.getElementById('contacto');
+
+if (barraContacto && contactoSection) {
+  const barraContactoObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animarBarraContacto();
+      } else {
+        barraContacto.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  barraContactoObserver.observe(contactoSection);
+}
   </script>
 </body>
 </html>

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   
 
 
@@ -294,6 +295,21 @@ section {
   color: #444;
 }
 
+    .language-switcher {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 2000;
+    }
+    .language-switcher img {
+  width: 40px;
+  height: 28px;
+  object-fit: cover;
+  margin-left: 10px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
   </style>
 </head>
 <body>
@@ -304,10 +320,10 @@ section {
   <img src="https://i.postimg.cc/QN7nvy2S/lgo-1.png" alt="GeraWorldTech" style="max-width:520px; width:100%; height:auto;">
 </div>
     <nav id="menu-content" class="menu-content">
-     <a href="#inicio" onclick="showOnlySection('inicio'); closeMenu(); return false;">Início</a>
-<a href="#servicos" onclick="showOnlySection('servicos'); closeMenu(); return false;">Serviços</a>
-<a href="#contacto" onclick="showOnlySection('contacto'); closeMenu(); return false;">Contacto</a>
-<a href="#galeria" onclick="showOnlySection('galeria'); closeMenu(); return false;">Galeria</a>
+     <a href="#inicio" onclick="showOnlySection('inicio'); closeMenu(); return false;" data-i18n="menu1">Início</a>
+<a href="#servicos" onclick="showOnlySection('servicos'); closeMenu(); return false;" data-i18n="menu2">Serviços</a>
+<a href="#contacto" onclick="showOnlySection('contacto'); closeMenu(); return false;" data-i18n="menu3">Contacto</a>
+<a href="#galeria" onclick="showOnlySection('galeria'); closeMenu(); return false;" data-i18n="menu4">Galeria</a>
 
    
       <div class="social-icons">
@@ -320,60 +336,65 @@ section {
   </div>
 </header>
 
+  <div class="language-switcher">
+    <img src="https://flagcdn.com/w40/pt.png" alt="Português" onclick="setLanguage('pt')">
+    <img src="https://flagcdn.com/w40/gb.png" alt="English" onclick="setLanguage('en')">
+  </div>
+
   <main>
     <section id="inicio" class="section fade-in">
       <div class="hero-content hero">
-        <h1>Soluções Inteligentes para Seus Equipamentos</h1>
-        <p>A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta.</p>
+        <h1 data-i18n="inicio1">Soluções Inteligentes para Seus Equipamentos</h1>
+        <p data-i18n="inicio2">A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta.</p>
       </div>
     <div style="color:#222; background:none; margin-top:30px;">
-      <p>Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados de reparação de pequenos equipamentos eletrónicos, recuperação de dados em pendrives e outros dispositivos de memoria.</p>
-<p>Entendemos que a recuperação de dados ou outro serviço exige, não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.</p>
-<p>Seja para restaurar o funcionamento de um dispositivo ou recuperar ficheiros importantes, trabalhamos com compromisso e segurança para fornecer as melhores soluções.</p>
+      <p data-i18n="inicio3">Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados de reparação de pequenos equipamentos eletrónicos, recuperação de dados em pendrives e outros dispositivos de memoria.</p>
+<p data-i18n="inicio4">Entendemos que a recuperação de dados ou outro serviço exige, não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.</p>
+<p data-i18n="inicio5">Seja para restaurar o funcionamento de um dispositivo ou recuperar ficheiros importantes, trabalhamos com compromisso e segurança para fornecer as melhores soluções.</p>
 <br>
-<p class="destaque-piscar">Confie em quem entende do assunto!</p>
+<p data-i18n="inicio6" class="destaque-piscar">Confie em quem entende do assunto!</p>
   </div>
     </section>
 
     <section id="servicos" class="section fade-in">
-      <h2>Nossos Serviços</h2>
-      Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.
+      <h2 data-i18n="serviços1">Nossos Serviços</h2>
+      <p data-i18n="serviços2">Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.</p>
       <div class="card-grid">
         <div class="card">
-          <h3>Reparação de Pequenos Equipamentos Eletrónicos</h3>
-          <p>Diagnóstico e conserto de circuitos eletrónicos; Substituição de componentes defeituosos; Manutenção preventiva para prolongar a vida útil do dispositivo.</p>
+          <h3 data-i18n="serviços3">Reparação de Pequenos Equipamentos Eletrónicos</h3>
+          <p data-i18n="serviços4">Diagnóstico e conserto de circuitos eletrónicos; Substituição de componentes defeituosos; Manutenção preventiva para prolongar a vida útil do dispositivo.</p>
         </div>
         <div class="card">
-          <h3>Reparo de Portas ou Conectores Danificados;</h3>
-<p>Portas de Vídeo: HDMI; Mini HDMI / Micro HDMI; DisplayPort; VGA; DVI.</p>
-<p>Portas de Energia: DC (DC Jack);  USB-C Power Delivery.</p>
-<p>Portas de Dados: USB-A; USB-C; Micro USB / Mini USB.</p>
-<p>Portas de Áudio e Comunicação: P2 / Jack 3.5 mm; Lightning (Apple); RJ45 (Ethernet); SIM Card Tray.</p>
+          <h3 data-i18n="serviços5">Reparo de Portas ou Conectores Danificados;</h3>
+<p data-i18n="serviços6">Portas de Vídeo: HDMI; Mini HDMI / Micro HDMI; DisplayPort; VGA; DVI.</p>
+<p data-i18n="serviços7">Portas de Energia: DC (DC Jack);  USB-C Power Delivery.</p>
+<p data-i18n="serviços8">Portas de Dados: USB-A; USB-C; Micro USB / Mini USB.</p>
+<p data-i18n="serviços9">Portas de Áudio e Comunicação: P2 / Jack 3.5 mm; Lightning (Apple); RJ45 (Ethernet); SIM Card Tray.</p>
         </div>
         <div class="card">
-          <h3>Recuperação de Dados</h3>
-          <p>Recuperação dpositivos não reconhecidos pelo computador; Extração de dados de pendrives danificados fisicamente; Soluções para erros de formatação e falhas de leitura.</p>
+          <h3 data-i18n="serviços10">Recuperação de Dados</h3>
+          <p data-i18n="serviços11">Recuperação de dispositivos não reconhecidos pelo computador; Extração de dados de pendrives danificados fisicamente; Soluções para erros de formatação e falhas de leitura.</p>
         </div>
         <div class="card">
-          <h3>Atendimento Personalizado e Sigiloso</h3>
-          <p>Avaliação gratuita; Orçamento transparente sem compromisso; Sigilo absoluto na recuperação de dados; Atendimento ágil e suporte técnico especializado.</p>
+          <h3 data-i18n="serviços12">Atendimento Personalizado e Sigiloso</h3>
+          <p data-i18n="serviços13">Avaliação gratuita; Orçamento transparente sem compromisso; Sigilo absoluto na recuperação de dados; Atendimento ágil e suporte técnico especializado.</p>
         </div>
       </div>
       <br><br>
-    <p class="destaque-piscar">Entre em contacto e descubra como podemos ajudar!</p>
+    <p data-i18n="serviços14" class="destaque-piscar">Entre em contacto e descubra como podemos ajudar!</p>
     </section>
 
 
 
     <section id="contacto" class="section fade-in">
-     <h1>Fale Connosco - Estamos Aqui Para Ajudar!</h1>
+     <h1 data-i18n="contacto1">Fale Connosco - Estamos Aqui Para Ajudar!</h1>
     <div class="vertical-line"></div>
         
-    Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.
-    <br><br>
+    <p data-i18n="contacto2">Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.</p>
+    <br>
        <div class="card">
-        <h3>Descreva o problema:</h3>
-        <p>O que aconteceu com o equipamento?<br>
+        <h3 data-i18n="contacto3">Descreva o problema:</h3>
+        <p data-i18n="contacto4">O que aconteceu com o equipamento?<br>
         Danos físicos derivados de queda ou água?<br>
         Desligou e não voltou a ligar?<br>
         Houve algum erro ao aceder os arquivos?
@@ -382,8 +403,8 @@ section {
         </div>
     
         <div class="card">
-            <h3>Detalhes adicionais:</h3>
-         <p>Algo importante a fornecer será qual o modelo do equipamento.<br>
+            <h3 data-i18n="contacto5">Detalhes adicionais:</h3>
+         <p data-i18n="contacto6">Algo importante a fornecer será qual o modelo do equipamento.<br>
             Se já tentou algum procedimento para solucionar?<br>
             Ou se já esteve em uma outra assistência técnica?
                 </p>
@@ -392,8 +413,8 @@ section {
     
 
         <div class="card">
-            <h3>Anexe imagens:</h3>
-            <p>Se possível, envie fotos do estado do equipamento.<br>
+            <h3 data-i18n="contacto7">Anexe imagens:</h3>
+            <p data-i18n="contacto8">Se possível, envie fotos do estado do equipamento.<br>
             Assim nos ajudará a entender melhor o problema e agilizar a análise.  
             </p>
         </div>
@@ -405,9 +426,9 @@ section {
 <div style="text-align:center">
 <!-- Escolha do método de envio -->
 <div id="methodSelection">
-    <h3>Escolha o método de contacto:</h3>
-    <button class="custom-button email" onclick="sendEmail()">📧 Enviar por Email</button>
-    <button class="custom-button whatsapp" onclick="sendWhatsApp()">📱 Enviar pelo WhatsApp</button>
+    <h3 data-i18n="contacto9">Escolha o método de contacto:</h3>
+    <button class="custom-button email" onclick="sendEmail()" data-i18n="contacto10">📧 Enviar por Email</button>
+    <button class="custom-button whatsapp" onclick="sendWhatsApp()" data-i18n="contacto11">📱 Enviar pelo WhatsApp</button>
 </div>
 
 <style>
@@ -456,7 +477,10 @@ function sendWhatsApp() {
 }
 </script>
  </div>    
-     <br><br>     
+     
+     <br><br>
+
+     
       <div class="contact-info">
         <p><i class="fas fa-envelope"></i> globalgeraworld@gmail.com</p>
         <p><i class="fab fa-whatsapp"></i> (+351) 960 004 881</p>
@@ -466,7 +490,7 @@ function sendWhatsApp() {
 
 
     <section id="galeria" class="section fade-in hidden">
-      <h2>Exemplos de assistências técnicas prestadas!</h2>
+      <h2 data-i18n="galeria1">Exemplos de assistências técnicas prestadas!</h2>
       <div class="card-grid">
         <div class="card">
             <img src="https://via.placeholder.com/300x200" alt="Pendrive queimado antes e depois">
@@ -481,223 +505,225 @@ function sendWhatsApp() {
 
 
 <section id="quemsomos" class="section fade-in hidden">
-  <h2>Quem Somos</h2>
-<p>Na GeraWorldTech, somos uma equipa movida pela paixão pela eletrónica e pelo gosto em resolver problemas.</p>
-<p>Gostamos de pensar que, mais do que técnicos, somos curiosos por natureza e detalhistas por vocação.</p>
-<p>Acreditamos que cada equipamento merece atenção — porque pode ter história ou até valor sentimental — e que cada cliente merece clareza, confiança e respeito no serviço que recebe.</p>
+  <h2 data-i18n="quemsomos1">Quem Somos</h2>
+<p data-i18n="quemsomos2">Na GeraWorldTech, somos uma equipa movida pela paixão pela eletrónica e pelo gosto em resolver problemas.</p>
+<p data-i18n="quemsomos3">Gostamos de pensar que, mais do que técnicos, somos curiosos por natureza e detalhistas por vocação.</p>
+<p data-i18n="quemsomos4">Acreditamos que cada equipamento merece atenção — porque pode ter história ou até valor sentimental — e que cada cliente merece clareza, confiança e respeito no serviço que recebe.</p>
 
-<p>O nosso objetivo é oferecer uma alternativa fiável, acessível e próxima para quem precisa de ajuda com os seus equipamentos eletrónicos.</p>
-<p>Trabalhamos com dedicação, paciência e orgulho no que fazemos — seja numa simples reparação ou num desafio mais técnico.</p>
+<p data-i18n="quemsomos5">O nosso objetivo é oferecer uma alternativa fiável, acessível e próxima para quem precisa de ajuda com os seus equipamentos eletrónicos.</p>
+<p data-i18n="quemsomos6">Trabalhamos com dedicação, paciência e orgulho no que fazemos — seja numa simples reparação ou num desafio mais técnico.</p>
 
-<p>Estamos sediados em Portugal, mas o nosso compromisso é com todas as pessoas que valorizam um trabalho honesto e direto.</p>
-<p>Valorizamos a comunicação simples, orçamentos justos e a transparência em todas as etapas do processo.</p>
+<p data-i18n="quemsomos7">Estamos sediados em Portugal, mas o nosso compromisso é com todas as pessoas que valorizam um trabalho honesto e direto.</p>
+<p data-i18n="quemsomos8">Valorizamos a comunicação simples, orçamentos justos e a transparência em todas as etapas do processo.</p>
 
-<p>A equipa GeraWorldTech entrega grande valor porque, mais do que reparar, gostamos de entender, explicar e ajudar.</p>
-<p>É isso que nos diferencia — e é isso que nos move.</p>
+<p data-i18n="quemsomos9">A equipa GeraWorldTech entrega grande valor porque, mais do que reparar, gostamos de entender, explicar e ajudar.</p>
+<p data-i18n="quemsomos10">É isso que nos diferencia — e é isso que nos move.</p>
 </section>
 
 <section id="faq" class="section fade-in hidden">
-  <h2>Perguntas Frequentes (FAQ)</h2>
+  <h2 data-i18n="faq1">Perguntas Frequentes (FAQ)</h2>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Quanto tempo demora a recuperação de dados?</div>
-    <div class="faq-answer">O tempo varia consoante o tipo de problema, mas normalmente entre 2 a 5 dias úteis.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq2">Quanto tempo demora a recuperação de dados?</div>
+    <div class="faq-answer" data-i18n="faq3">O tempo varia consoante o tipo de problema, mas normalmente entre 2 a 5 dias úteis.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Conseguem recuperar ficheiros de um pen drive partido?</div>
-    <div class="faq-answer">Sim, desde que a memória interna não esteja danificada, conseguimos fazer a recuperação.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq4">Conseguem recuperar ficheiros de um pen drive partido?</div>
+    <div class="faq-answer" data-i18n="faq5">Sim, desde que a memória interna não esteja danificada, conseguimos fazer a recuperação.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Quanto custa o serviço de recuperação de dados?</div>
-    <div class="faq-answer">O preço varia dependendo da complexidade do problema. Após uma avaliação gratuita, fornecemos um orçamento sem compromisso.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq6">Quanto tempo demora uma reparação típica?</div>
+    <div class="faq-answer" data-i18n="faq7">Reparações simples podem ficar prontas no mesmo dia. Outras demoram entre 2 a 5 dias úteis, dependendo da complexidade do problema e da disponibilidade de peças.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">O que devo fazer se o meu dispositivo caiu na água?</div>
-    <div class="faq-answer">Desligue-o imediatamente e não tente ligá-lo novamente. Traga-o até nós o mais rápido possível para aumentar as chances de recuperação.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq8">O equipamento fica com marcas ou sinais após a reparação?</div>
+    <div class="faq-answer" data-i18n="faq9">Fazemos reparações com o maior cuidado possível. Evitamos marcas e usamos técnicas/ferramentas que minimizam danos estéticos.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Oferecem garantia nos serviços prestados?</div>
-    <div class="faq-answer">Sim, todos os nossos serviços têm garantia de 90 dias, exceto em casos de mau uso pelo cliente.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq10">Aceitam equipamentos enviados por correio?</div>
+    <div class="faq-answer" data-i18n="faq11">Sim. Basta embalar bem o equipamento e contactar-nos antes para dar os dados de envio.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Realizam reparações em dispositivos Apple, como iPhones e MacBooks?</div>
-    <div class="faq-answer">Não, neste tipo de equipamentos apenas podemos fazer alteraçao de portas usb/conectores de carga.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq12">O que acontece se o equipamento não tiver reparação?</div>
+    <div class="faq-answer" data-i18n="faq13">Se for impossível reparar ou não valer a pena, cobramos apenas uma pequena taxa pelo diagnostico, caso seja feita uma analize profunda e demorada, em contrário nao cobraremos nada.</div>
+  </div>
+  
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq14">Quanto custa o serviço de recuperação de dados?</div>
+    <div class="faq-answer" data-i18n="faq15">O preço varia dependendo da complexidade do problema. Após uma avaliação gratuita, fornecemos um orçamento sem compromisso.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">O que acontece se não for possível recuperar os dados?</div>
-    <div class="faq-answer">Se não conseguirmos recuperar os dados, não será cobrado nenhum valor pelo serviço.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq16">O que devo fazer se o meu dispositivo caiu na água?</div>
+    <div class="faq-answer" data-i18n="faq17">Desligue-o imediatamente e não tente ligá-lo novamente. Traga-o até nós o mais rápido possível para aumentar as chances de recuperação.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Como devo enviar o meu dispositivo para análise?</div>
-    <div class="faq-answer">Pode enviar por correio. Recomendamos embalar bem o dispositivo para evitar danos durante o transporte.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq18">Oferecem garantia nos serviços prestados?</div>
+    <div class="faq-answer" data-i18n="faq19">Sim, todos os nossos serviços têm garantia de 90 dias, exceto em casos de mau uso pelo cliente.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Em que formato receberei os dados recuperados?</div>
-    <div class="faq-answer">Os dados podem ser disponibilizados num novo dispositivo físico (fornecido por nós ou pelo cliente), ou através de um serviço online seguro de armazenamento na nuvem (como Google Drive, Dropbox, entre outros), de acordo com a preferência do cliente.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq20">Realizam reparações em dispositivos Apple, como iPhones e MacBooks?</div>
+    <div class="faq-answer" data-i18n="faq21">Não, neste tipo de equipamentos apenas podemos fazer alteraçao de portas usb/conectores de carga.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq22">O que acontece se não for possível recuperar os dados?</div>
+    <div class="faq-answer" data-i18n="faq23">Se não conseguirmos recuperar os dados, não será cobrado nenhum valor pelo serviço.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq24">Como devo enviar o meu dispositivo para análise?</div>
+    <div class="faq-answer" data-i18n="faq25">Pode enviar por correio. Recomendamos embalar bem o dispositivo para evitar danos durante o transporte.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq26">Em que formato receberei os dados recuperados?</div>
+    <div class="faq-answer" data-i18n="faq27">Os dados podem ser disponibilizados num novo dispositivo físico (fornecido por nós ou pelo cliente), ou através de um serviço online seguro de armazenamento na nuvem (como Google Drive, Dropbox, entre outros), de acordo com a preferência do cliente.</div>
   </div>
 
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Conseguem recuperar dados de discos rígidos com defeito mecânico?</div>
-    <div class="faq-answer">Não, nao trabalhamos com discos rígidos.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq28">Conseguem recuperar dados de discos rígidos com defeito mecânico?</div>
+    <div class="faq-answer" data-i18n="faq29">Não, nao trabalhamos com discos rígidos.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Os meus dados ficam seguros durante a recuperação?</div>
-    <div class="faq-answer">Sim, seguimos protocolos de segurança e confidencialidade rigorosos. Os dados nunca são partilhados ou copiados sem autorização.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq30">Os meus dados ficam seguros durante a recuperação?</div>
+    <div class="faq-answer" data-i18n="faq31">Sim, seguimos protocolos de segurança e confidencialidade rigorosos. Os dados nunca são partilhados ou copiados sem autorização.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">É possível recuperar dados de cartões SD e microSD?</div>
-    <div class="faq-answer">Neste momento estamos a trabalhar na aquisição de equipamentos capazes de fornecer essa recuperaçao para os nossos clientes, mas neste momento, é um serviço ainda não disponivel.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq32">É possível recuperar dados de cartões SD e microSD?</div>
+    <div class="faq-answer" data-i18n="faq33">Neste momento estamos a trabalhar na aquisição de equipamentos capazes de fornecer essa recuperaçao para os nossos clientes, mas neste momento, é um serviço ainda não disponivel.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Onde estão localizados?</div>
-    <div class="faq-answer">O nosso espaço está localizado em Portugal, Madeira-Funchal.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq34">Onde estão localizados?</div>
+    <div class="faq-answer" data-i18n="faq35">O nosso espaço está localizado em Portugal, Madeira-Funchal.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Posso acompanhar o estado do meu serviço?</div>
-    <div class="faq-answer">Sim, fornecemos atualizações por e-mail ou WhatsApp conforme o progresso da reparação ou recuperação.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq36">Posso acompanhar o estado do meu serviço?</div>
+    <div class="faq-answer" data-i18n="faq37">Sim, fornecemos atualizações por e-mail ou WhatsApp conforme o progresso da reparação ou recuperação.</div>
   </div>
 
    <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Emitem fatura com NIF?</div>
-    <div class="faq-answer">Nao, de momento, ainda não emitimos faturas formais.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq38">Emitem fatura com NIF?</div>
+    <div class="faq-answer" data-i18n="faq39">Nao, de momento, ainda não emitimos faturas formais.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Quais são as formas de pagamento aceites?</div>
-    <div class="faq-answer">Aceitamos MB Way, transferência bancária e PayPal.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq40">Quais são as formas de pagamento aceites?</div>
+    <div class="faq-answer" data-i18n="faq41">Aceitamos MB Way, transferência bancária e PayPal.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Têm política de confidencialidade assinada?</div>
-    <div class="faq-answer">Sim, para serviços sensíveis podemos assinar um acordo de confidencialidade (NDA) a pedido do cliente.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq42">Têm política de confidencialidade assinada?</div>
+    <div class="faq-answer" data-i18n="faq43">Sim, para serviços sensíveis podemos assinar um acordo de confidencialidade (NDA) a pedido do cliente.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Que tipos de equipamentos reparam?</div>
-    <div class="faq-answer">Reparamos uma vasta gama de dispositivos: desde consolas, telemóveis, carregadores, trocas de portas HDMI/USB a pequenos eletrodomésticos.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq44">Que tipos de equipamentos reparam?</div>
+    <div class="faq-answer" data-i18n="faq45">Reparamos uma vasta gama de dispositivos: desde consolas, telemóveis, carregadores, trocas de portas HDMI/USB a pequenos eletrodomésticos.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">O que devo fazer se o meu aparelho deixou de ligar de repente?</div>
-    <div class="faq-answer">Desligar da corrente e evitar tentar abrir ou mexer internamente. Contactar-nos para avaliação gratuita.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq46">O que devo fazer se o meu aparelho deixou de ligar de repente?</div>
+    <div class="faq-answer" data-i18n="faq47">Desligar da corrente e evitar tentar abrir ou mexer internamente. Contactar-nos para avaliação gratuita.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Vale a pena reparar ou é melhor comprar novo?</div>
-    <div class="faq-answer">Depende do caso. A nossa avaliação é gratuita e honesta — se for mais económico substituir, avisamos logo.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq48">Vale a pena reparar ou é melhor comprar novo?</div>
+    <div class="faq-answer" data-i18n="faq49">Depende do caso. A nossa avaliação é gratuita e honesta — se for mais económico substituir, avisamos logo.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Tenho um equipamento antigo. Ainda conseguem peças?</div>
-    <div class="faq-answer">Sempre que possível, procuramos peças compatíveis ou alternativas. Também podemos reparar a componente em vez de substituir.</div>
+    <div class="faq-question" onclick="toggleFAQ(this)" data-i18n="faq50">Tenho um equipamento antigo. Ainda conseguem peças?</div>
+    <div class="faq-answer" data-i18n="faq51">Sempre que possível, procuramos peças compatíveis. Também podemos reparar o componente (dependendo da sua estrutura) em vez de substituir.</div>
   </div>
 
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Quanto tempo demora uma reparação típica?</div>
-    <div class="faq-answer">Reparações simples podem ficar prontas no mesmo dia. Outras demoram entre 2 a 5 dias úteis, dependendo da complexidade do problema e da disponibilidade de peças.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">O equipamento fica com marcas ou sinais após a reparação?</div>
-    <div class="faq-answer">Fazemos reparações com o maior cuidado possível. Evitamos marcas e usamos técnicas/ferramentas que minimizam danos estéticos.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">Aceitam equipamentos enviados por correio?</div>
-    <div class="faq-answer">Sim. Basta embalar bem o equipamento e contactar-nos antes para dar os dados de envio.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFAQ(this)">O que acontece se o equipamento não tiver reparação?</div>
-    <div class="faq-answer">Se for impossível reparar ou não valer a pena, cobramos apenas uma pequena taxa pelo diagnostico, caso seja feita uma analize profunda e demorada.</div>
-  </div>
+  
 </section>
 
 <section id="termos" class="section fade-in hidden">
-  <h2>Termos e Condições</h2>
+  <h2 data-i18n="termos1">Termos e Condições</h2>
   
-  <p><strong>GeraWorldTech – Reparação de Equipamentos e Recuperação de Dados</strong></p>
-  <p><em>Última atualização: 26/06/2025</em></p>
+  <p data-i18n="termos2"><strong>GeraWorldTech – Reparação de Equipamentos e Recuperação de Dados</strong></p>
+  <p data-i18n="termos3"><em>Última atualização: 26/05/2025</em></p>
 
-  <h2>1. Disposições Gerais</h2>
-  <p>Este site pertence e é operado por <strong>GeraWorldTech</strong>. Estes Termos e Condições estabelecem as regras e obrigações que regulam a utilização do nosso website e dos serviços prestados. Ao aceder ou utilizar este site, o utilizador declara que leu, compreendeu e aceita ficar vinculado aos presentes Termos e Condições, bem como à legislação aplicável.</p>
+  <h2 data-i18n="termos4">1. Disposições Gerais</h2>
+  <p data-i18n="termos5">Este site pertence e é operado por <strong>GeraWorldTech</strong>. Estes Termos e Condições estabelecem as regras e obrigações que regulam a utilização do nosso website e dos serviços prestados. Ao aceder ou utilizar este site, o utilizador declara que leu, compreendeu e aceita ficar vinculado aos presentes Termos e Condições, bem como à legislação aplicável.</p>
 
-  <h2>2. Serviços Prestados</h2>
-  <p>A GeraWorldTech disponibiliza aos seus clientes os seguintes serviços:</p>
+  <h2 data-i18n="termos6">2. Serviços Prestados</h2>
+  <p data-i18n="termos7">A GeraWorldTech disponibiliza aos seus clientes os seguintes serviços:</p>
   <ul>
-    <li>Reparação de pequenos equipamentos eletrónicos;</li>
-    <li>Recuperação de dados de dispositivos de armazenamento (pen drives, cartões SD, discos, etc.);</li>
-    <li>Diagnóstico e orçamentação técnica.</li>
+    <li data-i18n="termos8">Reparação de pequenos equipamentos eletrónicos;</li>
+    <li data-i18n="termos9">Recuperação de dados de dispositivos de armazenamento (pen drives, cartões SD, etc.);</li>
+    <li data-i18n="termos10">Diagnóstico e orçamentação técnica.</li>
   </ul>
-  <p>Todos os serviços estão sujeitos à aceitação prévia por parte do cliente, mediante orçamento aprovado.</p>
+  <p data-i18n="termos11">Todos os serviços estão sujeitos à aceitação prévia por parte do cliente, mediante orçamento aprovado.</p>
 
-  <h2>3. Acesso ao Website e Responsabilidade</h2>
+  <h2 data-i18n="termos12">3. Acesso ao Website e Responsabilidade</h2>
   <ul>
-    <li>O acesso ao website é livre e gratuito. O utilizador compromete-se a utilizá-lo de forma responsável e conforme a legislação em vigor.</li>
-    <li>O utilizador compromete-se a não praticar quaisquer atos que possam prejudicar, danificar ou comprometer o bom funcionamento do site.</li>
-    <li>A GeraWorldTech não se responsabiliza por quaisquer danos diretos, indiretos ou consequenciais resultantes da utilização ou da impossibilidade de utilização do site.</li>
-  </ul>
-
-  <h2>4. Avaliação e Orçamentação</h2>
-  <ul>
-    <li>A análise inicial dos equipamentos é gratuita e não implica qualquer obrigação por parte do cliente.</li>
-    <li>Após avaliação técnica, será apresentado um orçamento. O serviço apenas avança mediante aceitação expressa do cliente.</li>
-    <li>O orçamento tem validade de 10 dias úteis.</li>
+    <li data-i18n="termos13">O acesso ao website é livre e gratuito. O utilizador compromete-se a utilizá-lo de forma responsável e conforme a legislação em vigor.</li>
+    <li data-i18n="termos14">O utilizador compromete-se a não praticar quaisquer atos que possam prejudicar, danificar ou comprometer o bom funcionamento do site.</li>
+    <li data-i18n="termos15">A GeraWorldTech não se responsabiliza por quaisquer danos diretos, indiretos ou consequenciais resultantes da utilização ou da impossibilidade de utilização do site.</li>
   </ul>
 
-  <h2>5. Condições de Pagamento</h2>
+  <h2 data-i18n="termos16">4. Avaliação e Orçamentação</h2>
   <ul>
-    <li>O pagamento deverá ser efetuado no momento da entrega do equipamento reparado ou após a tentativa de recuperação de dados.</li>
-    <li>São aceites MB Way, numerário, transferência bancária e PayPal.</li>
-    <li>Em caso de envio por correio, os portes são da responsabilidade do cliente (salvo exceções acordadas).</li>
+    <li data-i18n="termos17">A análise inicial dos equipamentos é gratuita e não implica qualquer obrigação por parte do cliente.</li>
+    <li data-i18n="termos18">Após avaliação técnica, será apresentado um orçamento. O serviço apenas avança mediante aceitação expressa do cliente.</li>
+    <li data-i18n="termos19">O orçamento tem validade de 10 dias úteis.</li>
   </ul>
 
-  <h2>6. Garantia de Serviços</h2>
-  <p>As reparações incluem uma garantia de 90 dias, válida apenas para o mesmo problema identificado. A garantia exclui:</p>
+  <h2 data-i18n="termos20">5. Condições de Pagamento</h2>
   <ul>
-    <li>Danos causados por má utilização;</li>
-    <li>Quedas, líquidos, ou alterações feitas por terceiros;</li>
-    <li>Fatores externos não relacionados com a reparação inicial.</li>
+    <li data-i18n="termos21">O pagamento deverá ser efetuado no momento da entrega do equipamento reparado ou após a tentativa de recuperação de dados.</li>
+    <li data-i18n="termos22">São aceites MB Way, numerário, transferência bancária e PayPal.</li>
+    <li data-i18n="termos23">Em caso de envio por correio, os portes são da responsabilidade do cliente (salvo exceções acordadas).</li>
   </ul>
 
-  <h2>7. Política de Recuperação de Dados</h2>
+  <h2 data-i18n="termos24">6. Garantia de Serviços</h2>
+  <p data-i18n="termos25">As reparações incluem uma garantia de 90 dias, válida apenas para o mesmo problema identificado. A garantia exclui:</p>
   <ul>
-    <li>Não é garantido o sucesso da recuperação, pois depende do estado do dispositivo.</li>
-    <li>Em caso de insucesso, o cliente não será cobrado (salvo exceções específicas).</li>
-    <li>O cliente pode optar por levantar o dispositivo ou solicitar o seu descarte.</li>
+    <li data-i18n="termos26">Danos causados por má utilização;</li>
+    <li data-i18n="termos27">Quedas, líquidos, ou alterações feitas por terceiros;</li>
+    <li data-i18n="termos28">Fatores externos não relacionados com a reparação inicial.</li>
   </ul>
 
-  <h2>8. Privacidade e Proteção de Dados</h2>
+  <h2 data-i18n="termos29">7. Política de Recuperação de Dados</h2>
   <ul>
-    <li>Todos os dados fornecidos serão tratados com confidencialidade.</li>
-    <li>Não copiamos, divulgamos ou armazenamos conteúdos acedidos durante o serviço.</li>
-    <li>Disponibilizamos um Acordo de Confidencialidade (NDA) mediante pedido.</li>
+    <li data-i18n="termos30">Não é garantido o sucesso da recuperação, pois depende do estado do dispositivo.</li>
+    <li data-i18n="termos31">Em caso de insucesso, o cliente não será cobrado (salvo exceções específicas).</li>
+    <li data-i18n="termos32">O cliente pode optar por levantar o dispositivo ou solicitar o seu descarte.</li>
   </ul>
 
-  <h2>9. Equipamentos Abandonados</h2>
-  <p>Equipamentos não reclamados no prazo de 60 dias após notificação poderão ser eliminados ou reaproveitados, sem nova comunicação ao cliente.</p>
+  <h2 data-i18n="termos33">8. Privacidade e Proteção de Dados</h2>
+  <ul>
+    <li data-i18n="termos34">Todos os dados fornecidos serão tratados com confidencialidade.</li>
+    <li data-i18n="termos35">Não copiamos, divulgamos ou armazenamos conteúdos acedidos durante o serviço.</li>
+    <li data-i18n="termos36">Disponibilizamos um Acordo de Confidencialidade (NDA) mediante pedido.</li>
+  </ul>
 
-  <h2>10. Propriedade Intelectual</h2>
-  <p>Todos os conteúdos do site são propriedade da GeraWorldTech ou de terceiros autorizados. É proibida a sua utilização sem consentimento prévio.</p>
+  <h2 data-i18n="termos37">9. Equipamentos Abandonados</h2>
+  <p data-i18n="termos38">Equipamentos não reclamados no prazo de 60 dias após notificação poderão ser eliminados ou reaproveitados, sem nova comunicação ao cliente.</p>
 
-  <h2>11. Alterações aos Termos</h2>
-  <p>Reservamo-nos o direito de modificar estes Termos e Condições a qualquer momento. As alterações terão efeito imediato após a sua publicação.</p>
+  <h2 data-i18n="termos39">10. Propriedade Intelectual</h2>
+  <p data-i18n="termos40">Todos os conteúdos do site são propriedade da GeraWorldTech ou de terceiros autorizados. É proibida a sua utilização sem consentimento prévio.</p>
 
-  <h2>12. Contacto</h2>
-  <p>Para esclarecimentos ou questões, contacte-nos via email para <a href="mailto:globalgeraworld@gmail.com">globalgeraworld@gmail.com</a>.</p>
+  <h2 data-i18n="termos41">11. Alterações aos Termos</h2>
+  <p data-i18n="termos42">Reservamo-nos o direito de modificar estes Termos e Condições a qualquer momento. As alterações terão efeito imediato após a sua publicação.</p>
+
+  <h2 data-i18n="termos43">12. Contacto</h2>
+  <p data-i18n="termos44"></p>
 
 </section>
 
@@ -705,13 +731,13 @@ function sendWhatsApp() {
 
 <footer class="fade-in">
   <p>
-    &copy; 2025 GeraWorldTech. Todos os direitos reservados.
+    <span data-i18n="direitos">&copy; 2025 GeraWorldTech. Todos os direitos reservados.</span>
     &nbsp;|&nbsp;
-    <a href="#quemsomos" onclick="showOnlySection('quemsomos'); return false;" class="footer-link">Quem Somos</a>
+    <a href="#quemsomos" onclick="showOnlySection('quemsomos'); return false;" class="footer-link" data-i18n="quemsomos0">Quem Somos</a>
     &nbsp;|&nbsp;
     <a href="#faq" onclick="showOnlySection('faq'); return false;" class="footer-link">FAQ</a>
     &nbsp;|&nbsp;
-    <a href="#termos" onclick="showOnlySection('termos'); return false;" class="footer-link">Termos e Condições</a>
+    <a href="#termos" onclick="showOnlySection('termos'); return false;" class="footer-link" data-i18n="termos0">Termos e Condições</a>
   </p>
 </footer>
 
@@ -796,6 +822,313 @@ function toggleFAQ(element) {
   answer.style.display = isVisible ? 'none' : 'block';
   element.classList.toggle('active', !isVisible);
 }
+
+    const translations = {
+      pt: {
+        menu1: "Início",
+        menu2: "Serviços",
+        menu3: "Contacto",
+        menu4: "Galeria", 
+        inicio1: "Soluções Inteligentes para Seus Equipamentos",
+        inicio2: "A tecnologia faz parte do nosso dia a dia, e quando algo falha, cada segundo conta.",
+        inicio3: "Na GeraWorldTech, combinamos expertise e precisão para oferecer serviços especializados de reparação de pequenos equipamentos eletrónicos, recuperação de dados em pendrives e outros dispositivos de memoria.",
+        inicio4: "Entendemos que a recuperação de dados ou outro serviço exige, não apenas eficiência, mas também confiança e discrição. Por isso, tratamos cada caso com o mais alto nível de sigilo profissional, garantindo a segurança e a privacidade das suas informações.",
+        inicio5: "Seja para restaurar o funcionamento de um dispositivo ou recuperar ficheiros importantes, trabalhamos com compromisso e segurança para fornecer as melhores soluções.",
+        inicio6: "Confie em quem entende do assunto!",
+        serviços1: "Nossos Serviços",
+        serviços2: "Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.",
+        serviços3: "Reparação de Pequenos Equipamentos Eletrónicos",
+        serviços4: "Diagnóstico e conserto de circuitos eletrónicos; Substituição de componentes defeituosos; Manutenção preventiva para prolongar a vida útil do dispositivo.",
+        serviços5: "Reparo de Portas ou Conectores Danificados;",
+        serviços6: "Portas de Vídeo: HDMI; Mini HDMI / Micro HDMI; DisplayPort; VGA; DVI.",
+        serviços7: "Portas de Energia: DC (DC Jack);  USB-C Power Delivery.",
+        serviços8: "Portas de Dados: USB-A; USB-C; Micro USB / Mini USB.",
+        serviços9: "Portas de Áudio e Comunicação: P2 / Jack 3.5 mm; Lightning (Apple); RJ45 (Ethernet); SIM Card Tray.",
+        serviços10: "Recuperação de Dados",
+        serviços11: "Recuperação de dispositivos não reconhecidos pelo computador; Extração de dados de pendrives danificados fisicamente; Soluções para erros de formatação e falhas de leitura.",
+        serviços12: "Atendimento Personalizado e Sigiloso",
+        serviços13: "Avaliação gratuita; Orçamento transparente sem compromisso; Sigilo absoluto na recuperação de dados; Atendimento ágil e suporte técnico especializado.",
+        serviços14: "Entre em contacto e descubra como podemos ajudar!",
+        contacto1: "Fale Connosco - Estamos Aqui Para Ajudar!",
+        contacto2: "Para que possamos oferecer a melhor solução para si, pedimos que forneça algumas informações sobre o sucedido.",
+        contacto3: "Descreva o problema:",
+        contacto4: "O que aconteceu com o equipamento?<br> Danos físicos derivados de queda ou água?<br> Desligou e não voltou a ligar?<br> Houve algum erro ao aceder os arquivos?",
+        contacto5: "Detalhes adicionais:",
+        contacto6: "Algo importante a fornecer será qual o modelo do equipamento.<br> Se já tentou algum procedimento para solucionar?<br> Ou se já esteve em uma outra assistência técnica?",
+        contacto7: "Anexe imagens:",
+        contacto8: "Se possível, envie fotos do estado do equipamento.<br> Assim nos ajudará a entender melhor o problema e agilizar a análise.",
+        contacto9: "Escolha o método de contacto:",
+        contacto10: "📧 Enviar por Email",
+        contacto11: "📱 Enviar pelo WhatsApp",
+        galeria1: "Exemplos de assistências técnicas prestadas!",
+        direitos: "&copy; 2025 GeraWorldTech. Todos os direitos reservados.",
+        quemsomos0: "Quem Somos",
+        quemsomos1: "Quem Somos",
+        quemsomos2: "Na GeraWorldTech, somos uma equipa movida pela paixão pela eletrónica e pelo gosto em resolver problemas.",
+        quemsomos3: "Gostamos de pensar que, mais do que técnicos, somos curiosos por natureza e detalhistas por vocação.",
+        quemsomos4: "Acreditamos que cada equipamento merece atenção — porque pode ter história ou até valor sentimental — e que cada cliente merece clareza, confiança e respeito no serviço que recebe.",
+        quemsomos5: "O nosso objetivo é oferecer uma alternativa fiável, acessível e próxima para quem precisa de ajuda com os seus equipamentos eletrónicos.",
+        quemsomos6: "Trabalhamos com dedicação, paciência e orgulho no que fazemos — seja numa simples reparação ou num desafio mais técnico.",
+        quemsomos7: "Estamos sediados em Portugal, mas o nosso compromisso é com todas as pessoas que valorizam um trabalho honesto e direto.",
+        quemsomos8: "Valorizamos a comunicação simples, orçamentos justos e a transparência em todas as etapas do processo.",
+        quemsomos9: "A equipa GeraWorldTech entrega grande valor porque, mais do que reparar, gostamos de entender, explicar e ajudar.",
+        quemsomos10: "É isso que nos diferencia — e é isso que nos move.",
+        faq1: "Perguntas Frequentes (FAQ)",
+        faq2: "Quanto tempo demora a recuperação de dados?",
+        faq3: "O tempo varia consoante o tipo de problema, mas normalmente entre 2 a 5 dias úteis.",
+        faq4: "Conseguem recuperar ficheiros de um pen drive partido?",
+        faq5: "Sim, desde que a memória interna não esteja danificada, conseguimos fazer a recuperação.",
+        faq6: "Quanto tempo demora uma reparação típica?",
+        faq7: "Reparações simples podem ficar prontas no mesmo dia. Outras demoram entre 2 a 5 dias úteis, dependendo da complexidade do problema e da disponibilidade de peças.",
+        faq8: "O equipamento fica com marcas ou sinais após a reparação?",
+        faq9: "Fazemos reparações com o maior cuidado possível. Evitamos marcas e usamos técnicas/ferramentas que minimizam danos estéticos.",
+        faq10: "Aceitam equipamentos enviados por correio?",
+        faq11: "Sim. Basta embalar bem o equipamento e contactar-nos antes para dar os dados de envio.",
+        faq12: "O que acontece se o equipamento não tiver reparação?",
+        faq13: "Se for impossível reparar ou não valer a pena, cobramos apenas uma pequena taxa pelo diagnostico, caso seja feita uma analize profunda e demorada, em contrário nao cobraremos nada.",
+        faq14: "Quanto custa o serviço de recuperação de dados?",
+        faq15: "O preço varia dependendo da complexidade do problema. Após uma avaliação gratuita, fornecemos um orçamento sem compromisso.",
+        faq16: "O que devo fazer se o meu dispositivo caiu na água?",
+        faq17: "Desligue-o imediatamente e não tente ligá-lo novamente. Traga-o até nós o mais rápido possível para aumentar as chances de recuperação.",
+        faq18: "Oferecem garantia nos serviços prestados?",
+        faq19: "Sim, todos os nossos serviços têm garantia de 90 dias, exceto em casos de mau uso pelo cliente.",
+        faq20: "Realizam reparações em dispositivos Apple, como iPhones e MacBooks?",
+        faq21: "Não, neste tipo de equipamentos apenas podemos fazer alteraçao de portas usb/conectores de carga.",
+        faq22: "O que acontece se não for possível recuperar os dados?",
+        faq23: "Se não conseguirmos recuperar os dados, não será cobrado nenhum valor pelo serviço.",
+        faq24: "Como devo enviar o meu dispositivo para análise?",
+        faq25: "Pode enviar por correio. Recomendamos embalar bem o dispositivo para evitar danos durante o transporte.",
+        faq26: "Em que formato receberei os dados recuperados?",
+        faq27: "Os dados podem ser disponibilizados num novo dispositivo físico (fornecido por nós ou pelo cliente), ou através de um serviço online seguro de armazenamento na nuvem (como Google Drive, Dropbox, entre outros), de acordo com a preferência do cliente.",
+        faq28: "Conseguem recuperar dados de discos rígidos com defeito mecânico?",
+        faq29: "Não, nao trabalhamos com discos rígidos.",
+        faq30: "Os meus dados ficam seguros durante a recuperação?",
+        faq31: "Sim, seguimos protocolos de segurança e confidencialidade rigorosos. Os dados nunca são partilhados ou copiados sem autorização.",
+        faq32: "É possível recuperar dados de cartões SD e microSD?",
+        faq33: "Neste momento estamos a trabalhar na aquisição de equipamentos capazes de fornecer essa recuperaçao para os nossos clientes, mas neste momento, é um serviço ainda não disponivel.",
+        faq34: "Onde estão localizados?",
+        faq35: "O nosso espaço está localizado em Portugal, Madeira-Funchal.", 
+        faq36: "Posso acompanhar o estado do meu serviço?",
+        faq37: "Sim, fornecemos atualizações por e-mail ou WhatsApp conforme o progresso da reparação ou recuperação.",
+        faq38: "Emitem fatura com NIF?",
+        faq39: "Nao, de momento, ainda não emitimos faturas formais.",
+        faq40: "Quais são as formas de pagamento aceites?",
+        faq41: "Aceitamos MB Way, transferência bancária e PayPal.",
+        faq42: "Têm política de confidencialidade assinada?",
+        faq43: "Sim, para serviços sensíveis podemos assinar um acordo de confidencialidade (NDA) a pedido do cliente.",
+        faq44: "Que tipos de equipamentos reparam?",
+        faq45: "Reparamos uma vasta gama de dispositivos: desde consolas, telemóveis, carregadores, trocas de portas HDMI/USB a pequenos eletrodomésticos.",
+        faq46: "O que devo fazer se o meu aparelho deixou de ligar de repente?",
+        faq47: "Desligar da corrente e evitar tentar abrir ou mexer internamente. Contactar-nos para avaliação gratuita.",
+        faq48: "Vale a pena reparar ou é melhor comprar novo?",
+        faq49: "Depende do caso. A nossa avaliação é gratuita e honesta — se for mais económico substituir, avisamos logo.",
+        faq50: "Tenho um equipamento antigo. Ainda conseguem peças?",
+        faq51: "Sempre que possível, procuramos peças compatíveis. Também podemos reparar o componente (dependendo da sua estrutura) em vez de substituir.",
+        termos0: "Termos e Condições",
+        termos1: "Termos e Condições",
+        termos2: "GeraWorldTech – Reparação de Equipamentos e Recuperação de Dados",
+        termos3: "Última atualização: 26/05/2025",
+        termos4: "1. Disposições Gerais",
+        termos5: "Este site pertence e é operado por GeraWorldTech. Estes Termos e Condições estabelecem as regras e obrigações que regulam a utilização do nosso website e dos serviços prestados. Ao aceder ou utilizar este site, o utilizador declara que leu, compreendeu e aceita ficar vinculado aos presentes Termos e Condições, bem como à legislação aplicável.",
+        termos6: "2. Serviços Prestados",
+        termos7: "A GeraWorldTech disponibiliza aos seus clientes os seguintes serviços:",
+        termos8: "Reparação de pequenos equipamentos eletrónicos;",
+        termos9: "Recuperação de dados de dispositivos de armazenamento (pen drives, cartões SD, etc.);",
+        termos10: "Diagnóstico e orçamentação técnica.",
+        termos11: "Todos os serviços estão sujeitos à aceitação prévia por parte do cliente, mediante orçamento aprovado.",
+        termos12: "3. Acesso ao Website e Responsabilidade",
+        termos13: "O acesso ao website é livre e gratuito. O utilizador compromete-se a utilizá-lo de forma responsável e conforme a legislação em vigor.",
+        termos14: "O utilizador compromete-se a não praticar quaisquer atos que possam prejudicar, danificar ou comprometer o bom funcionamento do site.",
+        termos15: "A GeraWorldTech não se responsabiliza por quaisquer danos diretos, indiretos ou consequenciais resultantes da utilização ou da impossibilidade de utilização do site.",
+        termos16: "4. Avaliação e Orçamentação",
+        termos17: "A análise inicial dos equipamentos é gratuita e não implica qualquer obrigação por parte do cliente.",
+        termos18: "Após avaliação técnica, será apresentado um orçamento. O serviço apenas avança mediante aceitação expressa do cliente.",
+        termos19: "O orçamento tem validade de 10 dias úteis.",
+        termos20: "5. Condições de Pagamento",
+        termos21: "O pagamento deverá ser efetuado no momento da entrega do equipamento reparado ou após a tentativa de recuperação de dados.",
+        termos22: "São aceites MB Way, numerário, transferência bancária e PayPal.",
+        termos23: "Em caso de envio por correio, os portes são da responsabilidade do cliente (salvo exceções acordadas).",
+        termos24: "6. Garantia de Serviços",
+        termos25: "As reparações incluem uma garantia de 90 dias, válida apenas para o mesmo problema identificado. A garantia exclui:",
+        termos26: "Danos causados por má utilização;",
+        termos27: "Quedas, líquidos, ou alterações feitas por terceiros;",
+        termos28: "Fatores externos não relacionados com a reparação inicial.",
+        termos29: "7. Política de Recuperação de Dados",
+        termos30: "Não é garantido o sucesso da recuperação, pois depende do estado do dispositivo.",
+        termos31: "Em caso de insucesso, o cliente não será cobrado (salvo exceções específicas).",
+        termos32: "O cliente pode optar por levantar o dispositivo ou solicitar o seu descarte.",
+        termos33: "8. Privacidade e Proteção de Dados",
+        termos34: "Todos os dados fornecidos serão tratados com confidencialidade.",
+        termos35: "Não copiamos, divulgamos ou armazenamos conteúdos acedidos durante o serviço.",
+        termos36: "Disponibilizamos um Acordo de Confidencialidade (NDA) mediante pedido.",
+        termos37: "9. Equipamentos Abandonados",
+        termos38: "Equipamentos não reclamados no prazo de 60 dias após notificação poderão ser eliminados ou reaproveitados, sem nova comunicação ao cliente.",
+        termos39: "10. Propriedade Intelectual",
+        termos40: "Todos os conteúdos do site são propriedade da GeraWorldTech ou de terceiros autorizados. É proibida a sua utilização sem consentimento prévio.",
+        termos41: "11. Alterações aos Termos",
+        termos42: "Reservamo-nos o direito de modificar estes Termos e Condições a qualquer momento. As alterações terão efeito imediato após a sua publicação.",
+        termos43: "12. Contacto",
+        termos44: 'Para esclarecimentos ou questões, contacte-nos via email para <a href="mailto:globalgeraworld@gmail.com">globalgeraworld@gmail.com</a>.',
+      },
+      en: {
+        menu1: "Home",
+        menu2: "Services",
+        menu3: "Contact",
+        menu4: "Gallery",
+        inicio1: "Smart Solutions for Your Devices",
+        inicio2: "Technology is part of our daily lives, and when something fails, every second counts.",
+        inicio3: "At GeraWorldTech, we combine expertise and precision to offer specialized services in repairing small electronic devices and recovering data from USB drives and other memory devices.",
+        inicio4: "We understand that data recovery or other services require not only efficiency but also trust and discretion. Therefore, we handle each case with the highest level of professional confidentiality, ensuring the security and privacy of your information.",
+        inicio5: "Whether it's restoring the functionality of a device or recovering important files, we work with commitment and security to provide the best solutions.",
+        inicio6: "Trust those who understand the subject!",
+        serviços1: "Our Services",
+        serviços2: "At GeraWorldTech, we offer specialized solutions to ensure the best performance of your devices and secure data recovery with total confidentiality.",
+        serviços3: "Repair of Small Electronic Devices",
+        serviços4: "Diagnosis and repair of electronic circuits; Replacement of defective components; Preventive maintenance to extend device lifespan.",
+        serviços5: "Repair of Damaged Ports or Connectors;",
+        serviços6: "Video Ports: HDMI; Mini HDMI / Micro HDMI; DisplayPort; VGA; DVI.",
+        serviços7: "Power Ports: DC (DC Jack); USB-C Power Delivery.",
+        serviços8: "Data Ports: USB-A; USB-C; Micro USB / Mini USB.",
+        serviços9: "Audio and Communication Ports: P2 / Jack 3.5 mm; Lightning (Apple); RJ45 (Ethernet); SIM Card Tray.",
+        serviços10: "Data Recovery",
+        serviços11: "Recovery of devices not recognized by the computer; Extraction of data from physically damaged USB drives; Solutions for formatting errors and reading failures.",
+        serviços12: "Personalized and Confidential Service",
+        serviços13: "Free assessment; Transparent quote without commitment; Absolute confidentiality in data recovery; Quick service and specialized technical support.",
+        serviços14: "Contact us and find out how we can help!",
+        contacto1: "Contact Us - We Are Here to Help!",
+        contacto2: "To provide you with the best solution, please provide some information about what happened.",
+        contacto3: "Describe the problem:",
+        contacto4: "What happened to the device?<br> Physical damage from a fall or water?<br> It turned off and won't turn back on?<br> Was there an error accessing the files?",
+        contacto5: "Additional details:",
+        contacto6: "An important detail to provide is the model of the device.<br> If you have already tried any procedures to solve it?<br> Or if it has been to another service center?",
+        contacto7: "Attach images:",
+        contacto8: "If possible, send photos of the device's condition.<br> This will help us better understand the problem and speed up the analysis.",
+        contacto9: "Choose the contact method:",
+        contacto10: "📧 Send by Email",
+        contacto11: "📱 Send via WhatsApp",
+        galeria1: "Examples of technical assistance provided!",
+        direitos: "&copy; 2025 GeraWorldTech. All rights reserved.",
+        quemsomos0: "Who We Are",
+        quemsomos1: "Who We Are",
+        quemsomos2: "At GeraWorldTech, we are a team driven by a passion for electronics and a love for problem-solving.",
+        quemsomos3: "We like to think that, more than technicians, we are naturally curious and detail-oriented by vocation.",
+        quemsomos4: "We believe that every device deserves attention — because it may have history or sentimental value — and that every customer deserves clarity, trust, and respect in the service they receive.",
+        quemsomos5: "Our goal is to offer a reliable, accessible, and close alternative for those who need help with their electronic devices.",
+        quemsomos6: "We work with dedication, patience, and pride in what we do — whether in a simple repair or a more technical challenge.",
+        quemsomos7: "We are based in Portugal, but our commitment is to all people who value honest and straightforward work.",
+        quemsomos8: "We value simple communication, fair quotes, and transparency at all stages of the process.",
+        quemsomos9: "The GeraWorldTech team delivers great value because, more than repairing, we like to understand, explain, and help.",
+        quemsomos10: "That's what sets us apart — and that's what drives us.",
+        faq1: "Frequently Asked Questions (FAQ)",
+        faq2: "How long does data recovery take?",
+        faq3: "The time varies depending on the type of problem, but typically between 2 to 5 business days.",
+        faq4: "Can you recover files from a broken USB drive?",
+        faq5: "Yes, as long as the internal memory is not damaged, we can perform the recovery.",
+        faq6: "How long does a typical repair take?",
+        faq7: "Simple repairs can be ready on the same day. Others take between 2 to 5 business days, depending on the complexity of the problem and the availability of parts.",
+        faq8: "Will the device have marks or signs after the repair?",
+        faq9: "We perform repairs with the utmost care possible. We avoid marks and use techniques/tools that minimize aesthetic damage.",
+        faq10: "Do you accept devices sent by mail?",
+        faq11: "Yes. Just pack the device well and contact us beforehand to provide the shipping details.",
+        faq12: "What happens if the device cannot be repaired?",
+        faq13: "If it is impossible to repair or not worth it, we only charge a small fee for the diagnosis, if a thorough and time-consuming analysis is done; otherwise, we will not charge anything.",
+        faq14: "How much does the data recovery service cost?",
+        faq15: "The price varies depending on the complexity of the problem. After a free assessment, we provide a quote without commitment.",
+        faq16: "What should I do if my device fell into water?",
+        faq17: "Turn it off immediately and do not try to turn it back on. Bring it to us as soon as possible to increase the chances of recovery.",
+        faq18: "Do you offer a warranty on the services provided?",
+        faq19: "Yes, all our services come with a 90-day warranty, except in cases of misuse by the customer.",
+        faq20: "Do you repair Apple devices, such as iPhones and MacBooks?",
+        faq21: "No, at this time we can only replace USB ports/charging connectors on these devices.",
+        faq22: "What happens if data recovery is not possible?",
+        faq23: "If we cannot recover the data, no charge will be made for the service.",
+        faq24: "How should I send my device for analysis?",
+        faq25: "You can send it by mail. We recommend packaging the device well to avoid damage during transport.",
+        faq26: "In what format will I receive the recovered data?",
+        faq27: "The data can be provided on a new physical device (provided by us or the customer) or through a secure online cloud storage service (like Google Drive, Dropbox, etc.), according to the customer's preference.",
+        faq28: "Can you recover data from mechanically damaged hard drives?",
+        faq29: "No, we do not work with hard drives.",
+        faq30: "Are my data safe during recovery?",
+        faq31: "Yes, we follow strict security and confidentiality protocols. Data is never shared or copied without authorization.",
+        faq32: "Is it possible to recover data from SD and microSD cards?",
+        faq33: "At the moment, we are working on acquiring equipment capable of providing this recovery for our customers, but at this time, it is still an unavailable service.",
+        faq34: "Where are you located?",
+        faq35: "Our space is located in Portugal, Madeira-Funchal.",
+        faq36: "Can I track the status of my service?",
+        faq37: "Yes, we provide updates via email or WhatsApp as the repair or recovery progresses.",
+        faq38: "Do you issue invoices with NIF?",
+        faq39: "No, at the moment, we do not issue formal invoices.",
+        faq40: "What payment methods do you accept?",
+        faq41: "We accept MB Way, bank transfer, and PayPal.",
+        faq42: "Do you have a signed confidentiality policy?",
+        faq43: "Yes, for sensitive services we can sign a Non-Disclosure Agreement (NDA) at the customer's request.",
+        faq44: "What types of devices do you repair?",
+        faq45: "We repair a wide range of devices: from consoles, mobile phones, chargers, HDMI/USB port replacements to small household appliances.",
+        faq46: "What should I do if my device suddenly stopped turning on?",
+        faq47: "Unplug it and avoid trying to open or tamper with it internally. Contact us for a free assessment.",
+        faq48: "Is it worth repairing or is it better to buy a new one?",
+        faq49: "It depends on the case. Our assessment is free and honest — if it is more economical to replace, we will let you know right away.",
+        faq50: "I have an old device. Can you still get parts?",
+        faq51: "Whenever possible, we look for compatible parts. We can also repair the component (depending on its structure) instead of replacing it.",
+        termos0: "Terms and Conditions",
+        termos1: "Terms and Conditions",
+        termos2: "GeraWorldTech – Equipment Repair and Data Recovery",
+        termos3: "Last updated: 26/05/2025",
+        termos4: "1. General Provisions",
+        termos5: "This site belongs to and is operated by GeraWorldTech. These Terms and Conditions establish the rules and obligations that govern the use of our website and the services provided. By accessing or using this site, the user declares that they have read, understood, and accepted to be bound by these Terms and Conditions, as well as applicable legislation.",
+        termos6: "2. Services Provided",
+        termos7: "GeraWorldTech offers the following services to its customers:",
+        termos8: "Repair of small electronic devices;",
+        termos9: "Data recovery from storage devices (USB drives, SD cards, etc.);",
+        termos10: "Technical diagnosis and budgeting.",
+        termos11: "All services are subject to prior acceptance by the customer, upon approval of the budget.",
+        termos12: "3. Access to the Website and Responsibility",
+        termos13: "Access to the website is free and open. The user agrees to use it responsibly and in accordance with current legislation.",
+        termos14: "The user agrees not to engage in any acts that may harm, damage, or compromise the proper functioning of the site.",
+        termos15: "GeraWorldTech is not responsible for any direct, indirect, or consequential damages resulting from the use or inability to use the site.",
+        termos16: "4. Evaluation and Budgeting",
+        termos17: "The initial analysis of devices is free and does not imply any obligation on the part of the customer.",
+        termos18: "After technical evaluation, a budget will be presented. The service only proceeds upon express acceptance by the customer.",
+        termos19: "The budget is valid for 10 business days.",
+        termos20: "5. Payment Conditions",
+        termos21: "Payment must be made at the time of delivery of the repaired device or after the attempt to recover data.",
+        termos22: "We accept MB Way, cash, bank transfer, and PayPal.",
+        termos23: "In case of shipping by mail, shipping costs are the responsibility of the customer (unless otherwise agreed).",
+        termos24: "6. Service Warranty",
+        termos25: "Repairs include a 90-day warranty, valid only for the same problem identified. The warranty excludes:",
+        termos26: "Damage caused by misuse;",
+        termos27: "Falls, liquids, or alterations made by third parties;",
+        termos28: "External factors unrelated to the initial repair.",
+        termos29: "7. Data Recovery Policy",
+        termos30: "The success of recovery is not guaranteed, as it depends on the condition of the device.",
+        termos31: "In case of failure, the customer will not be charged (unless specific exceptions apply).",
+        termos32: "The customer can choose to pick up the device or request its disposal.",
+        termos33: "8. Privacy and Data Protection",
+        termos34: "All data provided will be treated confidentially.",
+        termos35: "We do not copy, disclose, or store content accessed during the service.",
+        termos36: "We provide a Non-Disclosure Agreement (NDA) upon request.",
+        termos37: "9. Abandoned Equipment",
+        termos38: "Unclaimed equipment after 60 days from notification may be disposed of or repurposed, without further communication to the customer.",
+        termos39: "10. Intellectual Property",
+        termos40: "All content on the site is the property of GeraWorldTech or third parties authorized. Its use without prior consent is prohibited.",
+        termos41: "11. Changes to the Terms",
+        termos42: "We reserve the right to modify these Terms and Conditions at any time. Changes will take effect immediately upon publication.",
+        termos43: "12. Contact",
+        termos44: 'For clarifications or questions, please contact us via email at <a href="mailto:globalgeraworld@gmail.com">globalgeraworld@gmail.com</a>.',
+        
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    setLanguage('pt');
 
   </script>
 </body>

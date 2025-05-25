@@ -355,7 +355,7 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-  height: 845px; /* igual à outra barra */
+  height: 1080px; /* igual à outra barra */
   border-radius: 16px;
   background: linear-gradient(to right, #5f98da 0%, #7db8da 60%, #fff 100%);
   /* Inverso: começa invisível, cresce da esquerda para a direita */
@@ -410,6 +410,35 @@ section {
   color: #222;
   background: none;
 }
+.inicio-barra-texto p {
+  text-align: center;
+}
+
+.servicos-barra-texto p {
+  text-align: center;
+}
+
+#quemsomos p {
+  text-align: center;
+}
+
+.servicos-barra-texto .card h3 {
+  text-align: center;
+}
+
+.contacto-barra-texto p[data-i18n="contacto2"] {
+  text-align: center;
+}
+
+.img-redonda {
+  width: 120px;      /* ajusta o tamanho conforme quiseres */
+  height: 120px;     /* igual ao width para ficar perfeitamente redonda */
+  object-fit: cover; /* garante que a imagem preenche o círculo */
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 16px auto; /* centra e afasta do texto */
+}
+
 @media (max-width: 700px) {
   .barra-animada {
     height: 550px !important; /* Início */
@@ -429,7 +458,7 @@ section {
     min-height: 1100px;
   }
 }
-}
+
   </style>
 </head>
 <body>
@@ -481,6 +510,10 @@ section {
     </div>  
     </section>
 
+    <div style="text-align:center; margin: 8px 0 0 0;">
+      <img src="https://i.postimg.cc/ZRR7jR0V/imagem-1.jpg" alt="imagem1" style="width: 100%; max-width: 700px; height: 280px; object-fit: cover; border-radius: 16px;">
+    </div>
+
     <section id="servicos" class="section fade-in">
       <div class="servicos-barra-container">
     <div class="barra-animada-servicos"></div>
@@ -489,10 +522,12 @@ section {
       <p data-i18n="serviços2">Na GeraWorldTech, oferecemos soluções especializadas para garantir o melhor desempenho dos seus dispositivos e a recuperação de dados com total segurança e sigilo profissional.</p>
       <div class="card-grid">
         <div class="card">
+          <img src="https://i.postimg.cc/W4BJbvg0/reparacao.png" alt="imagem recuperaçao" class="img-redonda">
           <h3 data-i18n="serviços3">Reparação de Pequenos Equipamentos Eletrónicos</h3>
           <p data-i18n="serviços4">Diagnóstico e conserto de circuitos eletrónicos; Substituição de componentes defeituosos; Manutenção preventiva para prolongar a vida útil do dispositivo.</p>
         </div>
         <div class="card">
+          <img src="https://i.postimg.cc/4x5kdSsF/recupera-ao.png" alt="imagem recuperaçao" class="img-redonda">
           <h3 data-i18n="serviços5">Reparo de Portas ou Conectores Danificados;</h3>
 <p data-i18n="serviços6">Portas de Vídeo: HDMI; Mini HDMI / Micro HDMI; DisplayPort; VGA; DVI.</p>
 <p data-i18n="serviços7">Portas de Energia: DC (DC Jack);  USB-C Power Delivery.</p>
@@ -500,10 +535,12 @@ section {
 <p data-i18n="serviços9">Portas de Áudio e Comunicação: P2 / Jack 3.5 mm; Lightning (Apple); RJ45 (Ethernet); SIM Card Tray.</p>
         </div>
         <div class="card">
+          <img src="https://i.postimg.cc/4x5kdSsF/recupera-ao.png" alt="imagem recuperaçao" class="img-redonda">
           <h3 data-i18n="serviços10">Recuperação de Dados</h3>
           <p data-i18n="serviços11">Recuperação de dispositivos não reconhecidos pelo computador; Extração de dados de pendrives danificados fisicamente; Soluções para erros de formatação e falhas de leitura.</p>
         </div>
         <div class="card">
+          <img src="https://i.postimg.cc/D0Mhn2bT/atendimento.png" alt="imagem recuperaçao" class="img-redonda">
           <h3 data-i18n="serviços12">Atendimento Personalizado e Sigiloso</h3>
           <p data-i18n="serviços13">Avaliação gratuita; Orçamento transparente sem compromisso; Sigilo absoluto na recuperação de dados; Atendimento ágil e suporte técnico especializado.</p>
         </div>
@@ -514,7 +551,9 @@ section {
     </div>  
   </section>
 
-
+<div style="text-align:center; margin: 8px 0 0 0;">
+      <img src="https://i.postimg.cc/DZSZhr8s/fundo-componente-de-hardware.jpg" alt="imagem2" style="width: 100%; max-width: 700px; height: 280px; object-fit: cover; border-radius: 16px;">
+    </div>
 
     <section id="contacto" class="section fade-in">
    <div class="contacto-barra-container">
@@ -1305,7 +1344,7 @@ if (barra && inicioSection) {
         barra.classList.remove('visible');
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
 
   barraObserver.observe(inicioSection);
 }
@@ -1319,7 +1358,7 @@ if (barraServicos && servicosSection) {
         barraServicos.classList.remove('visible');
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.2 });
 
   barraServicosObserver.observe(servicosSection);
 }
@@ -1336,7 +1375,7 @@ if (barraContacto && contactoSection) {
         barraContacto.classList.remove('visible');
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.3 });
 
   barraContactoObserver.observe(contactoSection);
 }

@@ -444,10 +444,10 @@ section {
     height: 550px !important; /* Início */
   }
   .barra-animada-servicos {
-    height: 2100px !important; /* Serviços */
+    height: 1900px !important; /* Serviços */
   }
   .barra-animada-contacto {
-    height: 1000px !important; /* Contacto */
+    height: 900px !important; /* Contacto */
   }
   .inicio-barra-texto,
   .servicos-barra-texto,
@@ -457,6 +457,14 @@ section {
   .servicos-barra-container {
     min-height: 1100px;
   }
+  .img-horizontal-responsive {
+    max-width: 95vw;
+    width: 100%;
+    height: 180px; /* ou o valor que preferires */
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
 }
 
   </style>
@@ -511,7 +519,7 @@ section {
     </section>
 
     <div style="text-align:center; margin: 8px 0 0 0;">
-      <img src="https://i.postimg.cc/ZRR7jR0V/imagem-1.jpg" alt="imagem1" style="width: 100%; max-width: 700px; height: 280px; object-fit: cover; border-radius: 16px;">
+      <img src="https://i.postimg.cc/ZRR7jR0V/imagem-1.jpg" alt="imagem1" class="img-horizontal-responsive" style="width: 100%; max-width: 700px; height: 280px; object-fit: cover; border-radius: 16px;">
     </div>
 
     <section id="servicos" class="section fade-in">
@@ -552,7 +560,7 @@ section {
   </section>
 
 <div style="text-align:center; margin: 8px 0 0 0;">
-      <img src="https://i.postimg.cc/DZSZhr8s/fundo-componente-de-hardware.jpg" alt="imagem2" style="width: 100%; max-width: 700px; height: 280px; object-fit: cover; border-radius: 16px;">
+      <img src="https://i.postimg.cc/DZSZhr8s/fundo-componente-de-hardware.jpg" alt="imagem2" class="img-horizontal-responsive" style="width: 100%; max-width: 700px; height: 280px; object-fit: cover; border-radius: 16px;">
     </div>
 
     <section id="contacto" class="section fade-in">
